@@ -18,9 +18,11 @@ const emit = defineEmits<{
       <li class="flex items-center flex-1 last:flex-initial">
         <button
           type="button"
-          class="flex items-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-full pr-2"
+          class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
+          :class="currentStep < 4 ? 'cursor-pointer' : 'cursor-default'"
+          :disabled="currentStep >= 4"
           :aria-current="currentStep === 1 ? 'step' : undefined"
-          @click="emit('select-step', 1)"
+          @click="currentStep < 4 ? emit('select-step', 1) : null"
         >
           <span
             class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
@@ -58,10 +60,10 @@ const emit = defineEmits<{
         <button
           type="button"
           class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-          :class="currentStep >= 2 ? 'cursor-pointer' : 'cursor-not-allowed opacity-80'"
-          :disabled="currentStep < 2"
+          :class="currentStep >= 2 && currentStep < 4 ? 'cursor-pointer' : 'cursor-default opacity-80'"
+          :disabled="currentStep < 2 || currentStep >= 4"
           :aria-current="currentStep === 2 ? 'step' : undefined"
-          @click="currentStep > 1 ? emit('select-step', 2) : null"
+          @click="currentStep > 1 && currentStep < 4 ? emit('select-step', 2) : null"
         >
           <span
             class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
@@ -99,10 +101,10 @@ const emit = defineEmits<{
         <button
           type="button"
           class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-          :class="currentStep >= 3 ? 'cursor-pointer' : 'cursor-not-allowed opacity-80'"
-          :disabled="currentStep < 3"
+          :class="currentStep >= 3 && currentStep < 4 ? 'cursor-pointer' : 'cursor-default opacity-80'"
+          :disabled="currentStep < 3 || currentStep >= 4"
           :aria-current="currentStep === 3 ? 'step' : undefined"
-          @click="currentStep > 2 ? emit('select-step', 3) : null"
+          @click="currentStep > 2 && currentStep < 4 ? emit('select-step', 3) : null"
         >
           <span
             class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
@@ -158,7 +160,7 @@ const emit = defineEmits<{
           >
             <span class="sr-only">Step 4: </span>
             <span class="hidden sm:inline">4. Confirmed</span>
-            <span class="sm:hidden">Confirm</span>
+            <span class="sm:hidden">Confirmed</span>
           </span>
         </div>
       </li>

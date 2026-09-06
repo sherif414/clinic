@@ -37,6 +37,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-09-06',
 
   nitro: {
+    preset: 'cloudflare_pages',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/book']

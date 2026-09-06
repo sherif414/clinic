@@ -58,11 +58,11 @@ const toggleFaq = (index: number) => {
             </p>
 
             <!-- CTA Buttons with Nuxt UI -->
-            <div class="flex flex-wrap items-center gap-4 mb-3 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-3 w-full sm:w-auto">
               <UiButton
                 to="/book"
                 size="lg"
-                class="rounded-full bg-pine hover:bg-pine-light text-linen font-medium text-sm sm:text-base px-7 py-3.5 border border-transparent hover:border-pine-dark transition-all duration-200"
+                class="w-full sm:w-auto justify-center rounded-full bg-pine hover:bg-pine-light text-linen font-medium text-sm sm:text-base px-7 py-3.5 border border-transparent hover:border-pine-dark transition-all duration-200"
                 trailing-icon="i-lucide-arrow-right"
               >
                 Book Assessment
@@ -71,26 +71,32 @@ const toggleFaq = (index: number) => {
                 to="#specialties"
                 size="lg"
                 variant="outline"
-                class="rounded-full bg-white hover:bg-linen-darker text-pine border-ecru-border font-medium text-sm sm:text-base px-7 py-3.5 transition-all duration-200"
+                class="w-full sm:w-auto justify-center rounded-full bg-white hover:bg-linen-darker text-pine border-ecru-border font-medium text-sm sm:text-base px-7 py-3.5 transition-all duration-200"
               >
                 View Specialties
               </UiButton>
             </div>
 
             <!-- Booking Commitment Reassurance Microcopy -->
-            <div class="flex items-center gap-2 text-xs text-charcoal-muted mb-8">
+            <div class="flex items-start gap-2 text-xs text-charcoal-muted mb-8">
               <UiIcon
                 name="i-lucide-shield-check"
-                class="text-pine text-sm shrink-0"
+                class="text-pine text-sm shrink-0 mt-0.5"
               />
-              <span>No upfront payment required &bull; Free cancellation up to 24h &bull; Superbill provided</span>
+              <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 leading-relaxed">
+                <span class="whitespace-nowrap">No upfront payment required</span>
+                <span class="hidden sm:inline text-charcoal-light">&bull;</span>
+                <span class="whitespace-nowrap">Free cancellation up to 24h</span>
+                <span class="hidden sm:inline text-charcoal-light">&bull;</span>
+                <span class="whitespace-nowrap">Superbill provided</span>
+              </div>
             </div>
 
             <!-- Review Proof Row -->
-            <div class="flex items-center gap-3.5 text-xs sm:text-sm text-charcoal-muted">
-              <UiRatingStars :rating="4.9" />
-              <div class="h-3.5 w-px bg-ecru-border" />
-              <span>
+            <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs sm:text-sm text-charcoal-muted">
+              <UiRatingStars :rating="4.9" class="shrink-0" />
+              <div class="h-3.5 w-px bg-ecru-border shrink-0" />
+              <span class="whitespace-nowrap">
                 <strong class="font-semibold text-charcoal">4.9 / 5.0</strong> from 340+ athletes &amp; patients
               </span>
             </div>
@@ -100,7 +106,7 @@ const toggleFaq = (index: number) => {
           <div class="lg:col-span-6 relative">
             <div class="relative mx-auto max-w-[500px] lg:max-w-none">
               <!-- Main Arch Image -->
-              <div class="arch-mask overflow-hidden border border-ecru-border bg-white aspect-[4/4.5] max-h-[460px] relative">
+              <div class="arch-mask overflow-hidden border border-ecru-border bg-white aspect-[4/4.5] max-h-[320px] sm:max-h-[460px] relative">
                 <img
                   alt="Physical therapy session in clinical wellness space"
                   class="w-full h-full object-cover object-center"
@@ -128,49 +134,49 @@ const toggleFaq = (index: number) => {
     <!-- Alpine Pine Stats Ribbon -->
     <section class="bg-pine text-linen py-12 lg:py-14 border-y border-pine-muted/30">
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 divide-y sm:divide-y-0 sm:divide-x divide-pine-muted/40">
-          <div class="pt-4 sm:pt-0 sm:px-6 first:pl-0 flex flex-col">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
+          <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 first:pl-0 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               15+ Years
             </div>
-            <div class="text-sm font-semibold text-linen/90 mb-1">
+            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Clinical Excellence
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed">
-              Specialized sports orthopedics, spinal restoration &amp; physical medicine.
+            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+              Sports orthopedics &amp; spinal restoration care.
             </p>
           </div>
-          <div class="pt-4 sm:pt-0 sm:px-6 flex flex-col">
+          <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               12,000+
             </div>
-            <div class="text-sm font-semibold text-linen/90 mb-1">
+            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Sessions Completed
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed">
-              From competitive runners &amp; lifters to post-surgical athletic recovery.
+            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+              Competitive athletic training &amp; surgical recovery.
             </p>
           </div>
-          <div class="pt-4 sm:pt-0 sm:px-6 flex flex-col">
+          <div class="lg:px-6 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               1-on-1 Care
             </div>
-            <div class="text-sm font-semibold text-linen/90 mb-1">
-              60-Minute Doctor Sessions
+            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
+              60-Min Doctor Visits
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed">
-              Guaranteed licensed DPT attention. Never double-booked or handed to aides.
+            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+              Guaranteed licensed DPT care. Zero aides or techs.
             </p>
           </div>
-          <div class="pt-4 sm:pt-0 sm:px-6 flex flex-col">
+          <div class="lg:px-6 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               100%
             </div>
-            <div class="text-sm font-semibold text-linen/90 mb-1">
+            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Board-Certified DPTs
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed">
-              Fellowship-trained Doctors of Physical Therapy. Zero aides, zero techs.
+            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+              Fellowship-trained doctoral clinical specialists.
             </p>
           </div>
         </div>
@@ -188,7 +194,7 @@ const toggleFaq = (index: number) => {
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-ecru-border text-charcoal-muted text-[11px] font-semibold uppercase tracking-wider mb-3">
               Specialized Clinical Programs
             </div>
-            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight">
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight text-balance">
               Comprehensive Sports Rehabilitation &amp; Human Performance
             </h2>
           </div>
@@ -200,25 +206,25 @@ const toggleFaq = (index: number) => {
         <!-- 2x2 Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Card 1: Post-Op Rehab -->
-          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors">
+              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-briefcase-medical"
-                    class="text-2xl"
+                    class="text-xl sm:text-2xl"
                   />
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20">
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20 whitespace-nowrap shrink-0">
                     $175 &bull; 60 Min
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider whitespace-nowrap shrink-0">
                     Phase 1-4 Protocols
                   </span>
                 </div>
               </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal">
+              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
                 Post-Op Surgical Rehabilitation
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
@@ -268,25 +274,25 @@ const toggleFaq = (index: number) => {
           </div>
 
           <!-- Card 2: Sports Orthopedic Evaluation & Rehab -->
-          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors">
+              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-activity"
-                    class="text-2xl"
+                    class="text-xl sm:text-2xl"
                   />
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20">
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20 whitespace-nowrap shrink-0">
                     $175 &bull; 60 Min
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider whitespace-nowrap shrink-0">
                     Acute &amp; Overuse Triage
                   </span>
                 </div>
               </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal">
+              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
                 Sports Orthopedic Evaluation &amp; Rehab
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
@@ -298,7 +304,7 @@ const toggleFaq = (index: number) => {
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
-                  <span>Acute knee sprain, meniscus, shoulder impingement &amp; labral triage</span>
+                  <span>Acute knee sprain, meniscus &amp; rotator cuff triage</span>
                 </div>
                 <div class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
@@ -312,14 +318,14 @@ const toggleFaq = (index: number) => {
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
-                  <span>Intervertebral disc radiculopathy, spinal decompression &amp; core stability</span>
+                  <span>Spinal decompression, radiculopathy &amp; core stabilization</span>
                 </div>
                 <div class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
-                  <span>Immediate take-home recovery roadmap &amp; imaging/MD co-management</span>
+                  <span>Immediate take-home recovery roadmap &amp; MD co-management</span>
                 </div>
               </div>
             </div>
@@ -336,25 +342,25 @@ const toggleFaq = (index: number) => {
           </div>
 
           <!-- Card 3: Biomechanics & Running Gait -->
-          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors">
+              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-compass"
-                    class="text-2xl"
+                    class="text-xl sm:text-2xl"
                   />
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20">
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20 whitespace-nowrap shrink-0">
                     $195 &bull; 75 Min
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider whitespace-nowrap shrink-0">
                     Kinematic Lab
                   </span>
                 </div>
               </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal">
+              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
                 Biomechanics &amp; Running Gait
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
@@ -373,7 +379,7 @@ const toggleFaq = (index: number) => {
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
-                  <span>Pelvic drop &amp; knee valgus collapse digital capture</span>
+                  <span>Pelvic drop &amp; knee valgus collapse kinematic video capture</span>
                 </div>
                 <div class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
@@ -387,7 +393,7 @@ const toggleFaq = (index: number) => {
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
-                  <span>Custom footwear prescription &amp; return-to-mileage load staging</span>
+                  <span>Footwear prescription &amp; graduated return-to-mileage staging</span>
                 </div>
               </div>
             </div>
@@ -404,25 +410,25 @@ const toggleFaq = (index: number) => {
           </div>
 
           <!-- Card 4: Performance Recovery & Modulation -->
-          <div class="relative bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors">
+              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-heart-pulse"
-                    class="text-2xl"
+                    class="text-xl sm:text-2xl"
                   />
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20">
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold tracking-wider uppercase border border-clay/20 whitespace-nowrap shrink-0">
                     $95 &bull; 45 Min
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider">
+                  <span class="px-2.5 sm:px-3 py-1 rounded-full bg-linen border border-ecru-border text-[11px] font-semibold text-charcoal-muted uppercase tracking-wider whitespace-nowrap shrink-0">
                     Elite Athletic Suite
                   </span>
                 </div>
               </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal">
+              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
                 Performance Recovery &amp; Modulation
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
@@ -481,7 +487,7 @@ const toggleFaq = (index: number) => {
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-linen border border-ecru-border text-pine text-[11px] font-semibold uppercase tracking-wider mb-3">
             Financial Transparency
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl text-pine tracking-tight leading-tight mb-4">
+          <h2 class="font-serif text-3xl sm:text-4xl text-pine tracking-tight leading-tight mb-4 text-balance">
             Transparent Pricing. 1-on-1 Doctoral Care. Zero Surprise Bills.
           </h2>
           <p class="text-sm sm:text-base text-charcoal-muted font-normal leading-relaxed">
@@ -561,25 +567,25 @@ const toggleFaq = (index: number) => {
         </div>
 
         <!-- Trust Badges Row -->
-        <div class="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-linen-darker/60 border border-ecru-border text-xs text-charcoal">
-          <div class="flex items-center gap-2 font-medium">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-linen-darker/60 border border-ecru-border text-xs text-charcoal">
+          <div class="flex items-start sm:items-center gap-2.5 font-medium">
             <UiIcon
               name="i-lucide-shield-check"
-              class="text-pine text-base shrink-0"
+              class="text-pine text-base shrink-0 mt-0.5 sm:mt-0"
             />
             <span>Texas Direct Access: No Physician Referral Required to Begin</span>
           </div>
-          <div class="flex items-center gap-2 font-medium">
+          <div class="flex items-start sm:items-center gap-2.5 font-medium">
             <UiIcon
               name="i-lucide-credit-card"
-              class="text-pine text-base shrink-0"
+              class="text-pine text-base shrink-0 mt-0.5 sm:mt-0"
             />
             <span>HSA &amp; FSA Approved Healthcare Expense</span>
           </div>
-          <div class="flex items-center gap-2 font-medium">
+          <div class="flex items-start sm:items-center gap-2.5 font-medium">
             <UiIcon
               name="i-lucide-user-check"
-              class="text-pine text-base shrink-0"
+              class="text-pine text-base shrink-0 mt-0.5 sm:mt-0"
             />
             <span>100% Doctor of Physical Therapy Care &mdash; Never Aides or Techs</span>
           </div>
@@ -597,7 +603,7 @@ const toggleFaq = (index: number) => {
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-ecru-border text-charcoal-muted text-[11px] font-semibold uppercase tracking-wider mb-3">
             Verified Outcomes
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-pine tracking-tight mb-4">
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-pine tracking-tight mb-4 text-balance">
             Patient Recovery Stories
           </h2>
           <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
@@ -610,13 +616,13 @@ const toggleFaq = (index: number) => {
           <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase">Marathoner</span>
-                <span class="text-xs text-charcoal-light font-medium">7 Month Protocol</span>
+                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Marathoner</span>
+                <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">7 Month Protocol</span>
               </div>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3">
+              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
                 Complete ACL Reconstruction Return-to-Run
               </h3>
               <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
@@ -625,14 +631,14 @@ const toggleFaq = (index: number) => {
             </div>
             <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug">
+                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
                   Claire M.
                 </div>
-                <div class="text-xs text-charcoal-light">
+                <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Sub-3:30 Marathon Runner
                 </div>
               </div>
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0">
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 98% Symmetry
               </span>
             </div>
@@ -642,13 +648,13 @@ const toggleFaq = (index: number) => {
           <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase">Masters Crossfitter</span>
-                <span class="text-xs text-charcoal-light font-medium">12 Week Protocol</span>
+                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Masters Crossfitter</span>
+                <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">12 Week Protocol</span>
               </div>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3">
+              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
                 L5/S1 Herniation &amp; Pain-Free Deadlift Return
               </h3>
               <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
@@ -657,14 +663,14 @@ const toggleFaq = (index: number) => {
             </div>
             <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug">
+                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
                   David T.
                 </div>
-                <div class="text-xs text-charcoal-light">
+                <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Competitive Masters Athlete
                 </div>
               </div>
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0">
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 100% Pain-Free
               </span>
             </div>
@@ -674,13 +680,13 @@ const toggleFaq = (index: number) => {
           <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase">Collegiate Swimmer</span>
-                <span class="text-xs text-charcoal-light font-medium">10 Week Protocol</span>
+                <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Collegiate Swimmer</span>
+                <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">10 Week Protocol</span>
               </div>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3">
+              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
                 Chronic Subacromial Impingement Resolution
               </h3>
               <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
@@ -689,14 +695,14 @@ const toggleFaq = (index: number) => {
             </div>
             <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug">
+                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
                   Sienna K.
                 </div>
-                <div class="text-xs text-charcoal-light">
+                <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Division I Athlete
                 </div>
               </div>
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0">
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 PR Maintained
               </span>
             </div>
@@ -715,7 +721,7 @@ const toggleFaq = (index: number) => {
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-ecru-border text-charcoal-muted text-[11px] font-semibold uppercase tracking-wider mb-3">
             Clinical Excellence
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-pine tracking-tight mb-4">
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-pine tracking-tight mb-4 text-balance">
             Meet Your Clinical Team
           </h2>
           <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
@@ -732,7 +738,7 @@ const toggleFaq = (index: number) => {
                 class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI4HGZy8D1KC8I17BtdM4lYsg30MRRohsWHBb6ODvX8aoP7Ye5yVnz5qpBKpTT2PoWl5PBj0yHhOYE4Esoi-RF5clarDtSEvgepkdfdxEVS8ASYPo98a0Ab1E4XpWrp5FldYFh-rU4rgDMJsWQ5W5RqDFmNlZLx4TWaCXVvOU4QblLOni7ClrLTamuHVZyQXw8qiKyO4vYR4TY_NDquS9Qq98au-Cpv5H95D7CUojscQneSAJkHKd-"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Knee &amp; Shoulder Reconstruction
               </span>
             </div>
@@ -740,19 +746,19 @@ const toggleFaq = (index: number) => {
               <h3 class="font-serif text-2xl font-normal text-pine mb-1">
                 Dr. Marcus Vance
               </h3>
-              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3">
+              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
                 PT, DPT, OCS
               </p>
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Board-Certified Orthopedic Clinical Specialist with 14 years leading postoperative ACL and complex overhead athlete return-to-competition protocols.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <span class="text-xs font-medium text-charcoal-light">14 Yrs Experience</span>
+              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+                <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">14 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=vance"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
                 >
-                  <span>Book Evaluation with Marcus</span>
+                  <span>Book with Marcus</span>
                   <UiIcon
                     name="i-lucide-arrow-right"
                     class="text-base"
@@ -770,7 +776,7 @@ const toggleFaq = (index: number) => {
                 class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LzHOZ3VxfVV7c1Ijnv1GhKCqzdTmyBZMpgOfZaje10pEDqt-ppFs344Z9owhCs88vF_LsbG5sMqPzVJiHQFRc5v0Tp5Gw62dpD9rfGQJBD795uINYHcMesgintHWqIq5MJGNo_qLO_Xkuc7jyjUuyu40sM-P1-2ts-4oUTLZQ8tGUpZj3rqtofMBF80ZWuYjD-YmVkNC1TcO1_hWDHGz0D6AE77X_B2x4fMIgrDtqWBvBF5bhyW"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Biomechanics &amp; Running Gait
               </span>
             </div>
@@ -778,19 +784,19 @@ const toggleFaq = (index: number) => {
               <h3 class="font-serif text-2xl font-normal text-pine mb-1">
                 Dr. Elena Rostova
               </h3>
-              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3">
+              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
                 PT, DPT, SCS
               </p>
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Board-Certified Sports Clinical Specialist and former US Track &amp; Field consultant. Directs kinematic lower-extremity gait and tendon load management.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <span class="text-xs font-medium text-charcoal-light">11 Yrs Experience</span>
+              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+                <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">11 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=rostova"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
                 >
-                  <span>Book Evaluation with Elena</span>
+                  <span>Book with Elena</span>
                   <UiIcon
                     name="i-lucide-arrow-right"
                     class="text-base"
@@ -808,7 +814,7 @@ const toggleFaq = (index: number) => {
                 class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J9apBKKhLNQGHXH5KsxTWtAOzIhmyKIIANm0V8ZYW1UERCFVr1VIYxnDYybw2RefiBrEgBx9E2OZRU8WuLFoVGzbaYDSiSrFfFLAqKahD3E3zXWL-DkuboBLGpkF9BJwcflj7Nf8Im-mTbim8ZyifEQ8WBs-_B3aHp98nw6tJHedI9Vx0ktmpWzBgB59zsbGSk5s1UVuU3nseJRuh1gfAn9WBnUmMZQH0POG3XHPaMb3xzb881Mo"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Spine &amp; Complex Joint Rehab
               </span>
             </div>
@@ -816,19 +822,19 @@ const toggleFaq = (index: number) => {
               <h3 class="font-serif text-2xl font-normal text-pine mb-1">
                 Dr. Julian Hayes
               </h3>
-              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3">
+              <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
                 PT, DPT, FAAOMPT
               </p>
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Fellow of the American Academy of Orthopaedic Manual Physical Therapists. Specializes in advanced spinal mobilization, radiculopathy, and athletic core restoration.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <span class="text-xs font-medium text-charcoal-light">16 Yrs Experience</span>
+              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+                <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">16 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=hayes"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
                 >
-                  <span>Book Evaluation with Julian</span>
+                  <span>Book with Julian</span>
                   <UiIcon
                     name="i-lucide-arrow-right"
                     class="text-base"
@@ -851,7 +857,7 @@ const toggleFaq = (index: number) => {
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-linen border border-ecru-border text-charcoal-muted text-[11px] font-semibold uppercase tracking-wider mb-3">
             Patient Logistics &amp; Clarity
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight mb-4">
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight mb-4 text-balance">
             Frequently Asked Questions
           </h2>
           <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed max-w-xl mx-auto">
@@ -872,7 +878,7 @@ const toggleFaq = (index: number) => {
               :aria-expanded="openFaqIndex === index"
               @click="toggleFaq(index)"
             >
-              <span class="font-serif text-lg sm:text-xl text-pine font-normal">
+              <span class="font-serif text-lg sm:text-xl text-pine font-normal text-balance">
                 {{ faq.question }}
               </span>
               <span class="w-8 h-8 rounded-full bg-white border border-ecru-border flex items-center justify-center text-pine shrink-0 transition-transform duration-200">
@@ -894,28 +900,28 @@ const toggleFaq = (index: number) => {
         <!-- Still have questions banner -->
         <div class="mt-12 p-6 rounded-2xl bg-linen/70 border border-ecru-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h3 class="font-serif text-lg text-pine font-medium mb-1">
+            <h3 class="font-serif text-lg text-pine font-medium mb-1 text-balance">
               Have a specific clinical or surgical question?
             </h3>
-            <p class="text-xs sm:text-sm text-charcoal-muted">
+            <p class="text-xs sm:text-sm text-charcoal-muted text-balance">
               Speak directly with our clinical coordinator or message a Doctor of Physical Therapy.
             </p>
           </div>
-          <div class="flex items-center gap-3 shrink-0">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             <a
               :href="`tel:${clinicInfo.phone.tel}`"
-              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-ecru-border bg-white hover:bg-linen text-pine text-xs font-semibold transition-colors"
+              class="w-full sm:w-auto justify-center inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-ecru-border bg-white hover:bg-linen text-pine text-xs font-semibold transition-colors whitespace-nowrap"
             >
               <UiIcon
                 name="i-lucide-phone"
-                class="text-sm text-pine"
+                class="text-sm text-pine shrink-0"
               />
               <span>{{ clinicInfo.phone.display }}</span>
             </a>
             <UiButton
               to="/book"
               size="sm"
-              class="rounded-full bg-pine hover:bg-pine-light text-linen text-xs px-5 py-2.5"
+              class="w-full sm:w-auto justify-center rounded-full bg-pine hover:bg-pine-light text-linen text-xs px-5 py-2.5 whitespace-nowrap"
             >
               Book Assessment
             </UiButton>
@@ -934,12 +940,12 @@ const toggleFaq = (index: number) => {
           <!-- Left: Information & Schedule -->
           <div class="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linen text-pine text-[11px] font-semibold uppercase tracking-wider border border-ecru-border">
+              <div class="flex flex-wrap items-center justify-between gap-2.5 mb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linen text-pine text-[11px] font-semibold uppercase tracking-wider border border-ecru-border whitespace-nowrap shrink-0">
                   Main Performance Center
                 </div>
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-linen-darker text-pine text-xs font-medium border border-ecru-border">
-                  <span class="w-2 h-2 rounded-full bg-emerald-600" />
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-linen-darker text-pine text-xs font-medium border border-ecru-border whitespace-nowrap shrink-0">
+                  <span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
                   <span>{{ clinicInfo.hours.statusText }}</span>
                 </div>
               </div>
@@ -991,10 +997,10 @@ const toggleFaq = (index: number) => {
                 <div
                   v-for="item in clinicInfo.hours.schedule"
                   :key="item.days"
-                  class="flex justify-between py-1.5 border-b border-linen last:border-b-0"
+                  class="flex items-center justify-between py-1.5 border-b border-linen last:border-b-0 gap-2"
                 >
-                  <span :class="item.isClosed ? 'font-medium text-charcoal-light' : 'font-medium text-charcoal'">{{ item.days }}</span>
-                  <span :class="item.isClosed ? 'text-charcoal-light italic' : 'text-charcoal-muted'">{{ item.time }}</span>
+                  <span :class="item.isClosed ? 'font-medium text-charcoal-light whitespace-nowrap' : 'font-medium text-charcoal whitespace-nowrap'">{{ item.days }}</span>
+                  <span :class="item.isClosed ? 'text-charcoal-light italic whitespace-nowrap' : 'text-charcoal-muted whitespace-nowrap'">{{ item.time }}</span>
                 </div>
               </div>
             </div>
@@ -1020,18 +1026,18 @@ const toggleFaq = (index: number) => {
 
             <!-- Route Banner & Action -->
             <div class="p-5 sm:p-6 bg-white border-t border-ecru-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-charcoal">
+              <div class="flex items-start sm:items-center gap-2.5 text-xs sm:text-sm text-charcoal">
                 <UiIcon
                   name="i-lucide-signpost"
-                  class="text-pine text-base shrink-0"
+                  class="text-pine text-base shrink-0 mt-0.5 sm:mt-0"
                 />
-                <span>{{ clinicInfo.address.fastestRoute }}</span>
+                <span class="leading-snug">{{ clinicInfo.address.fastestRoute }}</span>
               </div>
               <UiButton
                 :to="clinicInfo.address.mapsUrl"
                 target="_blank"
                 size="sm"
-                class="rounded-lg bg-pine hover:bg-pine-light text-white font-medium text-xs sm:text-sm px-4 py-2 text-nowrap"
+                class="w-full sm:w-auto justify-center rounded-lg bg-pine hover:bg-pine-light text-white font-medium text-xs sm:text-sm px-4 py-2 whitespace-nowrap shrink-0"
                 trailing-icon="i-lucide-external-link"
               >
                 Google Maps
@@ -1054,30 +1060,30 @@ const toggleFaq = (index: number) => {
         <p class="text-sm sm:text-base text-linen/80 max-w-2xl mb-8 leading-relaxed font-normal">
           Begin with a comprehensive 60-minute evaluation with our board-certified physical therapists. No generic exercise sheets&mdash;only personalized athletic recovery.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto">
           <UiButton
             to="/book"
             size="lg"
-            class="rounded-full !bg-linen hover:!bg-white !text-pine font-semibold text-sm sm:text-base px-8 py-3.5 transition-all shadow-none"
+            class="w-full sm:w-auto justify-center rounded-full !bg-linen hover:!bg-white !text-pine font-semibold text-sm sm:text-base px-8 py-3.5 transition-all shadow-none"
             trailing-icon="i-lucide-arrow-right"
           >
             Book Assessment
           </UiButton>
           <a
             :href="`tel:${clinicInfo.phone.tel}`"
-            class="inline-flex items-center gap-2 rounded-full border border-linen/30 hover:border-linen text-linen px-7 py-3 text-sm sm:text-base font-medium transition-all hover:bg-white/10"
+            class="w-full sm:w-auto justify-center inline-flex items-center gap-2 rounded-full border border-linen/30 hover:border-linen text-linen px-7 py-3 text-sm sm:text-base font-medium transition-all hover:bg-white/10"
           >
             Call Clinic: {{ clinicInfo.phone.display }}
           </a>
         </div>
 
         <!-- Booking Commitment Reassurance Microcopy -->
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-linen/75">
-          <span>No upfront payment required to reserve</span>
-          <span>&bull;</span>
-          <span>100% Doctor of Physical Therapy care</span>
-          <span>&bull;</span>
-          <span>HSA &amp; FSA accepted</span>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-xs text-linen/75">
+          <span class="whitespace-nowrap">No upfront payment required</span>
+          <span class="hidden sm:inline">&bull;</span>
+          <span class="whitespace-nowrap">100% Doctor of PT care</span>
+          <span class="hidden sm:inline">&bull;</span>
+          <span class="whitespace-nowrap">HSA &amp; FSA accepted</span>
         </div>
       </div>
     </section>

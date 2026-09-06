@@ -27,6 +27,8 @@ export interface ClinicContact {
   hours: {
     statusText: string
     summary: string
+    weekdays?: string
+    saturday?: string
     schedule: ClinicScheduleItem[]
   }
 }
@@ -54,6 +56,8 @@ export const clinicInfo: ClinicContact = {
   hours: {
     statusText: 'Open Today until 7:00 PM',
     summary: 'Mon–Fri: 7:00 AM – 7:00 PM • Sat: 8:00 AM – 1:00 PM',
+    weekdays: 'Mon–Fri: 7:00 AM – 7:00 PM',
+    saturday: 'Sat: 8:00 AM – 1:00 PM',
     schedule: [
       { days: 'Monday – Thursday', time: '7:00 AM – 7:00 PM' },
       { days: 'Friday', time: '7:00 AM – 6:00 PM' },

@@ -74,26 +74,34 @@ const isDateUnavailable = (date: DateValue) => {
           :key="doc.id"
           type="button"
           :aria-pressed="selectedClinicianId === doc.id"
-          class="p-3.5 text-left rounded-xl border transition-all text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
+          class="p-3.5 text-left rounded-xl border transition-all text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 flex flex-col justify-between h-full"
           :class="selectedClinicianId === doc.id ? 'border-pine bg-white ring-1 ring-pine' : 'border-ecru-border bg-white/70 hover:bg-white'"
           @click="emit('update:selectedClinicianId', doc.id)"
         >
-          <div class="flex items-center justify-between mb-1">
-            <span class="font-semibold text-charcoal text-sm">{{ doc.name.split(',')[0] }}</span>
-            <span
-              v-if="doc.id === 'any'"
-              class="text-[11px] font-semibold text-pine bg-pine/10 px-1.5 py-0.5 rounded-full"
-            >
-              Recommended
-            </span>
+          <div>
+            <div class="lg:min-h-[2.5rem]">
+              <span class="block font-semibold text-charcoal text-sm leading-snug">
+                {{ doc.name.split(',')[0] }}
+              </span>
+            </div>
+            <div class="mt-1 min-h-[22px] flex items-center">
+              <UiBadge
+                v-if="doc.id === 'any'"
+                color="pine"
+                variant="subtle"
+                size="xs"
+              >
+                Recommended
+              </UiBadge>
+              <span
+                v-else-if="doc.name.split(',').length > 1"
+                class="block text-xs text-clay-dark font-medium leading-none"
+              >
+                {{ doc.name.split(',').slice(1).join(',').trim() }}
+              </span>
+            </div>
           </div>
-          <span
-            v-if="doc.name.split(',').length > 1"
-            class="block text-xs text-clay-dark font-medium"
-          >
-            {{ doc.name.split(',').slice(1).join(',') }}
-          </span>
-          <span class="block text-xs text-charcoal-muted mt-1 leading-snug">{{ doc.specialty }}</span>
+          <span class="block text-xs text-charcoal-muted mt-2 leading-snug">{{ doc.specialty }}</span>
         </button>
       </div>
     </div>

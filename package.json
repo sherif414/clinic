@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
+    "preview:cf": "wrangler pages dev dist",
+    "deploy:cf": "nuxt build && wrangler pages deploy dist",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck"
@@ -24,7 +26,8 @@
     "@tailwindcss/vite": "^4.3.3",
     "eslint": "^10.9.1",
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.11"
+    "vue-tsc": "^3.3.11",
+    "wrangler": "^4.129.0"
   },
   "packageManager": "pnpm@11.24.0"
 }

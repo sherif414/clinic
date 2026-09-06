@@ -155,9 +155,15 @@ function handleConfirm() {
 </script>
 
 <template>
-  <div class="py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-    <!-- Breadcrumb & Direct Access Notice -->
-    <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+  <div
+    class="py-5 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+    :class="{ 'max-w-3xl': currentStep === 4 }"
+  >
+    <!-- Breadcrumb & Direct Access Notice (Active during wizard steps) -->
+    <div
+      v-if="currentStep < 4"
+      class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+    >
       <NuxtLink
         to="/"
         class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-charcoal-muted hover:text-pine transition-colors"
@@ -173,8 +179,9 @@ function handleConfirm() {
       </span>
     </div>
 
-    <!-- Stepper Navigation Bar -->
+    <!-- Stepper Navigation Bar (Only displayed during active booking steps) -->
     <BookingStepper
+      v-if="currentStep < 4"
       :current-step="currentStep"
       @select-step="goToStep"
     />
@@ -190,7 +197,12 @@ function handleConfirm() {
     />
 
     <!-- Main Funnel Card (Pure Flat Tonal Layering) -->
-    <div class="bg-white rounded-3xl border border-ecru-border overflow-hidden">
+    <div
+      class="bg-white rounded-3xl border border-ecru-border overflow-hidden"
+      role="region"
+      aria-live="polite"
+      aria-label="Clinical Booking Funnel"
+    >
       <!-- Step 1: Select Service -->
       <BookingStepService
         v-if="currentStep === 1"

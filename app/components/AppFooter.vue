@@ -34,25 +34,33 @@
               />
               <span>{{ clinicInfo.address.full }}</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
               <UiIcon
                 name="i-lucide-phone"
                 class="text-sm text-pine shrink-0"
               />
               <a
                 :href="`tel:${clinicInfo.phone.tel}`"
-                class="hover:text-pine transition-colors font-medium text-charcoal"
+                class="hover:text-pine transition-colors font-medium text-charcoal whitespace-nowrap"
               >
                 {{ clinicInfo.phone.display }}
               </a>
-              <span class="text-charcoal-light">&bull;</span>
-              <span>{{ clinicInfo.hours.summary }}</span>
+              <span class="text-charcoal-light hidden sm:inline">&bull;</span>
+              <span class="whitespace-nowrap">{{ clinicInfo.hours.weekdays || clinicInfo.hours.summary }}</span>
+              <span
+                v-if="clinicInfo.hours.saturday"
+                class="text-charcoal-light hidden sm:inline"
+              >&bull;</span>
+              <span
+                v-if="clinicInfo.hours.saturday"
+                class="whitespace-nowrap"
+              >{{ clinicInfo.hours.saturday }}</span>
             </div>
           </div>
         </div>
 
         <!-- Navigation Links Columns -->
-        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6">
+        <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
           <div>
             <h4 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
               Clinical Care
@@ -182,23 +190,23 @@
       </div>
 
       <!-- Divider & Legal Copyright -->
-      <div class="border-t border-ecru-border pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-charcoal-light">
-        <div>
+      <div class="border-t border-ecru-border pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-charcoal-light text-center md:text-left">
+        <div class="text-balance">
           &copy; {{ new Date().getFullYear() }} Apex Sports &amp; Physical Therapy. All rights reserved. Accredited by APTA and BOC.
         </div>
-        <div class="flex items-center gap-4 sm:gap-6">
+        <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-3 sm:gap-x-4 gap-y-1.5">
           <NuxtLink
-            class="hover:text-pine transition-colors"
+            class="hover:text-pine transition-colors whitespace-nowrap"
             to="/#faq"
           >Notice of Privacy Practices</NuxtLink>
-          <span>•</span>
+          <span class="hidden sm:inline text-charcoal-light">&bull;</span>
           <NuxtLink
-            class="hover:text-pine transition-colors"
+            class="hover:text-pine transition-colors whitespace-nowrap"
             to="/#faq"
           >Patient Bill of Rights</NuxtLink>
-          <span>•</span>
+          <span class="hidden sm:inline text-charcoal-light">&bull;</span>
           <NuxtLink
-            class="hover:text-pine transition-colors"
+            class="hover:text-pine transition-colors whitespace-nowrap"
             to="/#faq"
           >Nondiscrimination Notice</NuxtLink>
         </div>
