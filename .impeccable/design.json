@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T14:15:00.000Z",
+  "title": "Design System: Apex Sports & Physical Therapy",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Alpine Forest Pine",
+        "canonical": "oklch(31.2% 0.045 158.4)",
+        "tonalRamp": [
+          "#0D1A14",
+          "#12261D",
+          "#1B382B",
+          "#284E3D",
+          "#345545",
+          "#527866",
+          "#85A897",
+          "#D2E2D9"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Terracotta Clay",
+        "canonical": "oklch(56.8% 0.142 42.1)",
+        "tonalRamp": [
+          "#542213",
+          "#8E3F27",
+          "#AD4F32",
+          "#C25E3E",
+          "#D97E61",
+          "#E8A590",
+          "#F4ECE7",
+          "#FAF4F1"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Warm Bleached Linen",
+        "canonical": "oklch(97.8% 0.004 85.0)",
+        "tonalRamp": [
+          "#1E2320",
+          "#525B54",
+          "#768179",
+          "#EAE6DF",
+          "#F3F0E8",
+          "#F9F8F6",
+          "#FCFBF9",
+          "#FFFFFF"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Ecru Border",
+        "canonical": "oklch(91.8% 0.007 82.0)",
+        "tonalRamp": [
+          "#383F3B",
+          "#656E68",
+          "#A2ABA4",
+          "#CDC8C0",
+          "#E3DDD2",
+          "#EAE6DF",
+          "#F4F1EB",
+          "#FFFFFF"
+        ]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Smoked Charcoal",
+        "canonical": "oklch(22.5% 0.007 145.0)",
+        "tonalRamp": [
+          "#101412",
+          "#1E2320",
+          "#38403B",
+          "#525B54",
+          "#768179",
+          "#A5AFA8",
+          "#D0D6D2",
+          "#F0F3F1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Serif",
+        "purpose": "Hero statements, major section declarations, and clinical benchmark metrics."
+      },
+      "headline": {
+        "displayName": "Headline Serif",
+        "purpose": "Major section titles and specialty group headers."
+      },
+      "title": {
+        "displayName": "Title Sans",
+        "purpose": "Clinical service cards, clinician names, and step headers."
+      },
+      "body": {
+        "displayName": "Body Sans",
+        "purpose": "Explanatory copy, patient FAQs, and service descriptions."
+      },
+      "label": {
+        "displayName": "Label Sans",
+        "purpose": "Status badges, step counters, categories, and form labels."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for interactive state transitions, drawer animations, and buttons."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Hover and active micro-interactions."
+      },
+      {
+        "name": "duration-normal",
+        "value": "250ms",
+        "purpose": "Drawer, dropdown, and panel transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action for booking appointments and key conversions.",
+      "html": "<button class=\"ds-btn-primary\">Book Assessment</button>",
+      "css": ".ds-btn-primary { background: #1B382B; color: #F9F8F6; padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 500; border: none; border-radius: 9999px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s ease; } .ds-btn-primary:hover { background: #284E3D; transform: translateY(-1px); } .ds-btn-primary:active { background: #12261D; transform: translateY(0); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(27, 56, 43, 0.3); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action for exploring specialties or reviewing clinical details.",
+      "html": "<button class=\"ds-btn-outline\">View Specialties</button>",
+      "css": ".ds-btn-outline { background: #FFFFFF; color: #1B382B; padding: 14px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 500; border: 1px solid #EAE6DF; border-radius: 9999px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, border-color 0.2s; } .ds-btn-outline:hover { background: #F3F0E8; border-color: #E3DDD2; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(27, 56, 43, 0.2); }"
+    },
+    {
+      "name": "Pill Badge (Accent)",
+      "kind": "chip",
+      "refersTo": "badge-pill-accent",
+      "description": "Status badge or service tag with subtle terracotta energy.",
+      "html": "<span class=\"ds-badge-accent\"><span class=\"ds-badge-dot\"></span>Recommended</span>",
+      "css": ".ds-badge-accent { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #F4ECE7; color: #C25E3E; border: 1px solid rgba(194, 94, 62, 0.2); border-radius: 9999px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; } .ds-badge-dot { width: 6px; height: 6px; border-radius: 9999px; background: #C25E3E; }"
+    },
+    {
+      "name": "Pill Badge (Neutral)",
+      "kind": "chip",
+      "refersTo": "badge-pill-neutral",
+      "description": "Availability or category pill for non-accent annotations.",
+      "html": "<span class=\"ds-badge-neutral\">Accepting New Patients</span>",
+      "css": ".ds-badge-neutral { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FFFFFF; color: #525B54; border: 1px solid #EAE6DF; border-radius: 9999px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }"
+    },
+    {
+      "name": "Clinical Service Card",
+      "kind": "card",
+      "refersTo": "card-service",
+      "description": "Interactive selectable card for booking evaluations and clinical services.",
+      "html": "<div class=\"ds-card-service\"><div class=\"ds-card-header\"><h3 class=\"ds-card-title\">Initial Clinical Assessment</h3><span class=\"ds-card-price\">$175</span></div><p class=\"ds-card-desc\">Comprehensive doctoral evaluation, motion diagnostics, and baseline force plate analysis.</p></div>",
+      "css": ".ds-card-service { background: #FFFFFF; border: 1px solid #EAE6DF; border-radius: 16px; padding: 24px; transition: border-color 0.2s, background 0.2s; cursor: pointer; } .ds-card-service:hover { border-color: #1B382B; background: #FCFBF9; } .ds-card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; } .ds-card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 600; color: #1E2320; margin: 0; } .ds-card-price { font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500; color: #1B382B; } .ds-card-desc { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; line-height: 1.5; color: #525B54; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Standard form field for patient intake and contact information.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Patient Full Name\">",
+      "css": ".ds-input { width: 100%; background: #FFFFFF; border: 1px solid #EAE6DF; border-radius: 12px; padding: 12px 16px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #1E2320; transition: border-color 0.15s, box-shadow 0.15s; outline: none; box-sizing: border-box; } .ds-input::placeholder { color: #768179; } .ds-input:focus { border-color: #1B382B; box-shadow: 0 0 0 3px rgba(27, 56, 43, 0.15); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Performance Sanctuary",
+    "overview": "Apex Sports & Physical Therapy exists at the intentional intersection of elite athletic sports science and serene, warm architectural wellness. The visual atmosphere completely rejects the cold, sterile blues, harsh fluorescent whites, and crowded plastic aesthetics of conventional clinical therapy. Instead, it invites the athlete into a restorative sanctuary characterized by organic bleached linen textures, authoritative alpine evergreen framing, and vibrant terracotta clay highlights.\n\nThe density is open, disciplined, and calm. Generous negative space and measured typographic pacing convey doctoral confidence and unhurried 1-on-1 care. Every element is deliberate: structural clarity provides reassurance to post-operative and injured patients, while precise data presentation communicates cutting-edge biomechanical rigor.",
+    "keyCharacteristics": [
+      "Warm Architectural Clinical: Organic linen surfaces, warm ecru borders, and deep alpine greens replace clinical sterility.",
+      "Doctoral & Editorial Typography: Expressive Newsreader serif display headings paired with crisp, highly legible Plus Jakarta Sans functional copy.",
+      "Architectural Arch & Pill Geometry: Hero anchors framed in sculpted Roman arches balanced by tactile pill-capsule action triggers.",
+      "Pure Flat Tonal Layering: Zero decorative drop shadows; visual hierarchy is established through clean tonal shifts and crisp 1px borders."
+    ],
+    "rules": [
+      {
+        "name": "The 80/15/5 Balance Rule",
+        "body": "80% warm neutral canvas (Linen, Ecru, White), 15% grounding Alpine Pine structure, and exactly 5% concentrated Terracotta Clay energy for focal actions and status highlights.",
+        "section": "colors"
+      },
+      {
+        "name": "The Non-Sterile Clinical Rule",
+        "body": "Pure cold stark white and sterile medical cyan/blue are strictly forbidden. Surfaces breathe with organic warmth.",
+        "section": "colors"
+      },
+      {
+        "name": "The Editorial Serif Contrast Rule",
+        "body": "Newsreader serif is strictly reserved for emotional hooks, hero headlines, and key clinical metrics. All operational UI, forms, buttons, tables, and dense medical data must use Plus Jakarta Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Legible Measure Rule",
+        "body": "Long-form clinical copy and service descriptions must never exceed 65ch line length, ensuring low cognitive fatigue for recovering patients.",
+        "section": "typography"
+      },
+      {
+        "name": "The Zero Decorative Shadow Rule",
+        "body": "Surfaces are flat and grounded. Depth is achieved strictly through tonal separation (bg-white over bg-linen) and 1px border frames (border-ecru-border), keeping the interface crisp, grounded, and architectural.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ghost Border Fallback",
+        "body": "Whenever two neutral surfaces of similar tone meet, a 1px border in #EAE6DF must separate them to preserve spatial definition without artificial elevation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Arch Anchor Rule",
+        "body": "Roman arches are reserved for primary visual framing (e.g. hero imagery, signature clinical showcases) to evoke architectural strength and biological structure. Never apply arch masks to interactive buttons or small cards.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do pair Newsreader serif headlines with clean Plus Jakarta Sans body copy to balance human warmth with clinical precision.",
+      "Do use 1px #EAE6DF borders and tone contrast (#FFFFFF on #F9F8F6) rather than drop shadows to create structure.",
+      "Do format status badges and high-emphasis CTAs with continuous pill curves (rounded-full).",
+      "Do preserve Terracotta Clay (#C25E3E) strictly for high-intent accents, badges, and focal interactive states.",
+      "Do keep generous whitespace (48px–96px) between thematic sections to maintain calm, uncluttered pacing."
+    ],
+    "donts": [
+      "Don't introduce sterile medical blues or clinical cold-gray backgrounds.",
+      "Don't use decorative drop shadows or blurred box-shadow halos on cards and panels.",
+      "Don't apply serif fonts (Newsreader) to body text, form fields, table data, or UI labels.",
+      "Don't crowd layout containers; maintain at least 48px to 96px vertical section breathing room.",
+      "Don't use arbitrary corner radiuses; adhere strictly to 8px, 12px, 16px, 24px, pill, or arch."
+    ]
+  }
+}

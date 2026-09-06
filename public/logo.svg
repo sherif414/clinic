@@ -1,0 +1,26 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M112 0H368C429.814 0 480 50.1855 480 112V368C480 429.814 429.814 480 368 480H112C50.1855 480 0 429.814 0 368V112C0 50.1855 50.1855 0 112 0V0" fill="url(#paint0_linear_4_3267)"/>
+<g opacity="0.18">
+<path d="M240 56V424" stroke="#F6FBF5" stroke-width="2.5" stroke-dasharray="6 8"/>
+<path d="M56 240H424" stroke="#F6FBF5" stroke-width="2.5" stroke-dasharray="6 8"/>
+<path d="M100 240C100 317.268 162.732 380 240 380C317.268 380 380 317.268 380 240C380 162.732 317.268 100 240 100C162.732 100 100 162.732 100 240V240" stroke="#F6FBF5" stroke-width="1.5" stroke-dasharray="4 6"/>
+<path d="M160 240C160 284.153 195.847 320 240 320C284.153 320 320 284.153 320 240C320 195.847 284.153 160 240 160C195.847 160 160 195.847 160 240V240" stroke="#F6FBF5" stroke-width="1.2" stroke-dasharray="3 5"/>
+</g>
+<path d="M192 132C192 158.492 213.508 180 240 180C266.492 180 288 158.492 288 132C288 105.508 266.492 84 240 84C213.508 84 192 105.508 192 132V132" fill="url(#paint1_radial_4_3267)"/>
+<path d="M80 296H148L188 212L240 132L286 360L320 256L348 296H400" stroke="#F6FBF5" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M222 132C222 141.934 230.066 150 240 150C249.934 150 258 141.934 258 132C258 122.066 249.934 114 240 114C230.066 114 222 122.066 222 132V132" fill="#A4D4B4"/>
+<path d="M232 132C232 136.415 235.585 140 240 140C244.415 140 248 136.415 248 132C248 127.585 244.415 124 240 124C235.585 124 232 127.585 232 132V132" fill="#1B382B"/>
+<path opacity="0.9" d="M276 360C276 365.519 280.481 370 286 370C291.519 370 296 365.519 296 360C296 354.481 291.519 350 286 350C280.481 350 276 354.481 276 360V360" fill="#A4D4B4"/>
+<path d="M70 296C70 301.519 74.4808 306 80 306C85.5192 306 90 301.519 90 296C90 290.481 85.5192 286 80 286C74.4808 286 70 290.481 70 296V296" fill="#8CB89C"/>
+<path d="M390 296C390 301.519 394.481 306 400 306C405.519 306 410 301.519 410 296C410 290.481 405.519 286 400 286C394.481 286 390 290.481 390 296V296" fill="#8CB89C"/>
+<defs>
+<linearGradient id="paint0_linear_4_3267" x1="0" y1="0" x2="480" y2="480" gradientUnits="userSpaceOnUse">
+<stop stop-color="#234636"/>
+<stop offset="1" stop-color="#142C21"/>
+</linearGradient>
+<radialGradient id="paint1_radial_4_3267" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 132) scale(48)">
+<stop stop-color="#A4D4B4" stop-opacity="0.8"/>
+<stop offset="1" stop-color="#A4D4B4" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
