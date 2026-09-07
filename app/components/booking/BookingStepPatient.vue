@@ -112,19 +112,12 @@ const form = defineModel<PatientForm>({ required: true })
         >
           Primary Focus Area
         </label>
-        <select
+        <UiSelect
           id="patient-injury-area"
           v-model="form.injuryArea"
-          class="w-full px-4 py-2.5 rounded-xl border border-ecru-border focus:border-pine focus:ring-2 focus:ring-pine/20 focus:outline-none text-sm bg-linen/20 transition-all"
-        >
-          <option
-            v-for="opt in injuryOptions"
-            :key="opt"
-            :value="opt"
-          >
-            {{ opt }}
-          </option>
-        </select>
+          :options="injuryOptions"
+          placeholder="Select primary focus area"
+        />
       </div>
 
       <!-- Notes -->
@@ -146,44 +139,28 @@ const form = defineModel<PatientForm>({ required: true })
 
       <!-- Checkboxes & Progressive Disclosure -->
       <div class="space-y-3 pt-2">
-        <div class="flex items-center gap-3">
-          <input
-            id="patient-first-visit"
-            v-model="form.isFirstVisit"
-            type="checkbox"
-            class="w-4 h-4 rounded border-ecru-border text-pine focus:ring-pine"
-          >
-          <label
-            for="patient-first-visit"
-            class="cursor-pointer text-xs sm:text-sm text-charcoal select-none"
-          >
-            This is my first visit to Apex Sports &amp; Physical Therapy
-          </label>
-        </div>
+        <UiCheckbox
+          id="patient-first-visit"
+          v-model="form.isFirstVisit"
+        >
+          This is my first visit to Apex Sports &amp; Physical Therapy
+        </UiCheckbox>
         <div>
-          <div class="flex items-center gap-3">
-            <input
-              id="patient-has-referral"
-              v-model="form.hasReferral"
-              type="checkbox"
-              aria-controls="referral-protocol-note"
-              :aria-expanded="form.hasReferral"
-              class="w-4 h-4 rounded border-ecru-border text-pine focus:ring-pine"
-            >
-            <label
-              for="patient-has-referral"
-              class="cursor-pointer text-xs sm:text-sm text-charcoal select-none"
-            >
-              I have a physician referral / surgical operative report (Optional)
-            </label>
-          </div>
+          <UiCheckbox
+            id="patient-has-referral"
+            v-model="form.hasReferral"
+            aria-controls="referral-protocol-note"
+            :aria-expanded="form.hasReferral"
+          >
+            I have a physician referral / surgical operative report (Optional)
+          </UiCheckbox>
           <!-- Progressive Disclosure Note -->
           <div
             v-if="form.hasReferral"
             id="referral-protocol-note"
             role="region"
             aria-live="polite"
-            class="mt-2.5 ml-7 p-3 rounded-xl bg-linen-surface border border-ecru-border text-xs text-charcoal-muted leading-relaxed"
+            class="mt-2.5 ml-8 p-3 rounded-xl bg-linen-surface border border-ecru-border text-xs text-charcoal-muted leading-relaxed"
           >
             <span class="font-semibold text-pine block mb-0.5">Surgeon Protocol Co-Management:</span>
             Please bring your operative notes, imaging CD/report, or surgeon protocol to your appointment. You can also reply directly with attachments to your confirmation email.
