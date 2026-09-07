@@ -28,7 +28,6 @@
 
   --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;
-  --radius-arch: 14rem 14rem 2rem 2rem;
 }
 
 .material-symbols-outlined {
@@ -36,10 +35,6 @@
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-}
-
-.arch-mask {
-  border-radius: 12rem 12rem 2rem 2rem;
 }
 
 @keyframes accordion-down {

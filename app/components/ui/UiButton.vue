@@ -7,7 +7,7 @@ interface Props {
   href?: string
   target?: string
   type?: 'button' | 'submit' | 'reset'
-  variant?: 'solid' | 'primary' | 'outline' | 'ghost' | 'subtle'
+  variant?: 'solid' | 'primary' | 'outline' | 'ghost' | 'subtle' | 'inverted' | 'outline-inverted'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   leadingIcon?: string
   trailingIcon?: string
@@ -41,7 +41,9 @@ const variantClasses: Record<string, string> = {
   primary: 'bg-pine text-linen hover:bg-pine-light active:bg-pine-dark shadow-sm',
   outline: 'border border-ecru-border bg-white text-pine hover:bg-linen-darker shadow-xs',
   ghost: 'text-charcoal hover:bg-linen-darker hover:text-pine',
-  subtle: 'bg-clay-soft text-clay hover:bg-clay-soft/80'
+  subtle: 'bg-clay-soft text-clay hover:bg-clay-soft/80',
+  inverted: 'bg-white text-pine hover:bg-linen active:bg-linen-darker shadow-sm',
+  'outline-inverted': 'border border-linen/30 bg-transparent text-linen hover:bg-white/10 hover:border-linen/60 shadow-none'
 }
 
 const iconSizeClasses: Record<string, string> = {

@@ -75,65 +75,115 @@ useSchemaOrg([
     acceptedAnswer: faq.answer
   }))
 ])
+
+const { toggleMobileMenu } = useMobileNav()
 </script>
 
 <template>
   <div class="space-y-0">
-    <!-- Hero Section -->
-    <section class="relative pt-12 pb-20 lg:py-24 overflow-hidden bg-linen">
-      <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Left Column (and Mobile Primary Flow) -->
-          <div class="lg:col-span-6 flex flex-col items-start">
-            <!-- Pill Badge -->
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-ecru-border text-pine text-xs font-medium tracking-wide mb-6 sm:mb-8 shadow-2xs">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-clay opacity-75" />
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-clay" />
-              </span>
-              <span class="tracking-wider uppercase text-[11px] font-semibold text-charcoal">Accepting New Patients</span>
-            </div>
+    <!-- Hero Section: True 50/50 Full-Bleed Split-Screen (Reference-Inspired) -->
+    <section class="relative w-full overflow-hidden bg-pine-dark min-h-[90vh] lg:min-h-screen flex flex-col justify-between">
+      <!-- The Split Screen Grid: On mobile (image top, copy bottom); on desktop (50/50 split with left-contained nav) -->
+      <div class="w-full flex-1 flex flex-col lg:grid lg:grid-cols-2">
+        <!-- MOBILE-ONLY HEADER (Above the mobile image) -->
+        <div class="lg:hidden w-full px-5 pt-6 pb-4 flex items-center justify-between z-20">
+          <NuxtLink to="/" class="flex items-center gap-2.5 group shrink-0">
+            <img
+              src="/logo.svg"
+              alt="Apex Sports &amp; Physical Therapy"
+              class="w-7 h-7 rounded-xl object-contain brightness-110 shrink-0"
+            >
+            <span class="font-serif text-lg font-bold tracking-tight text-linen whitespace-nowrap">
+              Apex Sports<span class="font-normal text-linen/70"> PT</span>
+            </span>
+          </NuxtLink>
 
-            <!-- Headline -->
-            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-pine leading-[1.08] tracking-tight mb-5 sm:mb-6 text-balance max-w-2xl">
-              Targeted Sports Rehab to Get You <span class="italic font-serif">Back in the Game.</span>
+          <!-- Mobile Quick Action Cluster -->
+          <div class="flex items-center gap-2">
+            <a
+              href="tel:5125550199"
+              aria-label="Call clinic at (512) 555-0199"
+              class="w-9 h-9 rounded-xl bg-linen/10 hover:bg-linen/20 border border-linen/20 flex items-center justify-center text-linen transition-colors active:scale-95"
+            >
+              <UiIcon name="i-lucide-phone" class="text-sm" />
+            </a>
+            <button
+              type="button"
+              aria-label="Toggle navigation menu"
+              class="w-9 h-9 rounded-xl bg-linen/10 hover:bg-linen/20 border border-linen/20 flex items-center justify-center text-linen transition-colors active:scale-95 cursor-pointer"
+              @click="toggleMobileMenu"
+            >
+              <UiIcon name="i-lucide-menu" class="text-base" />
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT HALF ON DESKTOP (50%) / TOP ON MOBILE: Clinical Photography + Top-Right Phone Action on Desktop -->
+        <div class="order-1 lg:order-2 relative w-full h-[280px] xs:h-[340px] sm:h-[440px] lg:h-auto min-h-[260px] lg:min-h-full overflow-hidden bg-pine-dark">
+          <!-- Full-Bleed Image -->
+          <img
+            alt="Doctor of Physical Therapy coaching athlete in dynamic sports rehabilitation at Apex Sports clinic"
+            class="absolute inset-0 w-full h-full object-cover object-[50%_25%] lg:object-[50%_35%]"
+            fetchpriority="high"
+            width="1200"
+            height="896"
+            src="/images/hero-sports-rehab.jpg"
+          >
+
+          <!-- Subtle Natural Contrast Vignette -->
+          <div class="absolute inset-0 bg-gradient-to-t from-pine-dark/70 via-transparent to-pine-dark/30 pointer-events-none" />
+
+          <!-- Top Right Corner Action on Desktop (Aligned with Left Header) -->
+          <div class="absolute top-8 right-6 sm:right-10 lg:right-12 hidden lg:flex items-center gap-3 z-10">
+            <a
+              href="tel:5125550199"
+              class="px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-pine text-xs font-semibold backdrop-blur-md border border-white/40 shadow-sm transition-all flex items-center gap-2"
+            >
+              <UiIcon name="i-lucide-phone" class="text-xs text-pine" />
+              <span>(512) 555-0199</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- LEFT HALF ON DESKTOP (50%) / BOTTOM ON MOBILE: Integrated Brand Nav, Editorial Typography & Video Proof -->
+        <div class="order-2 lg:order-1 bg-pine-dark text-linen flex flex-col justify-between px-5 sm:px-10 lg:px-14 xl:px-20 py-8 sm:py-10 lg:py-12 relative z-10 lg:border-r border-pine-muted/30">
+          <!-- Desktop Brand & Navigation Bar (Left Side Only, Grouped for Clean Split Alignment) -->
+          <div class="hidden lg:flex items-center gap-6 lg:gap-10 mb-10 sm:mb-14 lg:mb-16">
+            <NuxtLink to="/" class="flex items-center gap-3 group shrink-0">
+              <img
+                src="/logo.svg"
+                alt="Apex Sports &amp; Physical Therapy"
+                class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-contain brightness-110"
+              >
+              <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-linen whitespace-nowrap">
+                Apex Sports<span class="font-normal text-linen/70"> PT</span>
+              </span>
+            </NuxtLink>
+
+            <nav class="flex items-center gap-5 lg:gap-7 text-xs font-medium text-linen/70">
+              <a href="#specialties" class="hover:text-linen transition-colors whitespace-nowrap">Specialties</a>
+              <a href="#specialists" class="hover:text-linen transition-colors whitespace-nowrap">Team</a>
+              <a href="#stories" class="hover:text-linen transition-colors whitespace-nowrap">Stories</a>
+              <a href="#locations" class="hover:text-linen transition-colors whitespace-nowrap">Austin Clinic</a>
+            </nav>
+          </div>
+
+          <!-- Hero Headline & Core Value Proposition -->
+          <div class="my-auto py-2 sm:py-6 lg:py-8 max-w-xl">
+            <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal text-linen leading-[1.08] sm:leading-[1.04] tracking-tight mb-4 sm:mb-6 text-balance">
+              Targeted sports rehab to get you <span class="italic font-serif text-linen/90">back in the game.</span>
             </h1>
 
-            <!-- Subtitle -->
-            <p class="text-base sm:text-lg text-charcoal-muted mb-6 sm:mb-8 max-w-xl font-normal leading-relaxed">
-              Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.
+            <p class="text-sm sm:text-lg text-linen/75 font-normal leading-relaxed mb-6 sm:mb-10 max-w-lg">
+              Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals in Austin, TX.
             </p>
 
-            <!-- Mobile Feature Card (< lg): Visual Proof & Benchmark immediately following the value proposition -->
-            <div class="lg:hidden w-full relative rounded-2xl overflow-hidden border border-ecru-border aspect-[16/11] bg-pine-dark mb-6 shadow-xs">
-              <img
-                alt="Doctor of Physical Therapy treating athlete in Austin clinical facility"
-                class="w-full h-full object-cover object-[50%_25%]"
-                fetchpriority="high"
-                width="500"
-                height="344"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge"
-              >
-              <!-- Gradient Scrim & Embedded Benchmark Stat -->
-              <div class="absolute inset-0 bg-linear-to-t from-pine-dark/95 via-pine-dark/40 to-transparent flex flex-col justify-end p-4 sm:p-5">
-                <div class="flex items-center gap-3.5 sm:gap-4">
-                  <div class="font-serif text-3xl sm:text-4xl text-linen font-medium leading-none shrink-0">
-                    94%
-                  </div>
-                  <div class="h-8 w-px bg-linen/25 shrink-0" />
-                  <p class="text-xs sm:text-sm text-linen/90 leading-snug">
-                    <strong class="font-semibold text-linen">Clinical Benchmark:</strong> Pain reduction &amp; full return-to-sport clearance within target discharge timeline.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-3 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <UiButton
                 to="/book"
                 size="lg"
-                class="w-full sm:w-auto justify-center rounded-full bg-pine hover:bg-pine-light text-linen font-medium text-sm sm:text-base px-7 py-3.5 border border-transparent hover:border-pine-dark transition-all duration-200"
+                variant="inverted"
+                class="w-full sm:w-auto font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 justify-center"
                 trailing-icon="i-lucide-arrow-right"
               >
                 Book Assessment
@@ -141,67 +191,68 @@ useSchemaOrg([
               <UiButton
                 to="#specialties"
                 size="lg"
-                variant="outline"
-                class="w-full sm:w-auto justify-center rounded-full bg-white hover:bg-linen-darker text-pine border-ecru-border font-medium text-sm sm:text-base px-7 py-3.5 transition-all duration-200"
+                variant="outline-inverted"
+                class="w-full sm:w-auto font-medium text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 hover:scale-[1.01] transition-all duration-200 justify-center"
               >
-                View Specialties
+                Explore Specialties
               </UiButton>
-            </div>
-
-            <!-- Booking Commitment Reassurance Microcopy -->
-            <div class="flex items-start gap-2 text-xs text-charcoal-muted mb-6">
-              <UiIcon
-                name="i-lucide-shield-check"
-                class="text-pine text-sm shrink-0 mt-0.5"
-              />
-              <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 leading-relaxed">
-                <span class="whitespace-nowrap">No upfront payment required</span>
-                <span class="hidden sm:inline text-charcoal-light">&bull;</span>
-                <span class="whitespace-nowrap">Free cancellation up to 24h</span>
-                <span class="hidden sm:inline text-charcoal-light">&bull;</span>
-                <span class="whitespace-nowrap">Superbill provided</span>
-              </div>
-            </div>
-
-            <!-- Review Proof Row -->
-            <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs sm:text-sm text-charcoal-muted">
-              <UiRatingStars
-                :rating="4.9"
-                class="shrink-0"
-              />
-              <div class="h-3.5 w-px bg-ecru-border shrink-0" />
-              <span class="whitespace-nowrap">
-                <strong class="font-semibold text-charcoal">4.9 / 5.0</strong> from 340+ athletes &amp; patients
-              </span>
             </div>
           </div>
 
-          <!-- Right Column: Sculpted Arch Frame & Clean Benchmark Anchor (Desktop Only) -->
-          <div class="hidden lg:block lg:col-span-6 relative">
-            <div class="relative w-full max-w-[460px] xl:max-w-[480px] lg:ml-auto">
-              <!-- Desktop Main Arch Container -->
-              <div class="arch-mask overflow-hidden border border-ecru-border bg-white aspect-[4/4.8] max-h-[520px] relative">
-                <img
-                  alt="Physical therapy session in clinical wellness space"
-                  class="w-full h-full object-cover object-center"
-                  fetchpriority="high"
-                  width="500"
-                  height="600"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge"
-                >
-                <div class="absolute inset-0 bg-gradient-to-t from-pine-dark/25 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              <!-- Perfectly Aligned Clinical Benchmark Card -->
-              <div class="mt-4 w-full bg-white border border-ecru-border rounded-2xl p-4 sm:p-5 flex items-center gap-4 sm:gap-5">
-                <div class="font-serif text-3xl sm:text-4xl text-pine font-medium leading-none shrink-0">
-                  94%
+          <!-- Bottom Proof Card (Video / Patient Story Thumbnail) -->
+          <div class="pt-5 sm:pt-7 mt-6 sm:mt-8 border-t border-linen/15 flex items-center gap-3.5 sm:gap-4 max-w-lg">
+            <a
+              href="#stories"
+              aria-label="Watch athlete recovery case study video"
+              class="relative w-14 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-linen/20 bg-pine-muted/50 group block"
+            >
+              <img
+                src="/images/hero-clinical-detail.jpg"
+                alt="Clinical sports physical therapy session"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              >
+              <div class="absolute inset-0 bg-black/35 flex items-center justify-center group-hover:bg-black/25 transition-colors">
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/90 text-pine flex items-center justify-center shadow-xs">
+                  <UiIcon name="i-lucide-play" class="text-[10px] sm:text-xs ml-0.5" />
                 </div>
-                <div class="h-9 w-px bg-ecru-border shrink-0" />
-                <p class="text-xs sm:text-sm text-charcoal-muted leading-snug">
-                  <strong class="font-semibold text-charcoal">Clinical Benchmark:</strong> Pain reduction &amp; full return-to-sport clearance within target discharge timeline.
-                </p>
               </div>
+            </a>
+            <div class="text-xs text-linen/75 leading-snug">
+              <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-clay-soft mb-0.5">
+                Patient Case Study
+              </div>
+              <p class="text-linen/95 font-medium line-clamp-1 text-xs sm:text-sm">
+                From post-op ACL tear to marathon finish line in 6 months.
+              </p>
+              <a
+                href="#stories"
+                class="inline-flex items-center gap-1.5 text-linen/75 hover:text-white font-medium transition-colors mt-0.5"
+              >
+                <span>Watch 2-min clinical recovery</span>
+                <UiIcon name="i-lucide-arrow-right" class="text-xs" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Partner Ribbon (Below the Split, matching Rulebase bottom bar) -->
+      <div class="w-full bg-linen border-t border-ecru-border py-3.5 sm:py-5 px-4 sm:px-10 lg:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-2.5 sm:gap-4">
+          <span class="text-[10px] sm:text-xs font-semibold text-charcoal-muted uppercase tracking-wider shrink-0 text-center xl:text-left">
+            Trusted by Austin athletes, runners &amp; surgeons:
+          </span>
+          <div class="w-full xl:w-auto overflow-x-auto no-scrollbar py-1">
+            <div class="flex items-center justify-start sm:justify-center xl:justify-end gap-x-4 sm:gap-x-7 text-[11px] sm:text-xs font-semibold tracking-wider text-charcoal/75 uppercase whitespace-nowrap min-w-max mx-auto px-2">
+              <span class="hover:text-pine transition-colors">Austin Marathon</span>
+              <span class="text-charcoal-light/40 select-none">&bull;</span>
+              <span class="hover:text-pine transition-colors">Hyrox Austin</span>
+              <span class="text-charcoal-light/40 select-none">&bull;</span>
+              <span class="hover:text-pine transition-colors">Austin Orthopedics</span>
+              <span class="text-charcoal-light/40 select-none">&bull;</span>
+              <span class="hover:text-pine transition-colors">Texas Running Co</span>
+              <span class="text-charcoal-light/40 select-none">&bull;</span>
+              <span class="hover:text-pine transition-colors">Cap10K</span>
             </div>
           </div>
         </div>
@@ -234,7 +285,7 @@ useSchemaOrg([
               Competitive athletic training &amp; surgical recovery.
             </p>
           </div>
-          <div class="lg:px-6 flex flex-col">
+          <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               1-on-1 Care
             </div>
@@ -245,7 +296,7 @@ useSchemaOrg([
               Guaranteed licensed DPT care. Zero aides or techs.
             </p>
           </div>
-          <div class="lg:px-6 flex flex-col">
+          <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
             <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               100%
             </div>

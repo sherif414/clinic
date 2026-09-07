@@ -1,14 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const isMenuOpen = ref(false)
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
-
-const closeMenu = () => {
-  isMenuOpen.value = false
-}
+const { isMobileMenuOpen: isMenuOpen, toggleMobileMenu: toggleMenu, closeMobileMenu: closeMenu } = useMobileNav()
 
 // Automatically close mobile menu when route or hash changes
 watch(() => route.fullPath, () => {
@@ -33,8 +25,19 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 }
 
+const isScrolled = ref(false)
+const isHome = computed(() => route.path === '/')
+
+const handleScroll = () => {
+  if (import.meta.client) {
+    isScrolled.value = window.scrollY > 80
+  }
+}
+
 onMounted(() => {
   window.addEventListener('keydown', handleKeyDown)
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
 })
 
 onUnmounted(() => {
@@ -42,6 +45,7 @@ onUnmounted(() => {
     document.body.style.overflow = ''
   }
   window.removeEventListener('keydown', handleKeyDown)
+  window.removeEventListener('scroll', handleScroll)
 })
 
 interface NavLink {
@@ -81,7 +85,14 @@ const navLinks: NavLink[] = [
 </script>
 
 <template>
-  <header class="bg-linen/95 backdrop-blur-md border-b border-ecru-border sticky top-0 z-50 transition-all">
+  <header
+    class="bg-linen/95 backdrop-blur-md border-b border-ecru-border z-50 transition-all duration-300"
+    :class="[
+      isHome
+        ? (isScrolled ? 'fixed top-0 left-0 right-0 shadow-xs translate-y-0 opacity-100' : 'fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none')
+        : 'sticky top-0'
+    ]"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
       <!-- Brand Logo & Title -->
       <NuxtLink

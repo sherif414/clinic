@@ -55,8 +55,8 @@ rounded:
   md: "12px"
   lg: "16px"
   xl: "24px"
+  2xl: "32px"
   full: "9999px"
-  arch: "224px 224px 32px 32px"
 spacing:
   xs: "4px"
   sm: "8px"
@@ -106,7 +106,7 @@ The density is open, disciplined, and calm. Generous negative space and measured
 **Key Characteristics:**
 - **Warm Architectural Clinical:** Organic linen surfaces, warm ecru borders, and deep alpine greens replace clinical sterility.
 - **Doctoral & Editorial Typography:** Expressive Newsreader serif display headings paired with crisp, highly legible Plus Jakarta Sans functional copy.
-- **Architectural Arch & Pill Geometry:** Hero anchors framed in sculpted Roman arches balanced by tactile pill-capsule action triggers.
+- **Architectural Precision Canvas & Pill Geometry:** Hero anchors framed in double-matted architectural rectilinear canvases (`rounded-2xl` / `rounded-3xl`) balanced by tactile pill-capsule action triggers.
 - **Pure Flat Tonal Layering:** Zero decorative drop shadows; visual hierarchy is established through clean tonal shifts and crisp 1px borders.
 
 ## Colors
@@ -176,13 +176,13 @@ Apex strictly follows a **Pure Flat Tonal Layering** model. There are no ambient
 ## Shapes
 
 The form language is built upon two complementary archetypes:
-1. **The Architectural Roman Arch:** Used as a signature silhouette for photography and featured hero containers (`border-radius: 14rem 14rem 2rem 2rem` or `12rem 12rem 2rem 2rem`). This references classical restorative architecture and the natural skeletal arches of human anatomy.
+1. **The Architectural Precision Canvas:** Used as a signature silhouette for photography and featured hero containers (`rounded-2xl` or `rounded-3xl` with crisp 1px borders, often double-matted with white/linen framing). This provides an authoritative, clean architectural structure that honors the human form without artificial geometric cutouts.
 2. **The Tactile Pill Capsule:** Used for status badges, tags, and prominent CTA buttons (`border-radius: 9999px`). Smooth, continuous curvature feels organic and reassuring to the touch.
 
 Secondary containers and interactive cards employ refined `12px` (`rounded-xl`) or `16px` (`rounded-2xl`) corners with crisp 1px borders.
 
 ### Named Rules
-**The Arch Anchor Rule.** Roman arches are reserved for primary visual framing (e.g. hero imagery, signature clinical showcases) to evoke architectural strength and biological structure. Never apply arch masks to interactive buttons or small cards.
+**The Precision Canvas Rule.** Photography and signature clinical showcases use architectural rectilinear frames with refined corner radiuses (`rounded-2xl` or `rounded-3xl`) and 1px crisp borders. Arbitrary geometric cutout masks (such as arches or circular crops) are prohibited.
 
 ## Components
 
@@ -191,6 +191,8 @@ Secondary containers and interactive cards employ refined `12px` (`rounded-xl`) 
 - **Primary:** Background Alpine Forest Pine (`#1B382B`), text Warm Linen (`#F9F8F6`), padding `14px 28px`, font-size `15px`, font-weight 500. Hover: Pine Light (`#284E3D`). Active: Pine Dark (`#12261D`). Focus: 2px ring in Pine/30.
 - **Outline:** Background Crisp White (`#FFFFFF`), border 1px Ecru Border (`#EAE6DF`), text Alpine Pine (`#1B382B`), padding `14px 28px`. Hover: Linen Darker (`#F3F0E8`).
 - **Subtle:** Background Clay Soft (`#F4ECE7`), text Terracotta Clay (`#C25E3E`), padding `10px 20px`. Hover: Clay Soft at 80% opacity.
+- **Inverted (Dark Surfaces):** Background Crisp White (`#FFFFFF`), text Alpine Pine (`#1B382B`), padding `14px 28px`, font-weight 600. Hover: Warm Linen (`#F9F8F6`).
+- **Outline Inverted (Dark Surfaces):** Background transparent, border 1px Linen (`#F9F8F6`/30), text Warm Linen (`#F9F8F6`), padding `14px 28px`. Hover: Linen overlay at 10% opacity.
 
 ### Chips & Badges
 - **Style:** Continuous pill capsule (`border-radius: 9999px`), padding `4px 10px`, font-size `11px`, font-weight 600, uppercase, letter-spacing `0.08em`.
@@ -230,4 +232,4 @@ Secondary containers and interactive cards employ refined `12px` (`rounded-xl`) 
 - **Don't** use decorative drop shadows or blurred box-shadow halos on cards and panels.
 - **Don't** apply serif fonts (`Newsreader`) to body text, form fields, table data, or UI labels.
 - **Don't** crowd layout containers; maintain at least 48px to 96px vertical section breathing room.
-- **Don't** use arbitrary corner radiuses; adhere strictly to 8px, 12px, 16px, 24px, pill, or arch.
+- **Don't** use arbitrary corner radiuses; adhere strictly to 8px, 12px, 16px, 24px, 32px, or pill.
