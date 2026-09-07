@@ -222,6 +222,9 @@ const navLinks: NavLink[] = [
         <div
           v-if="isMenuOpen"
           id="mobile-navigation-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
           class="fixed top-16 sm:top-20 inset-x-0 bottom-0 sm:bottom-auto sm:max-h-[calc(100vh-5rem)] overflow-y-auto bg-linen border-b border-ecru-border z-50 lg:hidden flex flex-col justify-between"
         >
           <!-- Navigation Links -->

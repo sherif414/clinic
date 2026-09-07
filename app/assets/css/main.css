@@ -66,9 +66,16 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-accordion-down,
   .animate-accordion-up {
+    animation-name: none !important;
+    transition: opacity 0.15s ease-out !important;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.1s !important;
+    scroll-behavior: auto !important;
   }
 }
 @utility no-scrollbar {

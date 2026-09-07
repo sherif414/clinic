@@ -184,9 +184,9 @@ function submitIntake() {
       <span>Clinical Evaluation Reserved</span>
     </div>
 
-    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-charcoal font-medium mb-2 tracking-tight">
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-charcoal font-medium mb-2 tracking-tight">
       Your Appointment is Confirmed
-    </h1>
+    </h2>
     <p class="text-xs sm:text-sm text-charcoal-muted max-w-lg mx-auto mb-6 leading-relaxed">
       A confirmation email and SMS with intake paperwork and calendar invite have been sent to your inbox.
     </p>

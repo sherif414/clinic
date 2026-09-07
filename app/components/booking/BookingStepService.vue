@@ -22,9 +22,9 @@ const emit = defineEmits<{
         />
         <span>Direct Access Protocol</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-serif text-charcoal font-medium mb-2 tracking-tight">
+      <h2 class="text-3xl sm:text-4xl font-serif text-charcoal font-medium mb-2 tracking-tight">
         Select Your Clinical Service
-      </h1>
+      </h2>
       <p class="text-sm sm:text-base text-charcoal-muted">
         Direct 1-on-1 doctoral care with fellowship-trained physical therapists. Zero referral needed in Texas.
       </p>
@@ -57,9 +57,9 @@ const emit = defineEmits<{
             </div>
             <div>
               <div class="flex flex-wrap items-center gap-2.5 mb-1.5">
-                <h2 class="font-sans text-lg sm:text-xl font-semibold text-charcoal">
+                <h3 class="font-sans text-lg sm:text-xl font-semibold text-charcoal">
                   {{ service.name }}
-                </h2>
+                </h3>
                 <UiBadge
                   v-if="service.badge"
                   color="secondary"

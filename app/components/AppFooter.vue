@@ -60,11 +60,14 @@
         </div>
 
         <!-- Navigation Links Columns -->
-        <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
+        <nav
+          aria-label="Footer Navigation"
+          class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6"
+        >
           <div>
-            <h4 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
               Clinical Care
-            </h4>
+            </h3>
             <ul class="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <NuxtLink
@@ -101,9 +104,9 @@
             </ul>
           </div>
           <div>
-            <h4 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
               Patients &amp; Team
-            </h4>
+            </h3>
             <ul class="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <NuxtLink
@@ -148,9 +151,9 @@
             </ul>
           </div>
           <div>
-            <h4 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
+            <h3 class="text-xs font-semibold text-pine uppercase tracking-wider mb-4">
               Legal &amp; Policy
-            </h4>
+            </h3>
             <ul class="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <a
@@ -186,7 +189,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </nav>
       </div>
 
       <!-- Divider & Legal Copyright -->

@@ -16,9 +16,9 @@ const form = defineModel<PatientForm>({ required: true })
 <template>
   <div class="p-6 sm:p-10 space-y-8">
     <div>
-      <h1 class="text-2xl sm:text-3xl font-serif text-charcoal font-medium mb-1 tracking-tight">
+      <h2 class="text-2xl sm:text-3xl font-serif text-charcoal font-medium mb-1 tracking-tight">
         Patient &amp; Clinical Details
-      </h1>
+      </h2>
       <p class="text-xs sm:text-sm text-charcoal-muted">
         Please enter your contact information and brief clinical history.
       </p>
@@ -166,6 +166,8 @@ const form = defineModel<PatientForm>({ required: true })
               id="patient-has-referral"
               v-model="form.hasReferral"
               type="checkbox"
+              aria-controls="referral-protocol-note"
+              :aria-expanded="form.hasReferral"
               class="w-4 h-4 rounded border-ecru-border text-pine focus:ring-pine"
             >
             <label
@@ -178,6 +180,9 @@ const form = defineModel<PatientForm>({ required: true })
           <!-- Progressive Disclosure Note -->
           <div
             v-if="form.hasReferral"
+            id="referral-protocol-note"
+            role="region"
+            aria-live="polite"
             class="mt-2.5 ml-7 p-3 rounded-xl bg-linen-surface border border-ecru-border text-xs text-charcoal-muted leading-relaxed"
           >
             <span class="font-semibold text-pine block mb-0.5">Surgeon Protocol Co-Management:</span>

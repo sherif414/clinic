@@ -213,12 +213,12 @@ const { toggleMobileMenu } = useMobileNav()
               >
               <div class="absolute inset-0 bg-black/35 flex items-center justify-center group-hover:bg-black/25 transition-colors">
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/90 text-pine flex items-center justify-center shadow-xs">
-                  <UiIcon name="i-lucide-play" class="text-[10px] sm:text-xs ml-0.5" />
+                  <UiIcon name="i-lucide-play" class="text-xs ml-0.5" />
                 </div>
               </div>
             </a>
             <div class="text-xs text-linen/75 leading-snug">
-              <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-clay-soft mb-0.5">
+              <div class="text-[11px] font-semibold uppercase tracking-wider text-clay-soft mb-0.5">
                 Patient Case Study
               </div>
               <p class="text-linen/95 font-medium line-clamp-1 text-xs sm:text-sm">
@@ -239,7 +239,7 @@ const { toggleMobileMenu } = useMobileNav()
       <!-- Trust Partner Ribbon (Below the Split, matching Rulebase bottom bar) -->
       <div class="w-full bg-linen border-t border-ecru-border py-3.5 sm:py-5 px-4 sm:px-10 lg:px-16 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-2.5 sm:gap-4">
-          <span class="text-[10px] sm:text-xs font-semibold text-charcoal-muted uppercase tracking-wider shrink-0 text-center xl:text-left">
+          <span class="text-[11px] sm:text-xs font-semibold text-charcoal-muted uppercase tracking-wider shrink-0 text-center xl:text-left">
             Trusted by Austin athletes, runners &amp; surgeons:
           </span>
           <div class="w-full xl:w-auto overflow-x-auto no-scrollbar py-1">
@@ -260,13 +260,17 @@ const { toggleMobileMenu } = useMobileNav()
     </section>
 
     <!-- Alpine Pine Stats Ribbon -->
-    <section class="bg-pine text-linen py-12 lg:py-14 border-y border-pine-muted/30">
+    <section
+      aria-label="Clinical Metrics & Standards"
+      class="bg-pine text-linen py-12 lg:py-14 border-y border-pine-muted/30"
+    >
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
+        <dl class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
           <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 first:pl-0 flex flex-col">
-            <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dt class="sr-only">Clinical Experience</dt>
+            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               15+ Years
-            </div>
+            </dd>
             <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Clinical Excellence
             </div>
@@ -275,9 +279,10 @@ const { toggleMobileMenu } = useMobileNav()
             </p>
           </div>
           <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 flex flex-col">
-            <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dt class="sr-only">Completed Treatments</dt>
+            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               12,000+
-            </div>
+            </dd>
             <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Sessions Completed
             </div>
@@ -286,9 +291,10 @@ const { toggleMobileMenu } = useMobileNav()
             </p>
           </div>
           <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
-            <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dt class="sr-only">Session Structure</dt>
+            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               1-on-1 Care
-            </div>
+            </dd>
             <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               60-Min Doctor Visits
             </div>
@@ -297,9 +303,10 @@ const { toggleMobileMenu } = useMobileNav()
             </p>
           </div>
           <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
-            <div class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dt class="sr-only">Doctor Credentials</dt>
+            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
               100%
-            </div>
+            </dd>
             <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
               Board-Certified DPTs
             </div>
@@ -307,7 +314,7 @@ const { toggleMobileMenu } = useMobileNav()
               Fellowship-trained doctoral clinical specialists.
             </p>
           </div>
-        </div>
+        </dl>
       </div>
     </section>
 
@@ -348,9 +355,12 @@ const { toggleMobileMenu } = useMobileNav()
         <!-- 2x2 Grid (Desktop) / Horizontal Snap Rail (Mobile) -->
         <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-2 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Card 1: Post-Op Rehab -->
-          <div class="w-[85vw] sm:w-105 md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article
+            aria-labelledby="specialty-post-op-title"
+            class="w-[85vw] sm:w-105 md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group"
+          >
             <div>
-              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+              <header class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-briefcase-medical"
@@ -365,47 +375,50 @@ const { toggleMobileMenu } = useMobileNav()
                     Phase 1-4 Protocols
                   </span>
                 </div>
-              </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
+              </header>
+              <h3
+                id="specialty-post-op-title"
+                class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance"
+              >
                 Post-Op Surgical Rehabilitation
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
                 Structured clinical protocols from acute surgical discharge through multi-stage strength dynamometry to full athletic clearance. Co-managed closely with Austin's premier orthopedic surgeons.
               </p>
-              <div class="space-y-3 mb-8">
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>ACL, meniscus, labral &amp; rotator cuff post-surgical staging</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Objective limb symmetry dynamometry &amp; force plate testing</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Graduated graft protection loading &amp; surgeon progress reports</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>High-velocity multi-planar cutting &amp; sport-specific clearance</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
             <NuxtLink
               to="/book?service=post-op"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl"
             >
               <span>Explore Post-Op Protocol</span>
               <UiIcon
@@ -413,12 +426,15 @@ const { toggleMobileMenu } = useMobileNav()
                 class="text-base"
               />
             </NuxtLink>
-          </div>
+          </article>
 
           <!-- Card 2: Sports Orthopedic Evaluation & Rehab -->
-          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article
+            aria-labelledby="specialty-ortho-title"
+            class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group"
+          >
             <div>
-              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+              <header class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-activity"
@@ -433,47 +449,50 @@ const { toggleMobileMenu } = useMobileNav()
                     Acute &amp; Overuse Triage
                   </span>
                 </div>
-              </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
+              </header>
+              <h3
+                id="specialty-ortho-title"
+                class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance"
+              >
                 Sports Orthopedic Evaluation &amp; Rehab
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
                 Doctoral clinical evaluation, joint biomechanics triage, and personalized manual treatment for acute and overuse sports injuries. Tailored for athletes and active individuals dealing with knee, shoulder, hip, or spinal dysfunction.
               </p>
-              <div class="space-y-3 mb-8">
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Acute knee sprain, meniscus &amp; rotator cuff triage</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Joint mobility restoration, directional loading &amp; manual therapy</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Spinal decompression, radiculopathy &amp; core stabilization</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Immediate take-home recovery roadmap &amp; MD co-management</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
             <NuxtLink
               to="/book?service=initial_eval"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl"
             >
               <span>Explore Orthopedic Evaluation</span>
               <UiIcon
@@ -481,12 +500,15 @@ const { toggleMobileMenu } = useMobileNav()
                 class="text-base"
               />
             </NuxtLink>
-          </div>
+          </article>
 
           <!-- Card 3: Biomechanics & Running Gait -->
-          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article
+            aria-labelledby="specialty-biomech-title"
+            class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group"
+          >
             <div>
-              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+              <header class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-compass"
@@ -501,47 +523,50 @@ const { toggleMobileMenu } = useMobileNav()
                     Kinematic Lab
                   </span>
                 </div>
-              </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
+              </header>
+              <h3
+                id="specialty-biomech-title"
+                class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance"
+              >
                 Biomechanics &amp; Running Gait
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
                 High-speed multi-angle video assessment, synchronized force plate cadence analytics, and customized footwear prescription for persistent lower-extremity overuse injuries.
               </p>
-              <div class="space-y-3 mb-8">
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Ground reaction force profiling &amp; step cadence optimization</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Pelvic drop &amp; knee valgus collapse kinematic video capture</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Plantar fasciitis, shin splints &amp; Achilles load modulation</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Footwear prescription &amp; graduated return-to-mileage staging</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
             <NuxtLink
               to="/book?service=biomech_gait"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl"
             >
               <span>Book Gait Analysis</span>
               <UiIcon
@@ -549,12 +574,15 @@ const { toggleMobileMenu } = useMobileNav()
                 class="text-base"
               />
             </NuxtLink>
-          </div>
+          </article>
 
           <!-- Card 4: Performance Recovery & Modulation -->
-          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article
+            aria-labelledby="specialty-recovery-title"
+            class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group"
+          >
             <div>
-              <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
+              <header class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
                   <UiIcon
                     name="i-lucide-heart-pulse"
@@ -569,47 +597,50 @@ const { toggleMobileMenu } = useMobileNav()
                     Elite Athletic Suite
                   </span>
                 </div>
-              </div>
-              <h3 class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance">
+              </header>
+              <h3
+                id="specialty-recovery-title"
+                class="font-serif text-2xl sm:text-3xl text-pine mb-3 font-normal text-balance"
+              >
                 Performance Recovery &amp; Modulation
               </h3>
               <p class="text-sm sm:text-base text-charcoal-muted mb-8 leading-relaxed font-normal">
                 Doctor-administered clinical tissue therapies designed to accelerate neuromuscular restitution and clear systemic inflammation between training blocks and competitive fixtures.
               </p>
-              <div class="space-y-3 mb-8">
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Personalized Blood Flow Restriction (Delfi PTS BFR)</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Therapeutic dry needling &amp; intramuscular electro-stimulation</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Normatec 3 dynamic pneumatic compression recovery cycles</span>
-                </div>
-                <div class="flex items-start gap-2.5 text-charcoal text-sm">
+                </li>
+                <li class="flex items-start gap-2.5 text-charcoal text-sm">
                   <UiIcon
                     name="i-lucide-check-circle"
                     class="text-pine text-lg shrink-0 mt-0.5"
                   />
                   <span>Pre-competition active flush &amp; neuromuscular reset programming</span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
             <NuxtLink
               to="/book?service=recovery_suite"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-pine hover:text-clay-dark transition-colors pt-4 border-t border-ecru-border after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl"
             >
               <span>Explore Recovery Suite</span>
               <UiIcon
@@ -617,7 +648,7 @@ const { toggleMobileMenu } = useMobileNav()
                 class="text-base"
               />
             </NuxtLink>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -651,12 +682,15 @@ const { toggleMobileMenu } = useMobileNav()
           </span>
         </div>
 
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible mb-12">
+        <ol class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible mb-12 list-none">
           <!-- Step 1 -->
-          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <li class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
-                <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">1</span>
+                <span
+                  class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine"
+                  aria-hidden="true"
+                >1</span>
                 <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Upfront Clarity</span>
               </div>
               <h3 class="font-serif text-xl text-pine font-normal mb-2">
@@ -673,13 +707,16 @@ const { toggleMobileMenu } = useMobileNav()
               />
               <span>Dedicated 60&ndash;75 min doctoral visits</span>
             </div>
-          </div>
+          </li>
 
           <!-- Step 2 -->
-          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <li class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
-                <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">2</span>
+                <span
+                  class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine"
+                  aria-hidden="true"
+                >2</span>
                 <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Itemized Documentation</span>
               </div>
               <h3 class="font-serif text-xl text-pine font-normal mb-2">
@@ -696,13 +733,16 @@ const { toggleMobileMenu } = useMobileNav()
               />
               <span>Full medical diagnosis coding included</span>
             </div>
-          </div>
+          </li>
 
           <!-- Step 3 -->
-          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <li class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
-                <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">3</span>
+                <span
+                  class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine"
+                  aria-hidden="true"
+                >3</span>
                 <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Direct Reimbursement</span>
               </div>
               <h3 class="font-serif text-xl text-pine font-normal mb-2">
@@ -719,8 +759,8 @@ const { toggleMobileMenu } = useMobileNav()
               />
               <span>HSA / FSA cards accepted at checkout</span>
             </div>
-          </div>
-        </div>
+          </li>
+        </ol>
 
         <!-- Trust Badges Row -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-linen-darker/60 border border-ecru-border text-xs text-charcoal">
@@ -783,27 +823,33 @@ const { toggleMobileMenu } = useMobileNav()
 
         <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Story 1 -->
-          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <article
+            aria-labelledby="story-claire-title"
+            class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
+              <header class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Marathoner</span>
                 <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">7 Month Protocol</span>
-              </div>
+              </header>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
+              <h3
+                id="story-claire-title"
+                class="font-serif text-lg font-medium text-pine mb-3 text-balance"
+              >
                 Complete ACL Reconstruction Return-to-Run
               </h3>
-              <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
+              <blockquote class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
                 &ldquo;After tearing my ACL during trail training, Dr. Vance&rsquo;s data-driven loading protocol gave me total clarity. We hit 98% quad symmetry before I was cleared, and I just finished the Austin Half-Marathon completely pain-free.&rdquo;
-              </p>
+              </blockquote>
             </div>
-            <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
+            <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
+                <cite class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap not-italic block">
                   Claire M.
-                </div>
+                </cite>
                 <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Sub-3:30 Marathon Runner
                 </div>
@@ -811,31 +857,37 @@ const { toggleMobileMenu } = useMobileNav()
               <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 98% Symmetry
               </span>
-            </div>
-          </div>
+            </footer>
+          </article>
 
           <!-- Story 2 -->
-          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <article
+            aria-labelledby="story-david-title"
+            class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
+              <header class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Masters Crossfitter</span>
                 <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">12 Week Protocol</span>
-              </div>
+              </header>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
+              <h3
+                id="story-david-title"
+                class="font-serif text-lg font-medium text-pine mb-3 text-balance"
+              >
                 L5/S1 Herniation &amp; Pain-Free Deadlift Return
               </h3>
-              <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
+              <blockquote class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
                 &ldquo;I was told surgery was inevitable for my severe disc bulge and sciatic pain. Dr. Hayes diagnosed my directional preference in visit one. Within 8 weeks the radicular pain was zero, and by week 12 I resumed heavy barbell pulls.&rdquo;
-              </p>
+              </blockquote>
             </div>
-            <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
+            <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
+                <cite class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap not-italic block">
                   David T.
-                </div>
+                </cite>
                 <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Competitive Masters Athlete
                 </div>
@@ -843,31 +895,37 @@ const { toggleMobileMenu } = useMobileNav()
               <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 100% Pain-Free
               </span>
-            </div>
-          </div>
+            </footer>
+          </article>
 
           <!-- Story 3 -->
-          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <article
+            aria-labelledby="story-sienna-title"
+            class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between"
+          >
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
+              <header class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Collegiate Swimmer</span>
                 <span class="text-xs text-charcoal-light font-medium whitespace-nowrap shrink-0">10 Week Protocol</span>
-              </div>
+              </header>
               <div class="mb-4">
                 <UiRatingStars :rating="5" />
               </div>
-              <h3 class="font-serif text-lg font-medium text-pine mb-3 text-balance">
+              <h3
+                id="story-sienna-title"
+                class="font-serif text-lg font-medium text-pine mb-3 text-balance"
+              >
                 Chronic Subacromial Impingement Resolution
               </h3>
-              <p class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
+              <blockquote class="text-xs sm:text-sm text-charcoal-muted leading-relaxed mb-6 font-normal">
                 &ldquo;Dr. Rostova caught a major scapular dyskinesis that two previous clinics missed. Combined with dry needling and high-velocity eccentric rotator cuff loading, I dropped my 200m butterfly time without any shoulder inflammation.&rdquo;
-              </p>
+              </blockquote>
             </div>
-            <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
+            <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-3">
               <div>
-                <div class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap">
+                <cite class="text-sm font-semibold text-charcoal leading-snug whitespace-nowrap not-italic block">
                   Sienna K.
-                </div>
+                </cite>
                 <div class="text-xs text-charcoal-light whitespace-nowrap">
                   Division I Athlete
                 </div>
@@ -875,8 +933,8 @@ const { toggleMobileMenu } = useMobileNav()
               <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-semibold shrink-0 whitespace-nowrap">
                 PR Maintained
               </span>
-            </div>
-          </div>
+            </footer>
+          </article>
         </div>
       </div>
     </section>
@@ -915,20 +973,26 @@ const { toggleMobileMenu } = useMobileNav()
 
         <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Specialist 1: Marcus -->
-          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
-            <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
+          <article
+            aria-labelledby="clinician-marcus-name"
+            class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group"
+          >
+            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
-                alt="Dr. Marcus Vance"
+                alt="Dr. Marcus Vance, PT, DPT, OCS"
                 class="w-full h-full object-cover"
                 loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI4HGZy8D1KC8I17BtdM4lYsg30MRRohsWHBb6ODvX8aoP7Ye5yVnz5qpBKpTT2PoWl5PBj0yHhOYE4Esoi-RF5clarDtSEvgepkdfdxEVS8ASYPo98a0Ab1E4XpWrp5FldYFh-rU4rgDMJsWQ5W5RqDFmNlZLx4TWaCXVvOU4QblLOni7ClrLTamuHVZyQXw8qiKyO4vYR4TY_NDquS9Qq98au-Cpv5H95D7CUojscQneSAJkHKd-"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
+              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Knee &amp; Shoulder Reconstruction
-              </span>
-            </div>
+              </figcaption>
+            </figure>
             <div class="flex-1 flex flex-col">
-              <h3 class="font-serif text-2xl font-normal text-pine mb-1">
+              <h3
+                id="clinician-marcus-name"
+                class="font-serif text-2xl font-normal text-pine mb-1"
+              >
                 Dr. Marcus Vance
               </h3>
               <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
@@ -937,11 +1001,11 @@ const { toggleMobileMenu } = useMobileNav()
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Board-Certified Orthopedic Clinical Specialist with 14 years leading postoperative ACL and complex overhead athlete return-to-competition protocols.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
                 <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">14 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=vance"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl whitespace-nowrap shrink-0"
                 >
                   <span>Book with Marcus</span>
                   <UiIcon
@@ -949,25 +1013,31 @@ const { toggleMobileMenu } = useMobileNav()
                     class="text-base"
                   />
                 </NuxtLink>
-              </div>
+              </footer>
             </div>
-          </div>
+          </article>
 
           <!-- Specialist 2: Elena -->
-          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
-            <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
+          <article
+            aria-labelledby="clinician-elena-name"
+            class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group"
+          >
+            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
-                alt="Dr. Elena Rostova"
+                alt="Dr. Elena Rostova, PT, DPT, SCS"
                 class="w-full h-full object-cover"
                 loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LzHOZ3VxfVV7c1Ijnv1GhKCqzdTmyBZMpgOfZaje10pEDqt-ppFs344Z9owhCs88vF_LsbG5sMqPzVJiHQFRc5v0Tp5Gw62dpD9rfGQJBD795uINYHcMesgintHWqIq5MJGNo_qLO_Xkuc7jyjUuyu40sM-P1-2ts-4oUTLZQ8tGUpZj3rqtofMBF80ZWuYjD-YmVkNC1TcO1_hWDHGz0D6AE77X_B2x4fMIgrDtqWBvBF5bhyW"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
+              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Biomechanics &amp; Running Gait
-              </span>
-            </div>
+              </figcaption>
+            </figure>
             <div class="flex-1 flex flex-col">
-              <h3 class="font-serif text-2xl font-normal text-pine mb-1">
+              <h3
+                id="clinician-elena-name"
+                class="font-serif text-2xl font-normal text-pine mb-1"
+              >
                 Dr. Elena Rostova
               </h3>
               <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
@@ -976,11 +1046,11 @@ const { toggleMobileMenu } = useMobileNav()
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Board-Certified Sports Clinical Specialist and former US Track &amp; Field consultant. Directs kinematic lower-extremity gait and tendon load management.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
                 <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">11 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=rostova"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl whitespace-nowrap shrink-0"
                 >
                   <span>Book with Elena</span>
                   <UiIcon
@@ -988,25 +1058,31 @@ const { toggleMobileMenu } = useMobileNav()
                     class="text-base"
                   />
                 </NuxtLink>
-              </div>
+              </footer>
             </div>
-          </div>
+          </article>
 
           <!-- Specialist 3: Julian -->
-          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
-            <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
+          <article
+            aria-labelledby="clinician-julian-name"
+            class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group"
+          >
+            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
-                alt="Dr. Julian Hayes"
+                alt="Dr. Julian Hayes, PT, DPT, FAAOMPT"
                 class="w-full h-full object-cover"
                 loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J9apBKKhLNQGHXH5KsxTWtAOzIhmyKIIANm0V8ZYW1UERCFVr1VIYxnDYybw2RefiBrEgBx9E2OZRU8WuLFoVGzbaYDSiSrFfFLAqKahD3E3zXWL-DkuboBLGpkF9BJwcflj7Nf8Im-mTbim8ZyifEQ8WBs-_B3aHp98nw6tJHedI9Vx0ktmpWzBgB59zsbGSk5s1UVuU3nseJRuh1gfAn9WBnUmMZQH0POG3XHPaMb3xzb881Mo"
               >
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
+              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
                 Spine &amp; Complex Joint Rehab
-              </span>
-            </div>
+              </figcaption>
+            </figure>
             <div class="flex-1 flex flex-col">
-              <h3 class="font-serif text-2xl font-normal text-pine mb-1">
+              <h3
+                id="clinician-julian-name"
+                class="font-serif text-2xl font-normal text-pine mb-1"
+              >
                 Dr. Julian Hayes
               </h3>
               <p class="text-xs font-semibold text-clay-dark tracking-wide uppercase mb-3 whitespace-nowrap">
@@ -1015,11 +1091,11 @@ const { toggleMobileMenu } = useMobileNav()
               <p class="text-xs sm:text-sm text-charcoal-muted mb-6 flex-1 leading-relaxed font-normal">
                 Fellow of the American Academy of Orthopaedic Manual Physical Therapists. Specializes in advanced spinal mobilization, radiculopathy, and athletic core restoration.
               </p>
-              <div class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
+              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between gap-2">
                 <span class="text-xs font-medium text-charcoal-light whitespace-nowrap shrink-0">16 Yrs Experience</span>
                 <NuxtLink
                   to="/book?clinician=hayes"
-                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 whitespace-nowrap shrink-0"
+                  class="inline-flex items-center gap-1 text-sm font-semibold text-pine hover:text-clay-dark transition-colors after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 rounded-b-3xl whitespace-nowrap shrink-0"
                 >
                   <span>Book with Julian</span>
                   <UiIcon
@@ -1027,9 +1103,9 @@ const { toggleMobileMenu } = useMobileNav()
                     class="text-base"
                   />
                 </NuxtLink>
-              </div>
+              </footer>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1131,6 +1207,7 @@ const { toggleMobileMenu } = useMobileNav()
                     <a
                       class="font-semibold text-pine hover:text-clay transition-colors"
                       :href="`tel:${clinicInfo.phone.tel}`"
+                      :aria-label="clinicInfo.phone.ariaLabel"
                     >{{ clinicInfo.phone.display }}</a>
                   </div>
                 </div>
@@ -1168,10 +1245,13 @@ const { toggleMobileMenu } = useMobileNav()
           </div>
 
           <!-- Right: Map Preview -->
-          <div class="lg:col-span-6 bg-white rounded-3xl overflow-hidden border border-ecru-border flex flex-col justify-between">
+          <figure
+            aria-label="Clinic Map & Directions"
+            class="lg:col-span-6 bg-white rounded-3xl overflow-hidden border border-ecru-border flex flex-col justify-between m-0"
+          >
             <div class="relative flex-1 min-h-[340px] bg-linen-darker">
               <img
-                alt="Map overview of Austin clinic location"
+                alt="Map overview showing Austin clinic location at 1204 S. Congress Ave"
                 class="w-full h-full object-cover"
                 loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuClYlu4ojMC74sP481YXzNTzzFaTFdpTLKBsAacKF5rWtr1aZz71Ih6d9gQ__hOZ4mqTabFSpv2_x1ri73tenQFnxiBHWHAGpMGHgpEcX8DJ_BzLlzRmv9XRNP5cOMy55Zi-RxXm-pAymncuTw9BpT6_JmcQyLAlnFy5dJiyLO_wmq6SKnbjPeyN6JVb3fO1_TrDqQWCnJhWg8TDswKB--mLjtqepgRPZTeB_hyNGjHvMdeqVDw6wH-"
@@ -1187,7 +1267,7 @@ const { toggleMobileMenu } = useMobileNav()
             </div>
 
             <!-- Route Banner & Action -->
-            <div class="p-5 sm:p-6 bg-white border-t border-ecru-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <figcaption class="p-5 sm:p-6 bg-white border-t border-ecru-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div class="flex items-start sm:items-center gap-2.5 text-xs sm:text-sm text-charcoal">
                 <UiIcon
                   name="i-lucide-signpost"
@@ -1204,8 +1284,8 @@ const { toggleMobileMenu } = useMobileNav()
               >
                 Google Maps
               </UiButton>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1233,6 +1313,7 @@ const { toggleMobileMenu } = useMobileNav()
           </UiButton>
           <a
             :href="`tel:${clinicInfo.phone.tel}`"
+            :aria-label="clinicInfo.phone.ariaLabel"
             class="w-full sm:w-auto justify-center inline-flex items-center gap-2 rounded-full border border-linen/30 hover:border-linen text-linen px-7 py-3 text-sm sm:text-base font-medium transition-all hover:bg-white/10"
           >
             Call Clinic: {{ clinicInfo.phone.display }}

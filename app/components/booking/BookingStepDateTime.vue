@@ -51,9 +51,9 @@ const isDateUnavailable = (date: DateValue) => {
   <div class="p-6 sm:p-10">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
       <div>
-        <h1 class="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
+        <h2 class="text-2xl sm:text-3xl font-serif text-charcoal font-medium tracking-tight">
           Select Date &amp; Clinic Time Slot
-        </h1>
+        </h2>
         <p class="text-xs sm:text-sm text-charcoal-muted mt-0.5">
           Appointments scheduled in Central Time (Austin Clinic, CT).
         </p>
@@ -127,58 +127,72 @@ const isDateUnavailable = (date: DateValue) => {
       <!-- Time Slots (7 cols) -->
       <div class="md:col-span-7 flex flex-col justify-between space-y-4">
         <!-- Morning -->
-        <div>
+        <fieldset
+          class="border-0 p-0 m-0"
+          aria-label="Morning appointment time slots"
+        >
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-charcoal-muted uppercase tracking-wider flex items-center gap-1.5">
+            <legend class="text-xs font-semibold text-charcoal-muted uppercase tracking-wider flex items-center gap-1.5">
               <UiIcon
                 name="i-lucide-sun"
                 class="text-clay text-sm"
               />
               Morning (8:00 AM – 12:00 PM)
-            </span>
+            </legend>
             <span class="text-xs text-charcoal-muted font-medium">4 SLOTS OPEN</span>
           </div>
-          <div class="grid grid-cols-2 gap-2.5">
+          <div
+            role="group"
+            aria-label="Morning Time Slots"
+            class="grid grid-cols-2 gap-2.5"
+          >
             <button
               v-for="slot in morningSlots"
               :key="slot"
               type="button"
               :aria-pressed="selectedTime === slot"
-              class="py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
+              class="py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 cursor-pointer"
               :class="selectedTime === slot ? 'bg-pine text-white border-pine' : 'bg-white border-ecru-border text-charcoal hover:border-pine hover:bg-linen'"
               @click="emit('update:selectedTime', slot)"
             >
               {{ slot }}
             </button>
           </div>
-        </div>
+        </fieldset>
 
         <!-- Afternoon -->
-        <div>
+        <fieldset
+          class="border-0 p-0 m-0"
+          aria-label="Afternoon appointment time slots"
+        >
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-charcoal-muted uppercase tracking-wider flex items-center gap-1.5">
+            <legend class="text-xs font-semibold text-charcoal-muted uppercase tracking-wider flex items-center gap-1.5">
               <UiIcon
                 name="i-lucide-sunset"
                 class="text-clay text-sm"
               />
               Afternoon (1:00 PM – 5:30 PM)
-            </span>
+            </legend>
             <span class="text-xs text-charcoal-muted font-medium">4 SLOTS OPEN</span>
           </div>
-          <div class="grid grid-cols-2 gap-2.5">
+          <div
+            role="group"
+            aria-label="Afternoon Time Slots"
+            class="grid grid-cols-2 gap-2.5"
+          >
             <button
               v-for="slot in afternoonSlots"
               :key="slot"
               type="button"
               :aria-pressed="selectedTime === slot"
-              class="py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
+              class="py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 cursor-pointer"
               :class="selectedTime === slot ? 'bg-pine text-white border-pine' : 'bg-white border-ecru-border text-charcoal hover:border-pine hover:bg-linen'"
               @click="emit('update:selectedTime', slot)"
             >
               {{ slot }}
             </button>
           </div>
-        </div>
+        </fieldset>
       </div>
     </div>
 
