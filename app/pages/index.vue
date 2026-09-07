@@ -33,132 +33,48 @@ useSeoMeta({
   ogTitle: 'Apex Sports & Physical Therapy — Doctoral Sports Rehab in Austin, TX',
   ogDescription: 'Evidence-based 1-on-1 physical therapy for athletes and active professionals. Post-op surgical rehab, biomechanical gait analysis, and performance recovery.',
   ogImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
-  ogType: 'website',
-  twitterCard: 'summary_large_image'
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Apex Sports & Physical Therapy - Austin Clinical Facility',
+  ogType: 'website'
 })
 
-// SEO: Structured data for rich search results (PhysicalTherapy / LocalBusiness, FAQPage, MedicalBusiness)
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': ['LocalBusiness', 'MedicalBusiness', 'PhysicalTherapy'],
-            '@id': 'https://apexsportspt.com/#organization',
-            'name': 'Apex Sports & Physical Therapy',
-            'url': 'https://apexsportspt.com',
-            'logo': 'https://apexsportspt.com/logo.svg',
-            'image': 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
-            'description': 'Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.',
-            'telephone': '(512) 555-0199',
-            'priceRange': '$95–$195',
-            'medicalSpecialty': 'Orthopedic',
-            'address': {
-              '@type': 'PostalAddress',
-              'streetAddress': '1204 S. Congress Ave, Suite 300',
-              'addressLocality': 'Austin',
-              'addressRegion': 'TX',
-              'postalCode': '78704',
-              'addressCountry': 'US'
-            },
-            'geo': {
-              '@type': 'GeoCoordinates',
-              'latitude': 30.2472,
-              'longitude': -97.7494
-            },
-            'openingHoursSpecification': [
-              {
-                '@type': 'OpeningHoursSpecification',
-                'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
-                'opens': '07:00',
-                'closes': '19:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                'dayOfWeek': 'Friday',
-                'opens': '07:00',
-                'closes': '18:00'
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                'dayOfWeek': 'Saturday',
-                'opens': '08:00',
-                'closes': '13:00'
-              }
-            ],
-            'aggregateRating': {
-              '@type': 'AggregateRating',
-              'ratingValue': '4.9',
-              'bestRating': '5',
-              'ratingCount': '340'
-            },
-            'hasOfferCatalog': {
-              '@type': 'OfferCatalog',
-              'name': 'Clinical Services',
-              'itemListElement': [
-                {
-                  '@type': 'Offer',
-                  'itemOffered': {
-                    '@type': 'Service',
-                    'name': 'Initial Clinical Assessment & Treatment',
-                    'description': 'Comprehensive doctoral evaluation, motion diagnostics, force plate baseline, and immediate hands-on treatment.'
-                  },
-                  'price': '175.00',
-                  'priceCurrency': 'USD'
-                },
-                {
-                  '@type': 'Offer',
-                  'itemOffered': {
-                    '@type': 'Service',
-                    'name': 'Post-Op Surgical Rehabilitation',
-                    'description': 'Structured clinical protocols from acute surgical discharge through multi-stage strength dynamometry to full athletic clearance.'
-                  },
-                  'price': '175.00',
-                  'priceCurrency': 'USD'
-                },
-                {
-                  '@type': 'Offer',
-                  'itemOffered': {
-                    '@type': 'Service',
-                    'name': 'Biomechanical Running & Gait Analysis',
-                    'description': 'High-speed multi-angle video assessment, synchronized force plate cadence analytics, and custom footwear recommendations.'
-                  },
-                  'price': '195.00',
-                  'priceCurrency': 'USD'
-                },
-                {
-                  '@type': 'Offer',
-                  'itemOffered': {
-                    '@type': 'Service',
-                    'name': 'Performance Recovery & Tissue Modulation',
-                    'description': 'Targeted tissue therapy including dry needling, Normatec 3 pneumatic compression, and Delfi BFR training.'
-                  },
-                  'price': '95.00',
-                  'priceCurrency': 'USD'
-                }
-              ]
-            }
-          },
-          {
-            '@type': 'FAQPage',
-            '@id': 'https://apexsportspt.com/#faq',
-            'mainEntity': faqs.map(faq => ({
-              '@type': 'Question',
-              'name': faq.question,
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': faq.answer
-              }
-            }))
-          }
-        ]
-      })
+// SEO: Structured data for rich search results using nuxt-schema-org
+useSchemaOrg([
+  defineLocalBusiness({
+    '@type': 'MedicalBusiness',
+    name: 'Apex Sports & Physical Therapy',
+    description: 'Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.',
+    telephone: '(512) 555-0199',
+    priceRange: '$95–$195',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
+    address: {
+      streetAddress: '1204 S. Congress Ave, Suite 300',
+      addressLocality: 'Austin',
+      addressRegion: 'TX',
+      postalCode: '78704',
+      addressCountry: 'US'
+    },
+    geo: {
+      latitude: 30.2472,
+      longitude: -97.7494
+    },
+    openingHours: [
+      'Mo-Th 07:00-19:00',
+      'Fr 07:00-18:00',
+      'Sa 08:00-13:00'
+    ],
+    aggregateRating: {
+      ratingValue: '4.9',
+      bestRating: '5',
+      ratingCount: '340'
     }
-  ]
-})
+  }),
+  ...faqs.map(faq => defineQuestion({
+    name: faq.question,
+    acceptedAnswer: faq.answer
+  }))
+])
 </script>
 
 <template>
@@ -337,10 +253,24 @@ useHead({
           </p>
         </div>
 
-        <!-- 2x2 Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Mobile Swipe Indicator Hint -->
+        <div class="flex items-center justify-between md:hidden mb-4 px-1">
+          <span class="text-xs font-medium text-charcoal-muted flex items-center gap-1.5">
+            <UiIcon
+              name="i-lucide-arrow-left-right"
+              class="text-clay text-xs shrink-0"
+            />
+            Swipe to explore programs
+          </span>
+          <span class="text-[11px] font-semibold text-pine uppercase tracking-wider bg-white px-2.5 py-0.5 rounded-full border border-ecru-border">
+            4 Specialties
+          </span>
+        </div>
+
+        <!-- 2x2 Grid (Desktop) / Horizontal Snap Rail (Mobile) -->
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-2 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0">
           <!-- Card 1: Post-Op Rehab -->
-          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
@@ -408,7 +338,7 @@ useHead({
           </div>
 
           <!-- Card 2: Sports Orthopedic Evaluation & Rehab -->
-          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
@@ -476,7 +406,7 @@ useHead({
           </div>
 
           <!-- Card 3: Biomechanics & Running Gait -->
-          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
@@ -544,7 +474,7 @@ useHead({
           </div>
 
           <!-- Card 4: Performance Recovery & Modulation -->
-          <div class="relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">
@@ -629,9 +559,23 @@ useHead({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Mobile Step Swipe Indicator -->
+        <div class="flex items-center justify-between md:hidden mb-4 px-1">
+          <span class="text-xs font-medium text-charcoal-muted flex items-center gap-1.5">
+            <UiIcon
+              name="i-lucide-arrow-left-right"
+              class="text-clay text-xs shrink-0"
+            />
+            Swipe 3-step reimbursement guide
+          </span>
+          <span class="text-[11px] font-semibold text-pine uppercase tracking-wider bg-linen px-2.5 py-0.5 rounded-full border border-ecru-border">
+            3 Steps
+          </span>
+        </div>
+
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 mb-12">
           <!-- Step 1 -->
-          <div class="rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
                 <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">1</span>
@@ -654,7 +598,7 @@ useHead({
           </div>
 
           <!-- Step 2 -->
-          <div class="rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
                 <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">2</span>
@@ -677,7 +621,7 @@ useHead({
           </div>
 
           <!-- Step 3 -->
-          <div class="rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
+          <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-5">
                 <span class="w-9 h-9 rounded-xl bg-white border border-ecru-border flex items-center justify-center font-serif text-lg font-medium text-pine">3</span>
@@ -745,9 +689,23 @@ useHead({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Mobile Testimonial Swipe Indicator -->
+        <div class="flex items-center justify-between md:hidden mb-4 px-1">
+          <span class="text-xs font-medium text-charcoal-muted flex items-center gap-1.5">
+            <UiIcon
+              name="i-lucide-arrow-left-right"
+              class="text-clay text-xs shrink-0"
+            />
+            Swipe patient case studies
+          </span>
+          <span class="text-[11px] font-semibold text-pine uppercase tracking-wider bg-white px-2.5 py-0.5 rounded-full border border-ecru-border">
+            3 Outcomes
+          </span>
+        </div>
+
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0">
           <!-- Story 1 -->
-          <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Marathoner</span>
@@ -779,7 +737,7 @@ useHead({
           </div>
 
           <!-- Story 2 -->
-          <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Masters Crossfitter</span>
@@ -811,7 +769,7 @@ useHead({
           </div>
 
           <!-- Story 3 -->
-          <div class="bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
+          <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
                 <span class="px-2.5 py-1 rounded-md bg-linen-darker text-charcoal text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap shrink-0">Collegiate Swimmer</span>
@@ -863,9 +821,23 @@ useHead({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Mobile Specialists Swipe Indicator -->
+        <div class="flex items-center justify-between md:hidden mb-4 px-1">
+          <span class="text-xs font-medium text-charcoal-muted flex items-center gap-1.5">
+            <UiIcon
+              name="i-lucide-arrow-left-right"
+              class="text-clay text-xs shrink-0"
+            />
+            Swipe to view all doctoral specialists
+          </span>
+          <span class="text-[11px] font-semibold text-pine uppercase tracking-wider bg-white px-2.5 py-0.5 rounded-full border border-ecru-border">
+            3 Specialists
+          </span>
+        </div>
+
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0">
           <!-- Specialist 1: Marcus -->
-          <div class="relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
+          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
             <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
                 alt="Dr. Marcus Vance"
@@ -904,7 +876,7 @@ useHead({
           </div>
 
           <!-- Specialist 2: Elena -->
-          <div class="relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
+          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
             <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
                 alt="Dr. Elena Rostova"
@@ -943,7 +915,7 @@ useHead({
           </div>
 
           <!-- Specialist 3: Julian -->
-          <div class="relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
+          <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
             <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
               <img
                 alt="Dr. Julian Hayes"

@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   defaultValue: undefined,
   modelValue: undefined,
   class: 'space-y-4',
-  itemClass: 'group rounded-2xl border border-ecru-border bg-linen/50 data-[state=open]:bg-white data-[state=open]:border-pine/30 hover:border-pine/30 hover:bg-white/80 transition-all duration-300 ease-out overflow-hidden',
+  itemClass: 'group rounded-2xl border border-ecru-border bg-linen/50 data-[state=open]:bg-white data-[state=open]:border-pine/30 hover:border-pine/30 hover:bg-white/80 transition-colors duration-200 overflow-hidden',
   triggerClass: 'w-full py-5 sm:py-6 px-6 sm:px-8 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 focus-visible:ring-offset-2 rounded-2xl select-none',
   contentClass: 'overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up'
 })
@@ -71,13 +71,12 @@ const model = computed({
                 {{ item.question ?? item.title }}
               </span>
               <span
-                class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-ecru-border flex items-center justify-center shrink-0 transition-all duration-300 ease-out group-hover:scale-105 group-hover:border-pine/30"
-                :class="open ? 'bg-pine text-linen border-pine shadow-sm' : 'bg-white text-pine'"
+                class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-ecru-border flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:scale-105 group-hover:border-pine/30"
+                :class="open ? 'bg-pine text-linen border-pine' : 'bg-white text-pine'"
               >
                 <UiIcon
                   :name="open ? 'i-lucide-minus' : 'i-lucide-plus'"
-                  class="text-sm transition-transform duration-300 ease-out"
-                  :class="open ? 'rotate-0' : 'group-hover:rotate-90'"
+                  class="text-sm transition-transform duration-200"
                 />
               </span>
             </slot>
@@ -91,7 +90,7 @@ const model = computed({
             :index="index"
             :open="open"
           >
-            <div class="px-6 sm:px-8 pb-6 sm:pb-7 pt-1 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-linen-darker data-[state=open]:animate-accordion-content">
+            <div class="px-6 sm:px-8 pb-6 sm:pb-7 pt-1 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-linen-darker">
               <p class="max-w-3xl">{{ item.answer ?? item.content }}</p>
             </div>
           </slot>
