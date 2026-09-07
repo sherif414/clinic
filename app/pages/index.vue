@@ -295,7 +295,7 @@ useSchemaOrg([
         </div>
 
         <!-- 2x2 Grid (Desktop) / Horizontal Snap Rail (Mobile) -->
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-2 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-2 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Card 1: Post-Op Rehab -->
           <div class="w-[85vw] sm:w-105 md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
@@ -600,7 +600,7 @@ useSchemaOrg([
           </span>
         </div>
 
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 mb-12">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible mb-12">
           <!-- Step 1 -->
           <div class="w-[80vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink rounded-2xl bg-linen border border-ecru-border p-7 sm:p-8 flex flex-col justify-between">
             <div>
@@ -730,7 +730,7 @@ useSchemaOrg([
           </span>
         </div>
 
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Story 1 -->
           <div class="w-[84vw] sm:w-[340px] md:w-auto shrink-0 snap-center md:shrink bg-white rounded-3xl p-7 sm:p-8 border border-ecru-border hover:border-ecru-muted transition-colors flex flex-col justify-between">
             <div>
@@ -862,7 +862,7 @@ useSchemaOrg([
           </span>
         </div>
 
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1.5 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:pt-0 md:overflow-visible">
           <!-- Specialist 1: Marcus -->
           <div class="w-[82vw] sm:w-[320px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 border border-ecru-border hover:border-pine/30 hover:-translate-y-0.5 transition-all duration-300 flex flex-col group">
             <div class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker">
