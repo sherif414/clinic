@@ -77,16 +77,178 @@ useSchemaOrg([
 ])
 
 const { toggleMobileMenu } = useMobileNav()
+
+const specialties = [
+  {
+    id: 'post-op',
+    num: '01',
+    title: 'Post-Op Surgical Rehabilitation',
+    rate: '$175 • 60 Min',
+    category: 'Phase 1–4',
+    description: 'Structured clinical protocols from acute surgical discharge through multi-stage strength dynamometry to full athletic clearance. Co-managed closely with Austin\'s premier orthopedic surgeons.',
+    tags: [
+      'ACL, meniscus, labral & rotator cuff staging',
+      'Limb symmetry dynamometry & force plates',
+      'Graduated graft protection loading',
+      'Multi-planar cutting & sport clearance'
+    ],
+    bookingUrl: '/book?service=post-op',
+    bookingLabel: 'Explore Post-Op Protocol & Book'
+  },
+  {
+    id: 'orthopedic',
+    num: '02',
+    title: 'Sports Orthopedic Evaluation & Rehab',
+    rate: '$175 • 60 Min',
+    category: 'Acute & Overuse',
+    description: 'Doctoral clinical evaluation, joint biomechanics triage, and personalized manual treatment for acute and overuse sports injuries. Tailored for athletes dealing with knee, shoulder, hip, or spinal dysfunction.',
+    tags: [
+      'Acute knee sprain & rotator cuff triage',
+      'Joint mobility restoration & manual therapy',
+      'Spinal decompression & core stabilization',
+      'Take-home milestone roadmap'
+    ],
+    bookingUrl: '/book?service=initial_eval',
+    bookingLabel: 'Explore Orthopedic Evaluation & Book'
+  },
+  {
+    id: 'biomech_gait',
+    num: '03',
+    title: 'Biomechanics & Running Gait Analysis',
+    rate: '$195 • 75 Min',
+    category: 'Kinematic Lab',
+    description: 'High-speed multi-angle video assessment, synchronized force plate cadence analytics, and customized footwear prescription for persistent lower-extremity overuse injuries.',
+    tags: [
+      'Ground reaction force profiling',
+      'Pelvic drop & knee valgus capture',
+      'Plantar fasciitis & Achilles modulation',
+      'Footwear prescription & mileage staging'
+    ],
+    bookingUrl: '/book?service=biomech_gait',
+    bookingLabel: 'Book Gait Analysis Session'
+  },
+  {
+    id: 'recovery_suite',
+    num: '04',
+    title: 'Performance Recovery & Modulation',
+    rate: '$95 • 45 Min',
+    category: 'Athletic Suite',
+    description: 'Doctor-administered clinical tissue therapies designed to accelerate neuromuscular restitution and clear systemic inflammation between training blocks and competitive fixtures.',
+    tags: [
+      'Delfi PTS Blood Flow Restriction (BFR)',
+      'Therapeutic dry needling & e-stim',
+      'Normatec 3 pneumatic compression',
+      'Pre-competition neuromuscular reset'
+    ],
+    bookingUrl: '/book?service=recovery_suite',
+    bookingLabel: 'Explore Recovery Suite & Book'
+  }
+]
+
+const caseStudies = [
+  {
+    id: 'claire',
+    patient: 'Claire M.',
+    role: 'Sub-3:30 Marathon Runner',
+    coManage: 'Co-managed with Dr. Marcus Vance, PT, DPT, OCS',
+    title: 'ACL Reconstruction Return-to-Run',
+    protocol: '7 Month Protocol',
+    quote: 'After tearing my ACL during trail training, Dr. Vance\'s data-driven loading protocol gave me total clarity. We hit 98% quad symmetry before I was cleared, and I just finished the Austin Half-Marathon completely pain-free.',
+    badges: ['98% Quad Limb Symmetry', 'Multi-Planar Cutting Clearance', 'Austin Half-Marathon Finisher'],
+    rating: 5,
+    highlight: '98% Symmetry'
+  },
+  {
+    id: 'david',
+    patient: 'David T.',
+    role: 'Competitive Masters Crossfit Athlete',
+    coManage: 'Dr. Julian Hayes, DPT',
+    title: 'L5/S1 Disc Herniation & Barbell Deadlift Return',
+    protocol: '12-Week Protocol',
+    quote: 'I was told surgery was inevitable for my severe disc bulge. Dr. Hayes diagnosed my directional preference in visit one. Within 8 weeks radicular pain was zero, and by week 12 I resumed heavy barbell pulls.',
+    badges: ['100% Pain-Free Discharged', 'Directional Preference Loading', 'Heavy Pulls Resumed'],
+    rating: 5,
+    highlight: '100% Pain-Free'
+  },
+  {
+    id: 'sienna',
+    patient: 'Sienna K.',
+    role: 'Division I Collegiate Swimmer',
+    coManage: 'Dr. Elena Rostova, DPT',
+    title: 'Subacromial Impingement & Scapular Restitution',
+    protocol: '10-Week Protocol',
+    quote: 'Dr. Rostova caught a major scapular dyskinesis that previous clinics missed. Combined with dry needling and high-velocity eccentric rotator cuff loading, I dropped my 200m fly time without inflammation.',
+    badges: ['PR Maintained in 200m Fly', 'Dry Needling & Eccentric Loading', 'Zero Inflammation'],
+    rating: 5,
+    highlight: 'PR Maintained'
+  }
+]
+
+const specialists = [
+  {
+    id: 'vance',
+    name: 'Dr. Marcus Vance',
+    credentials: 'PT, DPT, OCS',
+    focus: 'Knee & Shoulder Reconstruction Specialist',
+    experience: '14 Yrs Experience',
+    bio: 'Board-Certified Orthopedic Clinical Specialist leading postoperative ACL and complex overhead athlete return-to-competition protocols across Austin.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAI4HGZy8D1KC8I17BtdM4lYsg30MRRohsWHBb6ODvX8aoP7Ye5yVnz5qpBKpTT2PoWl5PBj0yHhOYE4Esoi-RF5clarDtSEvgepkdfdxEVS8ASYPo98a0Ab1E4XpWrp5FldYFh-rU4rgDMJsWQ5W5RqDFmNlZLx4TWaCXVvOU4QblLOni7ClrLTamuHVZyQXw8qiKyO4vYR4TY_NDquS9Qq98au-Cpv5H95D7CUojscQneSAJkHKd-',
+    bookingUrl: '/book?clinician=vance'
+  },
+  {
+    id: 'rostova',
+    name: 'Dr. Elena Rostova',
+    credentials: 'PT, DPT, SCS',
+    focus: 'Biomechanics & Running Gait Director',
+    experience: '11 Yrs Experience',
+    bio: 'Board-Certified Sports Clinical Specialist and former US Track & Field consultant. Directs kinematic lower-extremity gait analysis and tendon loading.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LzHOZ3VxfVV7c1Ijnv1GhKCqzdTmyBZMpgOfZaje10pEDqt-ppFs344Z9owhCs88vF_LsbG5sMqPzVJiHQFRc5v0Tp5Gw62dpD9rfGQJBD795uINYHcMesgintHWqIq5MJGNo_qLO_Xkuc7jyjUuyu40sM-P1-2ts-4oUTLZQ8tGUpZj3rqtofMBF80ZWuYjD-YmVkNC1TcO1_hWDHGz0D6AE77X_B2x4fMIgrDtqWBvBF5bhyW',
+    bookingUrl: '/book?clinician=rostova'
+  },
+  {
+    id: 'hayes',
+    name: 'Dr. Julian Hayes',
+    credentials: 'PT, DPT, FAAOMPT',
+    focus: 'Spine & Complex Joint Rehab Fellow',
+    experience: '16 Yrs Experience',
+    bio: 'Fellow of the American Academy of Orthopaedic Manual Physical Therapists. Specializes in spinal mobilization, radiculopathy, and athletic core restoration.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA2J9apBKKhLNQGHXH5KsxTWtAOzIhmyKIIANm0V8ZYW1UERCFVr1VIYxnDYybw2RefiBrEgBx9E2OZRU8WuLFoVGzbaYDSiSrFfFLAqKahD3E3zXWL-DkuboBLGpkF9BJwcflj7Nf8Im-mTbim8ZyifEQ8WBs-_B3aHp98nw6tJHedI9Vx0ktmpWzBgB59zsbGSk5s1UVuU3nseJRuh1gfAn9WBnUmMZQH0POG3XHPaMb3xzb881Mo',
+    bookingUrl: '/book?clinician=hayes'
+  }
+]
+
+interface CaseStudyItem {
+  id: string
+  patient: string
+  role: string
+  coManage: string
+  title: string
+  protocol: string
+  quote: string
+  badges: string[]
+  rating: number
+  highlight: string
+}
+
+// Mobile interactive states
+const activeMobileCase = ref(0)
+const currentMobileCase = computed<CaseStudyItem>(() => caseStudies[activeMobileCase.value] ?? caseStudies[0]!)
+const activeMobileSpecialist = ref(0)
+const expandedMobileSpecialties = ref<Record<string, boolean>>({})
+
+const toggleSpecialtyTags = (id: string) => {
+  expandedMobileSpecialties.value[id] = !expandedMobileSpecialties.value[id]
+}
 </script>
 
 <template>
-  <div class="space-y-0">
+  <div class="space-y-0 pb-16 lg:pb-0">
     <!-- Hero Section: True 50/50 Full-Bleed Split-Screen (Reference-Inspired) -->
-    <section class="relative w-full overflow-hidden bg-pine-dark min-h-[90vh] lg:min-h-screen flex flex-col justify-between">
+    <section class="relative w-full overflow-hidden bg-pine-dark min-h-[85vh] lg:min-h-screen flex flex-col justify-between">
       <!-- The Split Screen Grid: On mobile (image top, copy bottom); on desktop (50/50 split with left-contained nav) -->
       <div class="w-full flex-1 flex flex-col lg:grid lg:grid-cols-2">
         <!-- MOBILE-ONLY HEADER (Above the mobile image) -->
-        <div class="lg:hidden w-full px-5 pt-6 pb-4 flex items-center justify-between z-20">
+        <div class="lg:hidden w-full px-4 pt-4 pb-3 flex items-center justify-between z-20">
           <NuxtLink to="/" class="flex items-center gap-2.5 group shrink-0">
             <img
               src="/logo.svg"
@@ -118,8 +280,8 @@ const { toggleMobileMenu } = useMobileNav()
           </div>
         </div>
 
-        <!-- RIGHT HALF ON DESKTOP (50%) / TOP ON MOBILE: Clinical Photography + Top-Right Phone Action on Desktop -->
-        <div class="order-1 lg:order-2 relative w-full h-[280px] xs:h-[340px] sm:h-[440px] lg:h-auto min-h-[260px] lg:min-h-full overflow-hidden bg-pine-dark">
+        <!-- RIGHT HALF ON DESKTOP (50%) / TOP ON MOBILE: Clinical Photography -->
+        <div class="order-1 lg:order-2 relative w-full h-[190px] xs:h-[230px] sm:h-[340px] lg:h-auto min-h-[180px] lg:min-h-full overflow-hidden bg-pine-dark">
           <!-- Full-Bleed Image -->
           <img
             alt="Doctor of Physical Therapy coaching athlete in dynamic sports rehabilitation at Apex Sports clinic"
@@ -146,8 +308,8 @@ const { toggleMobileMenu } = useMobileNav()
         </div>
 
         <!-- LEFT HALF ON DESKTOP (50%) / BOTTOM ON MOBILE: Integrated Brand Nav, Editorial Typography & Video Proof -->
-        <div class="order-2 lg:order-1 bg-pine-dark text-linen flex flex-col justify-between px-5 sm:px-10 lg:px-14 xl:px-20 py-8 sm:py-10 lg:py-12 relative z-10 lg:border-r border-pine-muted/30">
-          <!-- Desktop Brand & Navigation Bar (Left Side Only, Grouped for Clean Split Alignment) -->
+        <div class="order-2 lg:order-1 bg-pine-dark text-linen flex flex-col justify-between px-5 sm:px-10 lg:px-14 xl:px-20 py-6 sm:py-10 lg:py-12 relative z-10 lg:border-r border-pine-muted/30">
+          <!-- Desktop Brand & Navigation Bar (Left Side Only) -->
           <div class="hidden lg:flex items-center gap-6 lg:gap-10 mb-10 sm:mb-14 lg:mb-16">
             <NuxtLink to="/" class="flex items-center gap-3 group shrink-0">
               <img
@@ -170,21 +332,21 @@ const { toggleMobileMenu } = useMobileNav()
           </div>
 
           <!-- Hero Headline & Core Value Proposition -->
-          <div class="my-auto py-2 sm:py-6 lg:py-8 max-w-xl">
-            <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal text-linen leading-[1.08] sm:leading-[1.04] tracking-tight mb-4 sm:mb-6 text-balance">
+          <div class="my-auto py-1 sm:py-6 lg:py-8 max-w-xl">
+            <h1 class="font-serif text-2xl xs:text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal text-linen leading-[1.12] sm:leading-[1.04] tracking-tight mb-3 sm:mb-6 text-balance">
               Targeted sports rehab to get you <span class="italic font-serif text-linen/90">back in the game.</span>
             </h1>
 
-            <p class="text-sm sm:text-lg text-linen/75 font-normal leading-relaxed mb-6 sm:mb-10 max-w-lg">
+            <p class="text-xs sm:text-lg text-linen/75 font-normal leading-relaxed mb-4 sm:mb-8 max-w-lg">
               Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals in Austin, TX.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
               <UiButton
                 to="/book"
                 size="lg"
                 variant="inverted"
-                class="w-full sm:w-auto font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 justify-center"
+                class="w-full sm:w-auto font-semibold text-xs sm:text-base px-5 sm:px-8 py-3 sm:py-4 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 justify-center"
                 trailing-icon="i-lucide-arrow-right"
               >
                 Book Assessment
@@ -193,7 +355,7 @@ const { toggleMobileMenu } = useMobileNav()
                 to="#specialties"
                 size="lg"
                 variant="outline-inverted"
-                class="w-full sm:w-auto font-medium text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 hover:scale-[1.01] transition-all duration-200 justify-center"
+                class="w-full sm:w-auto font-medium text-xs sm:text-base px-5 sm:px-8 py-3 sm:py-4 hover:scale-[1.01] transition-all duration-200 justify-center"
               >
                 Explore Specialties
               </UiButton>
@@ -201,11 +363,11 @@ const { toggleMobileMenu } = useMobileNav()
           </div>
 
           <!-- Bottom Proof Card (Video / Patient Story Thumbnail) -->
-          <div class="pt-5 sm:pt-7 mt-6 sm:mt-8 border-t border-linen/15 flex items-center gap-3.5 sm:gap-4 max-w-lg">
+          <div class="pt-4 sm:pt-7 mt-4 sm:mt-8 border-t border-linen/15 flex items-center gap-3 sm:gap-4 max-w-lg">
             <a
               href="#stories"
               aria-label="Watch athlete recovery case study video"
-              class="relative w-14 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-linen/20 bg-pine-muted/50 group block"
+              class="relative w-12 h-10 sm:w-20 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-linen/20 bg-pine-muted/50 group block"
             >
               <img
                 src="/images/hero-clinical-detail.jpg"
@@ -237,9 +399,9 @@ const { toggleMobileMenu } = useMobileNav()
         </div>
       </div>
 
-      <!-- Trust Partner Ribbon (Below the Split, matching Rulebase bottom bar) -->
-      <div class="w-full bg-linen border-t border-ecru-border py-3.5 sm:py-5 px-4 sm:px-10 lg:px-16 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-2.5 sm:gap-4">
+      <!-- Trust Partner Ribbon -->
+      <div class="w-full bg-linen border-t border-ecru-border py-3 sm:py-5 px-4 sm:px-10 lg:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-2 sm:gap-4">
           <span class="text-[11px] sm:text-xs font-semibold text-charcoal-muted uppercase tracking-wider shrink-0 text-center xl:text-left">
             Trusted by Austin athletes, runners &amp; surgeons:
           </span>
@@ -263,56 +425,56 @@ const { toggleMobileMenu } = useMobileNav()
     <!-- Alpine Pine Stats Ribbon -->
     <section
       aria-label="Clinical Metrics & Standards"
-      class="bg-pine text-linen py-12 lg:py-14 border-y border-pine-muted/30"
+      class="bg-pine text-linen py-8 sm:py-12 lg:py-14 border-y border-pine-muted/30"
     >
-      <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <dl class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
-          <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 first:pl-0 flex flex-col">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <dl class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
+          <div class="pb-4 sm:pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 first:pl-0 flex flex-col">
             <dt class="sr-only">Clinical Experience</dt>
-            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               15+ Years
             </dd>
-            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
+            <div class="text-xs sm:text-sm font-semibold text-linen/90 mb-0.5 sm:mb-1 text-balance">
               Clinical Excellence
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+            <p class="text-[11px] sm:text-xs text-linen/70 leading-relaxed text-balance">
               Sports orthopedics &amp; spinal restoration care.
             </p>
           </div>
-          <div class="pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 flex flex-col">
+          <div class="pb-4 sm:pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 flex flex-col">
             <dt class="sr-only">Completed Treatments</dt>
-            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               12,000+
             </dd>
-            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
+            <div class="text-xs sm:text-sm font-semibold text-linen/90 mb-0.5 sm:mb-1 text-balance">
               Sessions Completed
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed text-balance">
+            <p class="text-[11px] sm:text-xs text-linen/70 leading-relaxed text-balance">
               Competitive athletic training &amp; surgical recovery.
             </p>
           </div>
-          <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
+          <div class="pt-4 sm:pt-0 lg:px-6 flex flex-col">
             <dt class="sr-only">Session Structure</dt>
-            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               1-on-1 Care
             </dd>
-            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
+            <div class="text-xs sm:text-sm font-semibold text-linen/90 mb-0.5 sm:mb-1 text-balance">
               60-Min Doctor Visits
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed text-balance">
-              Guaranteed licensed DPT care. Zero aides or techs.
+            <p class="text-[11px] sm:text-xs text-linen/70 leading-relaxed text-balance">
+              Guaranteed licensed DPT care. Zero aides.
             </p>
           </div>
-          <div class="pt-6 sm:pt-0 lg:px-6 flex flex-col">
+          <div class="pt-4 sm:pt-0 lg:px-6 flex flex-col">
             <dt class="sr-only">Doctor Credentials</dt>
-            <dd class="font-serif text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-1">
+            <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               100%
             </dd>
-            <div class="text-sm font-semibold text-linen/90 mb-1 text-balance">
+            <div class="text-xs sm:text-sm font-semibold text-linen/90 mb-0.5 sm:mb-1 text-balance">
               Board-Certified DPTs
             </div>
-            <p class="text-xs text-linen/70 leading-relaxed text-balance">
-              Fellowship-trained doctoral clinical specialists.
+            <p class="text-[11px] sm:text-xs text-linen/70 leading-relaxed text-balance">
+              Fellowship-trained doctoral specialists.
             </p>
           </div>
         </dl>
@@ -326,20 +488,36 @@ const { toggleMobileMenu } = useMobileNav()
     >
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
         <!-- Master Editorial 2-Column Split: Sticky thesis on left, deep ledger on right -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <!-- Left Column: Editorial Thesis & Philosophy Anchor -->
-          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-8">
-            <div class="space-y-4">
-              <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-[1.15] text-balance">
+          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6 lg:space-y-8">
+            <div class="space-y-3 sm:space-y-4">
+              <h2 class="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-[1.15] text-balance">
                 Comprehensive Sports Rehabilitation &amp; Human Performance
               </h2>
-              <p class="text-base text-charcoal-muted leading-relaxed font-normal">
+              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
                 Every diagnosis begins with objective biomechanical assessment to target root musculoskeletal dysfunctions, not just temporary symptom relief.
               </p>
             </div>
 
-            <!-- Clinical Standard Highlights -->
-            <div class="p-6 sm:p-7 rounded-2xl bg-white border border-ecru-border space-y-4">
+            <!-- Mobile Clinical Reassurance Chips (Visible < lg to avoid 400px of scrolling card) -->
+            <div class="flex flex-wrap gap-2 lg:hidden pt-1">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
+                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                100% Doctor of PT Care
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
+                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                Force Plate Dynamometry
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
+                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                Zero Techs or Aides
+              </span>
+            </div>
+
+            <!-- Clinical Standard Highlights (Desktop Full Ledger Card) -->
+            <div class="hidden lg:block p-6 sm:p-7 rounded-2xl bg-white border border-ecru-border space-y-4">
               <div class="font-serif text-lg text-pine font-medium">
                 The Apex Standard of Care
               </div>
@@ -371,206 +549,58 @@ const { toggleMobileMenu } = useMobileNav()
 
           <!-- Right Column: Editorial Clinical Ledger (Card-Free Structured Pacing) -->
           <div class="lg:col-span-7 divide-y divide-ecru-border">
-            <!-- Program 01: Post-Op Rehab -->
-            <article class="py-10 first:pt-0 group">
-              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <span class="font-serif text-sm text-clay-dark font-medium">01</span>
-                  <h3 class="font-serif text-2xl sm:text-3xl text-pine font-normal group-hover:text-pine-light transition-colors">
-                    Post-Op Surgical Rehabilitation
+            <article
+              v-for="item in specialties"
+              :key="item.id"
+              class="py-8 sm:py-10 first:pt-0 group"
+            >
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2 sm:mb-3">
+                <div class="flex items-center gap-2.5 sm:gap-3">
+                  <span class="font-serif text-xs sm:text-sm text-clay-dark font-medium">{{ item.num }}</span>
+                  <h3 class="font-serif text-xl sm:text-2xl lg:text-3xl text-pine font-normal group-hover:text-pine-light transition-colors">
+                    {{ item.title }}
                   </h3>
                 </div>
                 <div class="flex items-center gap-2 shrink-0">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
-                    $175 &bull; 60 Min
+                  <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
+                    {{ item.rate }}
                   </span>
-                  <span class="text-xs text-charcoal-light font-medium">Phase 1&ndash;4</span>
+                  <span class="text-xs text-charcoal-light font-medium">{{ item.category }}</span>
                 </div>
               </div>
 
-              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed mb-6 max-w-2xl font-normal">
-                Structured clinical protocols from acute surgical discharge through multi-stage strength dynamometry to full athletic clearance. Co-managed closely with Austin's premier orthopedic surgeons.
+              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed mb-4 sm:mb-6 max-w-2xl font-normal">
+                {{ item.description }}
               </p>
 
-              <!-- Diagnostic & Recovery Tags Grid -->
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  ACL, meniscus, labral &amp; rotator cuff staging
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Limb symmetry dynamometry &amp; force plates
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Graduated graft protection loading
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Multi-planar cutting &amp; sport clearance
-                </span>
+              <!-- Diagnostic & Recovery Tags: Progressive Disclosure on mobile -->
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
+                <template v-for="(tag, tIdx) in item.tags" :key="tIdx">
+                  <span
+                    v-if="tIdx <= 1 || expandedMobileSpecialties[item.id]"
+                    class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white border border-ecru-border text-[11px] sm:text-xs text-charcoal"
+                  >
+                    <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
+                    {{ tag }}
+                  </span>
+                </template>
+                <button
+                  v-if="item.tags.length > 2"
+                  type="button"
+                  class="lg:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-ecru-light hover:bg-ecru-border text-[11px] font-medium text-charcoal transition-colors"
+                  @click="toggleSpecialtyTags(item.id)"
+                >
+                  <span>{{ expandedMobileSpecialties[item.id] ? 'Show fewer' : `+${item.tags.length - 2} more protocols` }}</span>
+                  <UiIcon :name="expandedMobileSpecialties[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'" class="text-xs text-charcoal-muted" />
+                </button>
               </div>
 
               <div>
                 <NuxtLink
-                  to="/book?service=post-op"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
+                  :to="item.bookingUrl"
+                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
                 >
-                  <span>Explore Post-Op Protocol &amp; Book</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </div>
-            </article>
-
-            <!-- Program 02: Sports Orthopedic Evaluation -->
-            <article class="py-10 group">
-              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <span class="font-serif text-sm text-clay-dark font-medium">02</span>
-                  <h3 class="font-serif text-2xl sm:text-3xl text-pine font-normal group-hover:text-pine-light transition-colors">
-                    Sports Orthopedic Evaluation &amp; Rehab
-                  </h3>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
-                    $175 &bull; 60 Min
-                  </span>
-                  <span class="text-xs text-charcoal-light font-medium">Acute &amp; Overuse</span>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed mb-6 max-w-2xl font-normal">
-                Doctoral clinical evaluation, joint biomechanics triage, and personalized manual treatment for acute and overuse sports injuries. Tailored for athletes dealing with knee, shoulder, hip, or spinal dysfunction.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Acute knee sprain &amp; rotator cuff triage
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Joint mobility restoration &amp; manual therapy
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Spinal decompression &amp; core stabilization
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Take-home milestone roadmap
-                </span>
-              </div>
-
-              <div>
-                <NuxtLink
-                  to="/book?service=initial_eval"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
-                >
-                  <span>Explore Orthopedic Evaluation &amp; Book</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </div>
-            </article>
-
-            <!-- Program 03: Biomechanics & Gait Analysis -->
-            <article class="py-10 group">
-              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <span class="font-serif text-sm text-clay-dark font-medium">03</span>
-                  <h3 class="font-serif text-2xl sm:text-3xl text-pine font-normal group-hover:text-pine-light transition-colors">
-                    Biomechanics &amp; Running Gait Analysis
-                  </h3>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
-                    $195 &bull; 75 Min
-                  </span>
-                  <span class="text-xs text-charcoal-light font-medium">Kinematic Lab</span>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed mb-6 max-w-2xl font-normal">
-                High-speed multi-angle video assessment, synchronized force plate cadence analytics, and customized footwear prescription for persistent lower-extremity overuse injuries.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Ground reaction force profiling
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Pelvic drop &amp; knee valgus capture
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Plantar fasciitis &amp; Achilles modulation
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Footwear prescription &amp; mileage staging
-                </span>
-              </div>
-
-              <div>
-                <NuxtLink
-                  to="/book?service=biomech_gait"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
-                >
-                  <span>Book Gait Analysis Session</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </div>
-            </article>
-
-            <!-- Program 04: Performance Recovery & Modulation -->
-            <article class="py-10 last:pb-0 group">
-              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
-                <div class="flex items-center gap-3">
-                  <span class="font-serif text-sm text-clay-dark font-medium">04</span>
-                  <h3 class="font-serif text-2xl sm:text-3xl text-pine font-normal group-hover:text-pine-light transition-colors">
-                    Performance Recovery &amp; Modulation
-                  </h3>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                  <span class="px-3 py-1 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
-                    $95 &bull; 45 Min
-                  </span>
-                  <span class="text-xs text-charcoal-light font-medium">Athletic Suite</span>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed mb-6 max-w-2xl font-normal">
-                Doctor-administered clinical tissue therapies designed to accelerate neuromuscular restitution and clear systemic inflammation between training blocks and competitive fixtures.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Delfi PTS Blood Flow Restriction (BFR)
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Therapeutic dry needling &amp; e-stim
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Normatec 3 pneumatic compression
-                </span>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-ecru-border text-xs text-charcoal">
-                  <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
-                  Pre-competition neuromuscular reset
-                </span>
-              </div>
-
-              <div>
-                <NuxtLink
-                  to="/book?service=recovery_suite"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
-                >
-                  <span>Explore Recovery Suite &amp; Book</span>
+                  <span>{{ item.bookingLabel }}</span>
                   <UiIcon name="i-lucide-arrow-right" class="text-sm" />
                 </NuxtLink>
               </div>
@@ -687,8 +717,75 @@ const { toggleMobileMenu } = useMobileNav()
           </p>
         </div>
 
-        <!-- Asymmetric Case Study Feature Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        <!-- Mobile Case Study Interactive Switcher (lg:hidden) -->
+        <div class="lg:hidden">
+          <!-- Segmented Tab Bar -->
+          <div class="flex items-center gap-1.5 p-1 rounded-xl bg-white border border-ecru-border mb-6 overflow-x-auto no-scrollbar">
+            <button
+              v-for="(caseItem, cIdx) in caseStudies"
+              :key="caseItem.id"
+              type="button"
+              class="flex-1 py-2 px-3 rounded-lg text-xs font-medium whitespace-nowrap transition-all text-center"
+              :class="activeMobileCase === cIdx ? 'bg-pine text-linen font-semibold shadow-xs' : 'text-charcoal-muted hover:text-pine'"
+              @click="activeMobileCase = cIdx"
+            >
+              {{ caseItem.patient }} &bull; {{ caseItem.highlight }}
+            </button>
+          </div>
+
+          <!-- Active Mobile Case Card -->
+          <article class="bg-white rounded-2xl p-6 sm:p-8 border border-ecru-border flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <header class="flex items-center justify-between gap-2 pb-4 border-b border-ecru-border">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full bg-clay-soft text-clay-dark text-[11px] font-semibold uppercase tracking-wider border border-clay/20">
+                    {{ currentMobileCase.protocol }}
+                  </span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <UiRatingStars :rating="5" />
+                  <span class="text-xs font-semibold text-charcoal ml-1">5.0</span>
+                </div>
+              </header>
+
+              <div>
+                <div class="text-[11px] font-semibold text-clay-dark uppercase tracking-wider mb-1.5">
+                  {{ currentMobileCase.title }}
+                </div>
+                <blockquote class="font-serif text-lg sm:text-xl text-pine font-normal leading-relaxed italic">
+                  &ldquo;{{ currentMobileCase.quote }}&rdquo;
+                </blockquote>
+              </div>
+
+              <!-- Clinical Badges -->
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span
+                  v-for="(badge, bIdx) in currentMobileCase.badges"
+                  :key="bIdx"
+                  class="px-2.5 py-1 rounded-full text-[11px] font-medium"
+                  :class="bIdx === 0 ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80 font-semibold' : 'bg-linen border border-ecru-border text-charcoal'"
+                >
+                  {{ badge }}
+                </span>
+              </div>
+            </div>
+
+            <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
+              <div>
+                <cite class="text-sm font-semibold text-charcoal not-italic block">
+                  {{ currentMobileCase.patient }}
+                </cite>
+                <div class="text-xs text-charcoal-light">
+                  {{ currentMobileCase.role }} &bull; {{ currentMobileCase.coManage }}
+                </div>
+              </div>
+              <UiIcon name="i-lucide-check-circle" class="text-pine text-lg shrink-0" />
+            </footer>
+          </article>
+        </div>
+
+        <!-- Asymmetric Case Study Feature Layout (hidden lg:grid) -->
+        <div class="hidden lg:grid grid-cols-12 gap-12 items-stretch">
           <!-- Featured Lead Case Study (Left, 7 Cols) -->
           <article class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-ecru-border flex flex-col justify-between">
             <div class="space-y-6">
@@ -817,136 +914,61 @@ const { toggleMobileMenu } = useMobileNav()
           </div>
         </div>
 
-        <!-- Architectural Faculty Roster Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-          <!-- Specialist 1: Dr. Marcus Vance -->
-          <article class="flex flex-col group">
-            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
-              <img
-                alt="Dr. Marcus Vance, Board-Certified Orthopedic Clinical Specialist"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI4HGZy8D1KC8I17BtdM4lYsg30MRRohsWHBb6ODvX8aoP7Ye5yVnz5qpBKpTT2PoWl5PBj0yHhOYE4Esoi-RF5clarDtSEvgepkdfdxEVS8ASYPo98a0Ab1E4XpWrp5FldYFh-rU4rgDMJsWQ5W5RqDFmNlZLx4TWaCXVvOU4QblLOni7ClrLTamuHVZyQXw8qiKyO4vYR4TY_NDquS9Qq98au-Cpv5H95D7CUojscQneSAJkHKd-"
-              >
-              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
-                14 Yrs Experience
-              </figcaption>
-            </figure>
-            <div class="flex-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between mb-1">
-                  <h3 class="font-serif text-2xl font-normal text-pine">
-                    Dr. Marcus Vance
-                  </h3>
-                  <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
-                    PT, DPT, OCS
-                  </span>
-                </div>
-                <div class="text-xs font-medium text-charcoal-light mb-3">
-                  Knee &amp; Shoulder Reconstruction Specialist
-                </div>
-                <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-6">
-                  Board-Certified Orthopedic Clinical Specialist leading postoperative ACL and complex overhead athlete return-to-competition protocols across Austin.
-                </p>
-              </div>
-
-              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <NuxtLink
-                  to="/book?clinician=vance"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
+        <!-- Architectural Faculty Roster: Touch-Snap Carousel on Mobile, 3-Col Grid on Desktop -->
+        <div class="relative">
+          <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar">
+            <article
+              v-for="specialist in specialists"
+              :key="specialist.id"
+              class="flex flex-col group min-w-[82vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-2xl md:rounded-none p-4 md:p-0 border md:border-none border-ecru-border"
+            >
+              <figure class="relative mb-5 md:mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
+                <img
+                  :alt="`${specialist.name}, ${specialist.focus}`"
+                  class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                  loading="lazy"
+                  :src="specialist.image"
                 >
-                  <span>Book with Dr. Vance</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </footer>
-            </div>
-          </article>
+                <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
+                  {{ specialist.experience }}
+                </figcaption>
+              </figure>
+              <div class="flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="font-serif text-xl md:text-2xl font-normal text-pine">
+                      {{ specialist.name }}
+                    </h3>
+                    <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
+                      {{ specialist.credentials }}
+                    </span>
+                  </div>
+                  <div class="text-xs font-medium text-charcoal-light mb-3">
+                    {{ specialist.focus }}
+                  </div>
+                  <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-5 md:mb-6">
+                    {{ specialist.bio }}
+                  </p>
+                </div>
 
-          <!-- Specialist 2: Dr. Elena Rostova -->
-          <article class="flex flex-col group">
-            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
-              <img
-                alt="Dr. Elena Rostova, Board-Certified Sports Clinical Specialist"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LzHOZ3VxfVV7c1Ijnv1GhKCqzdTmyBZMpgOfZaje10pEDqt-ppFs344Z9owhCs88vF_LsbG5sMqPzVJiHQFRc5v0Tp5Gw62dpD9rfGQJBD795uINYHcMesgintHWqIq5MJGNo_qLO_Xkuc7jyjUuyu40sM-P1-2ts-4oUTLZQ8tGUpZj3rqtofMBF80ZWuYjD-YmVkNC1TcO1_hWDHGz0D6AE77X_B2x4fMIgrDtqWBvBF5bhyW"
-              >
-              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
-                11 Yrs Experience
-              </figcaption>
-            </figure>
-            <div class="flex-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between mb-1">
-                  <h3 class="font-serif text-2xl font-normal text-pine">
-                    Dr. Elena Rostova
-                  </h3>
-                  <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
-                    PT, DPT, SCS
-                  </span>
-                </div>
-                <div class="text-xs font-medium text-charcoal-light mb-3">
-                  Biomechanics &amp; Running Gait Director
-                </div>
-                <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-6">
-                  Board-Certified Sports Clinical Specialist and former US Track &amp; Field consultant. Directs kinematic lower-extremity gait analysis and tendon loading.
-                </p>
+                <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
+                  <NuxtLink
+                    :to="specialist.bookingUrl"
+                    class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
+                  >
+                    <span>Book with {{ specialist.name.split(' ')[1] }}</span>
+                    <UiIcon name="i-lucide-arrow-right" class="text-sm" />
+                  </NuxtLink>
+                </footer>
               </div>
+            </article>
+          </div>
 
-              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <NuxtLink
-                  to="/book?clinician=rostova"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
-                >
-                  <span>Book with Dr. Rostova</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </footer>
-            </div>
-          </article>
-
-          <!-- Specialist 3: Dr. Julian Hayes -->
-          <article class="flex flex-col group">
-            <figure class="relative mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
-              <img
-                alt="Dr. Julian Hayes, Fellow of the American Academy of Orthopaedic Manual Physical Therapists"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                loading="lazy"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J9apBKKhLNQGHXH5KsxTWtAOzIhmyKIIANm0V8ZYW1UERCFVr1VIYxnDYybw2RefiBrEgBx9E2OZRU8WuLFoVGzbaYDSiSrFfFLAqKahD3E3zXWL-DkuboBLGpkF9BJwcflj7Nf8Im-mTbim8ZyifEQ8WBs-_B3aHp98nw6tJHedI9Vx0ktmpWzBgB59zsbGSk5s1UVuU3nseJRuh1gfAn9WBnUmMZQH0POG3XHPaMb3xzb881Mo"
-              >
-              <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
-                16 Yrs Experience
-              </figcaption>
-            </figure>
-            <div class="flex-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between mb-1">
-                  <h3 class="font-serif text-2xl font-normal text-pine">
-                    Dr. Julian Hayes
-                  </h3>
-                  <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
-                    PT, DPT, FAAOMPT
-                  </span>
-                </div>
-                <div class="text-xs font-medium text-charcoal-light mb-3">
-                  Spine &amp; Complex Joint Rehab Fellow
-                </div>
-                <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-6">
-                  Fellow of the American Academy of Orthopaedic Manual Physical Therapists. Specializes in spinal mobilization, radiculopathy, and athletic core restoration.
-                </p>
-              </div>
-
-              <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                <NuxtLink
-                  to="/book?clinician=hayes"
-                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors"
-                >
-                  <span>Book with Dr. Hayes</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                </NuxtLink>
-              </footer>
-            </div>
-          </article>
+          <!-- Mobile Swipe Indicator Hint -->
+          <div class="md:hidden flex items-center justify-center gap-1.5 pt-2 text-[11px] text-charcoal-light">
+            <span>Swipe to meet our clinical team</span>
+            <UiIcon name="i-lucide-arrow-right" class="text-xs" />
+          </div>
         </div>
       </div>
     </section>
@@ -1166,5 +1188,27 @@ const { toggleMobileMenu } = useMobileNav()
         </div>
       </div>
     </section>
+
+    <!-- Mobile Floating Action Dock (lg:hidden, native tactile quick actions) -->
+    <aside
+      aria-label="Quick Actions"
+      class="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-ecru-border px-4 py-2.5 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-lg flex items-center justify-between gap-3"
+    >
+      <a
+        :href="`tel:${clinicInfo.phone.tel}`"
+        :aria-label="clinicInfo.phone.ariaLabel"
+        class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-ecru-border bg-linen/50 text-pine text-xs font-semibold active:bg-ecru-light transition-colors"
+      >
+        <UiIcon name="i-lucide-phone" class="text-sm shrink-0" />
+        <span>Call (512) 555-0199</span>
+      </a>
+      <UiButton
+        to="/book"
+        class="flex-1 justify-center rounded-xl bg-pine hover:bg-pine-light text-linen text-xs font-semibold py-2.5"
+        trailing-icon="i-lucide-arrow-right"
+      >
+        Book Assessment
+      </UiButton>
+    </aside>
   </div>
 </template>
