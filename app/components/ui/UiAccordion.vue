@@ -91,7 +91,9 @@ const model = computed({
             :open="open"
           >
             <div class="px-6 sm:px-8 pb-6 sm:pb-7 pt-1 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-linen-darker">
-              <p class="max-w-3xl">{{ item.answer ?? item.content }}</p>
+              <p class="max-w-3xl">
+                {{ item.answer ?? item.content }}
+              </p>
             </div>
           </slot>
         </AccordionContent>

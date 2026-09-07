@@ -37,10 +37,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  seo: {
-    automaticTwitterTags: false
-  },
-
   future: {
     compatibilityVersion: 5
   },
@@ -77,5 +73,9 @@ export default defineNuxtConfig({
 
   ogImage: {
     enabled: false
+  },
+
+  seo: {
+    automaticTwitterTags: false
   }
 })

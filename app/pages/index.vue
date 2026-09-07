@@ -43,28 +43,28 @@ useSeoMeta({
 useSchemaOrg([
   defineLocalBusiness({
     '@type': 'MedicalBusiness',
-    name: 'Apex Sports & Physical Therapy',
-    description: 'Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.',
-    telephone: '(512) 555-0199',
-    priceRange: '$95–$195',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
-    address: {
+    'name': 'Apex Sports & Physical Therapy',
+    'description': 'Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.',
+    'telephone': '(512) 555-0199',
+    'priceRange': '$95–$195',
+    'image': 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
+    'address': {
       streetAddress: '1204 S. Congress Ave, Suite 300',
       addressLocality: 'Austin',
       addressRegion: 'TX',
       postalCode: '78704',
       addressCountry: 'US'
     },
-    geo: {
+    'geo': {
       latitude: 30.2472,
       longitude: -97.7494
     },
-    openingHours: [
+    'openingHours': [
       'Mo-Th 07:00-19:00',
       'Fr 07:00-18:00',
       'Sa 08:00-13:00'
     ],
-    aggregateRating: {
+    'aggregateRating': {
       ratingValue: '4.9',
       bestRating: '5',
       ratingCount: '340'
@@ -233,7 +233,6 @@ interface CaseStudyItem {
 // Mobile interactive states
 const activeMobileCase = ref(0)
 const currentMobileCase = computed<CaseStudyItem>(() => caseStudies[activeMobileCase.value] ?? caseStudies[0]!)
-const activeMobileSpecialist = ref(0)
 const expandedMobileSpecialties = ref<Record<string, boolean>>({})
 
 const toggleSpecialtyTags = (id: string) => {
@@ -249,7 +248,10 @@ const toggleSpecialtyTags = (id: string) => {
       <div class="w-full flex-1 flex flex-col lg:grid lg:grid-cols-2">
         <!-- MOBILE-ONLY HEADER (Above the mobile image) -->
         <div class="lg:hidden w-full px-4 pt-4 pb-3 flex items-center justify-between z-20">
-          <NuxtLink to="/" class="flex items-center gap-2.5 group shrink-0">
+          <NuxtLink
+            to="/"
+            class="flex items-center gap-2.5 group shrink-0"
+          >
             <img
               src="/logo.svg"
               alt="Apex Sports &amp; Physical Therapy"
@@ -267,7 +269,10 @@ const toggleSpecialtyTags = (id: string) => {
               aria-label="Call clinic at (512) 555-0199"
               class="w-9 h-9 rounded-xl bg-linen/10 hover:bg-linen/20 border border-linen/20 flex items-center justify-center text-linen transition-colors active:scale-95"
             >
-              <UiIcon name="i-lucide-phone" class="text-sm" />
+              <UiIcon
+                name="i-lucide-phone"
+                class="text-sm"
+              />
             </a>
             <button
               type="button"
@@ -275,7 +280,10 @@ const toggleSpecialtyTags = (id: string) => {
               class="w-9 h-9 rounded-xl bg-linen/10 hover:bg-linen/20 border border-linen/20 flex items-center justify-center text-linen transition-colors active:scale-95 cursor-pointer"
               @click="toggleMobileMenu"
             >
-              <UiIcon name="i-lucide-menu" class="text-base" />
+              <UiIcon
+                name="i-lucide-menu"
+                class="text-base"
+              />
             </button>
           </div>
         </div>
@@ -301,7 +309,10 @@ const toggleSpecialtyTags = (id: string) => {
               href="tel:5125550199"
               class="px-5 py-2.5 rounded-full bg-white/90 hover:bg-white text-pine text-xs font-semibold backdrop-blur-md border border-white/40 shadow-sm transition-all flex items-center gap-2"
             >
-              <UiIcon name="i-lucide-phone" class="text-xs text-pine" />
+              <UiIcon
+                name="i-lucide-phone"
+                class="text-xs text-pine"
+              />
               <span>(512) 555-0199</span>
             </a>
           </div>
@@ -311,7 +322,10 @@ const toggleSpecialtyTags = (id: string) => {
         <div class="order-2 lg:order-1 bg-pine-dark text-linen flex flex-col justify-between px-5 sm:px-10 lg:px-14 xl:px-20 py-6 sm:py-10 lg:py-12 relative z-10 lg:border-r border-pine-muted/30">
           <!-- Desktop Brand & Navigation Bar (Left Side Only) -->
           <div class="hidden lg:flex items-center gap-6 lg:gap-10 mb-10 sm:mb-14 lg:mb-16">
-            <NuxtLink to="/" class="flex items-center gap-3 group shrink-0">
+            <NuxtLink
+              to="/"
+              class="flex items-center gap-3 group shrink-0"
+            >
               <img
                 src="/logo.svg"
                 alt="Apex Sports &amp; Physical Therapy"
@@ -323,12 +337,30 @@ const toggleSpecialtyTags = (id: string) => {
             </NuxtLink>
 
             <nav class="flex items-center gap-5 lg:gap-7 text-xs font-medium text-linen/70">
-              <a href="#specialties" class="hover:text-linen transition-colors whitespace-nowrap">Specialties</a>
-              <a href="#specialists" class="hover:text-linen transition-colors whitespace-nowrap">Clinical Faculty</a>
-              <a href="#stories" class="hover:text-linen transition-colors whitespace-nowrap">Case Outcomes</a>
-              <a href="#pricing" class="hover:text-linen transition-colors whitespace-nowrap">Reimbursement</a>
-              <a href="#faq" class="hover:text-linen transition-colors whitespace-nowrap">FAQ</a>
-              <a href="#locations" class="hover:text-linen transition-colors whitespace-nowrap">Austin Clinic</a>
+              <a
+                href="#specialties"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >Specialties</a>
+              <a
+                href="#specialists"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >Clinical Faculty</a>
+              <a
+                href="#stories"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >Case Outcomes</a>
+              <a
+                href="#pricing"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >Reimbursement</a>
+              <a
+                href="#faq"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >FAQ</a>
+              <a
+                href="#locations"
+                class="hover:text-linen transition-colors whitespace-nowrap"
+              >Austin Clinic</a>
             </nav>
           </div>
 
@@ -377,7 +409,10 @@ const toggleSpecialtyTags = (id: string) => {
               >
               <div class="absolute inset-0 bg-black/35 flex items-center justify-center group-hover:bg-black/25 transition-colors">
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/90 text-pine flex items-center justify-center shadow-xs">
-                  <UiIcon name="i-lucide-play" class="text-xs ml-0.5" />
+                  <UiIcon
+                    name="i-lucide-play"
+                    class="text-xs ml-0.5"
+                  />
                 </div>
               </div>
             </a>
@@ -393,7 +428,10 @@ const toggleSpecialtyTags = (id: string) => {
                 class="inline-flex items-center gap-1.5 text-linen/75 hover:text-white font-medium transition-colors mt-0.5"
               >
                 <span>Watch 2-min clinical recovery</span>
-                <UiIcon name="i-lucide-arrow-right" class="text-xs" />
+                <UiIcon
+                  name="i-lucide-arrow-right"
+                  class="text-xs"
+                />
               </a>
             </div>
           </div>
@@ -431,7 +469,9 @@ const toggleSpecialtyTags = (id: string) => {
       <div class="max-w-7xl mx-auto px-4 sm:px-8">
         <dl class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-10 lg:divide-x divide-pine-muted/40">
           <div class="pb-4 sm:pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 first:pl-0 flex flex-col">
-            <dt class="sr-only">Clinical Experience</dt>
+            <dt class="sr-only">
+              Clinical Experience
+            </dt>
             <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               15+ Years
             </dd>
@@ -443,7 +483,9 @@ const toggleSpecialtyTags = (id: string) => {
             </p>
           </div>
           <div class="pb-4 sm:pb-6 border-b border-pine-muted/30 lg:border-b-0 lg:pb-0 lg:px-6 flex flex-col">
-            <dt class="sr-only">Completed Treatments</dt>
+            <dt class="sr-only">
+              Completed Treatments
+            </dt>
             <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               12,000+
             </dd>
@@ -455,7 +497,9 @@ const toggleSpecialtyTags = (id: string) => {
             </p>
           </div>
           <div class="pt-4 sm:pt-0 lg:px-6 flex flex-col">
-            <dt class="sr-only">Session Structure</dt>
+            <dt class="sr-only">
+              Session Structure
+            </dt>
             <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               1-on-1 Care
             </dd>
@@ -467,7 +511,9 @@ const toggleSpecialtyTags = (id: string) => {
             </p>
           </div>
           <div class="pt-4 sm:pt-0 lg:px-6 flex flex-col">
-            <dt class="sr-only">Doctor Credentials</dt>
+            <dt class="sr-only">
+              Doctor Credentials
+            </dt>
             <dd class="font-serif text-2xl xs:text-3xl sm:text-4xl text-linen font-normal tracking-tight mb-0.5 sm:mb-1">
               100%
             </dd>
@@ -504,15 +550,24 @@ const toggleSpecialtyTags = (id: string) => {
             <!-- Mobile Clinical Reassurance Chips (Visible < lg to avoid 400px of scrolling card) -->
             <div class="flex flex-wrap gap-2 lg:hidden pt-1">
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
-                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-pine text-xs shrink-0"
+                />
                 100% Doctor of PT Care
               </span>
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
-                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-pine text-xs shrink-0"
+                />
                 Force Plate Dynamometry
               </span>
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-ecru-border text-[11px] font-medium text-charcoal">
-                <UiIcon name="i-lucide-check" class="text-pine text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-pine text-xs shrink-0"
+                />
                 Zero Techs or Aides
               </span>
             </div>
@@ -524,15 +579,24 @@ const toggleSpecialtyTags = (id: string) => {
               </div>
               <ul class="space-y-3 text-xs text-charcoal-muted">
                 <li class="flex items-start gap-2.5">
-                  <UiIcon name="i-lucide-check" class="text-pine text-sm shrink-0 mt-0.5" />
+                  <UiIcon
+                    name="i-lucide-check"
+                    class="text-pine text-sm shrink-0 mt-0.5"
+                  />
                   <span>100% Doctor of Physical Therapy appointments&mdash;zero aides or assistants</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <UiIcon name="i-lucide-check" class="text-pine text-sm shrink-0 mt-0.5" />
+                  <UiIcon
+                    name="i-lucide-check"
+                    class="text-pine text-sm shrink-0 mt-0.5"
+                  />
                   <span>Objective force plate dynamometry &amp; high-speed motion diagnostics</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <UiIcon name="i-lucide-check" class="text-pine text-sm shrink-0 mt-0.5" />
+                  <UiIcon
+                    name="i-lucide-check"
+                    class="text-pine text-sm shrink-0 mt-0.5"
+                  />
                   <span>Direct communication and milestone reporting to your orthopedic surgeon</span>
                 </li>
               </ul>
@@ -576,12 +640,18 @@ const toggleSpecialtyTags = (id: string) => {
 
               <!-- Diagnostic & Recovery Tags: Progressive Disclosure on mobile -->
               <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
-                <template v-for="(tag, tIdx) in item.tags" :key="tIdx">
+                <template
+                  v-for="(tag, tIdx) in item.tags"
+                  :key="tIdx"
+                >
                   <span
                     v-if="tIdx <= 1 || expandedMobileSpecialties[item.id]"
                     class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white border border-ecru-border text-[11px] sm:text-xs text-charcoal"
                   >
-                    <UiIcon name="i-lucide-activity" class="text-pine text-xs shrink-0" />
+                    <UiIcon
+                      name="i-lucide-activity"
+                      class="text-pine text-xs shrink-0"
+                    />
                     {{ tag }}
                   </span>
                 </template>
@@ -592,7 +662,10 @@ const toggleSpecialtyTags = (id: string) => {
                   @click="toggleSpecialtyTags(item.id)"
                 >
                   <span>{{ expandedMobileSpecialties[item.id] ? 'Show fewer' : `+${item.tags.length - 2} more protocols` }}</span>
-                  <UiIcon :name="expandedMobileSpecialties[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'" class="text-xs text-charcoal-muted" />
+                  <UiIcon
+                    :name="expandedMobileSpecialties[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
+                    class="text-xs text-charcoal-muted"
+                  />
                 </button>
               </div>
 
@@ -602,7 +675,10 @@ const toggleSpecialtyTags = (id: string) => {
                   class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
                 >
                   <span>{{ item.bookingLabel }}</span>
-                  <UiIcon name="i-lucide-arrow-right" class="text-sm" />
+                  <UiIcon
+                    name="i-lucide-arrow-right"
+                    class="text-sm"
+                  />
                 </NuxtLink>
               </div>
             </article>
@@ -674,7 +750,10 @@ const toggleSpecialtyTags = (id: string) => {
                     class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
                   >
                     <span>Book with {{ specialist.name.split(' ')[1] }}</span>
-                    <UiIcon name="i-lucide-arrow-right" class="text-sm" />
+                    <UiIcon
+                      name="i-lucide-arrow-right"
+                      class="text-sm"
+                    />
                   </NuxtLink>
                 </footer>
               </div>
@@ -684,7 +763,10 @@ const toggleSpecialtyTags = (id: string) => {
           <!-- Mobile Swipe Indicator Hint -->
           <div class="md:hidden flex items-center justify-center gap-1.5 pt-2 text-[11px] text-charcoal-light">
             <span>Swipe to meet our clinical team</span>
-            <UiIcon name="i-lucide-arrow-right" class="text-xs" />
+            <UiIcon
+              name="i-lucide-arrow-right"
+              class="text-xs"
+            />
           </div>
         </div>
       </div>
@@ -767,7 +849,10 @@ const toggleSpecialtyTags = (id: string) => {
                   {{ currentMobileCase.role }} &bull; {{ currentMobileCase.coManage }}
                 </div>
               </div>
-              <UiIcon name="i-lucide-check-circle" class="text-pine text-lg shrink-0" />
+              <UiIcon
+                name="i-lucide-check-circle"
+                class="text-pine text-lg shrink-0"
+              />
             </footer>
           </article>
         </div>
@@ -822,7 +907,10 @@ const toggleSpecialtyTags = (id: string) => {
                   Sub-3:30 Marathon Runner &bull; Co-managed with Dr. Marcus Vance, PT, DPT, OCS
                 </div>
               </div>
-              <UiIcon name="i-lucide-check-circle" class="text-pine text-xl shrink-0" />
+              <UiIcon
+                name="i-lucide-check-circle"
+                class="text-pine text-xl shrink-0"
+              />
             </footer>
           </article>
 
@@ -847,7 +935,9 @@ const toggleSpecialtyTags = (id: string) => {
               <footer class="pt-4 mt-4 border-t border-ecru-border flex items-center justify-between">
                 <div>
                   <cite class="text-xs font-semibold text-charcoal not-italic block">David T.</cite>
-                  <div class="text-[11px] text-charcoal-light">Competitive Masters Crossfit Athlete</div>
+                  <div class="text-[11px] text-charcoal-light">
+                    Competitive Masters Crossfit Athlete
+                  </div>
                 </div>
                 <span class="text-xs text-charcoal-muted font-medium">Dr. Julian Hayes, DPT</span>
               </footer>
@@ -872,7 +962,9 @@ const toggleSpecialtyTags = (id: string) => {
               <footer class="pt-4 mt-4 border-t border-ecru-border flex items-center justify-between">
                 <div>
                   <cite class="text-xs font-semibold text-charcoal not-italic block">Sienna K.</cite>
-                  <div class="text-[11px] text-charcoal-light">Division I Collegiate Swimmer</div>
+                  <div class="text-[11px] text-charcoal-light">
+                    Division I Collegiate Swimmer
+                  </div>
                 </div>
                 <span class="text-xs text-charcoal-muted font-medium">Dr. Elena Rostova, DPT</span>
               </footer>
@@ -913,7 +1005,10 @@ const toggleSpecialtyTags = (id: string) => {
                 Know your exact investment before stepping foot in the clinic. Comprehensive 60-minute doctor evaluations are $175. No surprise facility fees or unexpected copay bills arriving months later.
               </p>
               <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-xs shrink-0"
+                />
                 <span>Dedicated 60&ndash;75 min doctoral visits</span>
               </div>
             </div>
@@ -931,7 +1026,10 @@ const toggleSpecialtyTags = (id: string) => {
                 Following each session, your clinician provides an itemized medical Superbill populated with standard ICD-10 diagnostic and CPT treatment codes required by private health plans.
               </p>
               <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-xs shrink-0"
+                />
                 <span>Full medical diagnosis coding included</span>
               </div>
             </div>
@@ -949,7 +1047,10 @@ const toggleSpecialtyTags = (id: string) => {
                 Submit your Superbill directly to your PPO insurance provider (BCBS, Aetna, Cigna, United) for direct 50%&ndash;80% out-of-network reimbursement. You can also pay seamlessly using your HSA or FSA card.
               </p>
               <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <UiIcon
+                  name="i-lucide-check"
+                  class="text-xs shrink-0"
+                />
                 <span>HSA / FSA cards accepted at checkout</span>
               </div>
             </div>
@@ -959,15 +1060,24 @@ const toggleSpecialtyTags = (id: string) => {
         <!-- Trust & Reassurance Affirmations -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 text-xs text-charcoal">
           <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-shield-check" class="text-pine text-lg shrink-0" />
+            <UiIcon
+              name="i-lucide-shield-check"
+              class="text-pine text-lg shrink-0"
+            />
             <span class="font-medium">Texas Direct Access: No Physician Referral Required to Begin</span>
           </div>
           <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-credit-card" class="text-pine text-lg shrink-0" />
+            <UiIcon
+              name="i-lucide-credit-card"
+              class="text-pine text-lg shrink-0"
+            />
             <span class="font-medium">HSA &amp; FSA Approved Out-of-Pocket Healthcare Expense</span>
           </div>
           <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-user-check" class="text-pine text-lg shrink-0" />
+            <UiIcon
+              name="i-lucide-user-check"
+              class="text-pine text-lg shrink-0"
+            />
             <span class="font-medium">100% Doctor of PT Care &mdash; Never Handed Off to Aides or Techs</span>
           </div>
         </div>
@@ -1200,7 +1310,10 @@ const toggleSpecialtyTags = (id: string) => {
         :aria-label="clinicInfo.phone.ariaLabel"
         class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-ecru-border bg-linen/50 text-pine text-xs font-semibold active:bg-ecru-light transition-colors"
       >
-        <UiIcon name="i-lucide-phone" class="text-sm shrink-0" />
+        <UiIcon
+          name="i-lucide-phone"
+          class="text-sm shrink-0"
+        />
         <span>Call (512) 555-0199</span>
       </a>
       <UiButton

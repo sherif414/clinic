@@ -40,7 +40,7 @@ const handleScroll = () => {
 const initSectionObserver = () => {
   if (!import.meta.client) return
   const sectionIds = ['specialties', 'specialists', 'stories', 'pricing', 'faq', 'locations']
-  
+
   observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
@@ -190,11 +190,11 @@ const navLinks: NavLink[] = [
             :class="[
               isHome && isScrolled
                 ? [
-                    'px-2.5 xl:px-3 py-1 rounded-full text-xs font-medium',
-                    activeSection === link.to.replace('/#', '')
-                      ? 'bg-linen-darker text-pine font-semibold'
-                      : 'text-charcoal hover:text-pine hover:bg-linen/60'
-                  ]
+                  'px-2.5 xl:px-3 py-1 rounded-full text-xs font-medium',
+                  activeSection === link.to.replace('/#', '')
+                    ? 'bg-linen-darker text-pine font-semibold'
+                    : 'text-charcoal hover:text-pine hover:bg-linen/60'
+                ]
                 : 'text-sm font-medium text-charcoal hover:text-pine py-1.5'
             ]"
           >
