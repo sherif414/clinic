@@ -327,6 +327,7 @@ const toggleSpecialtyTags = (id: string) => {
               <a href="#specialists" class="hover:text-linen transition-colors whitespace-nowrap">Clinical Faculty</a>
               <a href="#stories" class="hover:text-linen transition-colors whitespace-nowrap">Case Outcomes</a>
               <a href="#pricing" class="hover:text-linen transition-colors whitespace-nowrap">Reimbursement</a>
+              <a href="#faq" class="hover:text-linen transition-colors whitespace-nowrap">FAQ</a>
               <a href="#locations" class="hover:text-linen transition-colors whitespace-nowrap">Austin Clinic</a>
             </nav>
           </div>
@@ -610,93 +611,80 @@ const toggleSpecialtyTags = (id: string) => {
       </div>
     </section>
 
-    <!-- Transparent Financial Model & Superbill Pipeline (Replaces repetitive card boxes) -->
+    <!-- Clinical Faculty Roster (Architectural Showcase) -->
     <section
-      id="pricing"
+      id="specialists"
       class="py-24 lg:py-32 bg-white scroll-mt-20 border-b border-ecru-border"
     >
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <div class="max-w-3xl mb-16">
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight mb-5 text-balance">
-            Transparent Pricing. 1-on-1 Doctoral Care. Zero Surprise Bills.
-          </h2>
-          <p class="text-base text-charcoal-muted font-normal leading-relaxed">
-            Apex operates strictly out-of-network so our Doctors of Physical Therapy can focus 100% on your recovery&mdash;never double-booking appointments, handing you off to aides, or letting insurance adjusters dictate your care timeline.
-          </p>
-        </div>
-
-        <!-- Unified Seamless Reimbursement Pipeline -->
-        <div class="rounded-3xl bg-linen p-8 sm:p-12 border border-ecru-border mb-12">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
-            <!-- Stage 1 -->
-            <div class="space-y-3 relative md:pr-4">
-              <div class="flex items-center justify-between">
-                <span class="font-serif text-2xl text-pine font-medium">Stage 01</span>
-                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Upfront Clarity</span>
-              </div>
-              <h3 class="font-serif text-xl text-pine font-normal">
-                Flat-Rate Pricing
-              </h3>
-              <p class="text-sm text-charcoal-muted leading-relaxed">
-                Know your exact investment before stepping foot in the clinic. Comprehensive 60-minute doctor evaluations are $175. No surprise facility fees or unexpected copay bills arriving months later.
-              </p>
-              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
-                <span>Dedicated 60&ndash;75 min doctoral visits</span>
-              </div>
-            </div>
-
-            <!-- Stage 2 -->
-            <div class="space-y-3 relative md:border-l md:border-ecru-border md:pl-8 md:pr-4">
-              <div class="flex items-center justify-between">
-                <span class="font-serif text-2xl text-pine font-medium">Stage 02</span>
-                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Itemized Coding</span>
-              </div>
-              <h3 class="font-serif text-xl text-pine font-normal">
-                Doctoral Superbill Provided
-              </h3>
-              <p class="text-sm text-charcoal-muted leading-relaxed">
-                Following each session, your clinician provides an itemized medical Superbill populated with standard ICD-10 diagnostic and CPT treatment codes required by private health plans.
-              </p>
-              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
-                <span>Full medical diagnosis coding included</span>
-              </div>
-            </div>
-
-            <!-- Stage 3 -->
-            <div class="space-y-3 relative md:border-l md:border-ecru-border md:pl-8">
-              <div class="flex items-center justify-between">
-                <span class="font-serif text-2xl text-pine font-medium">Stage 03</span>
-                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Reimbursement</span>
-              </div>
-              <h3 class="font-serif text-xl text-pine font-normal">
-                PPO &amp; HSA / FSA Eligible
-              </h3>
-              <p class="text-sm text-charcoal-muted leading-relaxed">
-                Submit your Superbill directly to your PPO insurance provider (BCBS, Aetna, Cigna, United) for direct 50%&ndash;80% out-of-network reimbursement. You can also pay seamlessly using your HSA or FSA card.
-              </p>
-              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
-                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
-                <span>HSA / FSA cards accepted at checkout</span>
-              </div>
-            </div>
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div class="max-w-2xl">
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight text-balance">
+              Doctoral Clinical Faculty
+            </h2>
+            <p class="text-base text-charcoal-muted mt-3 font-normal leading-relaxed">
+              Every clinician holds a Doctorate of Physical Therapy and board-certified clinical specialty credentials. Dedicated 1-on-1 care from your doctor at every appointment.
+            </p>
+          </div>
+          <div class="shrink-0 text-xs text-charcoal-light font-medium">
+            Zero Aides &bull; Zero Techs &bull; Guaranteed Licensed DPT
           </div>
         </div>
 
-        <!-- Trust & Reassurance Affirmations -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 text-xs text-charcoal">
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-shield-check" class="text-pine text-lg shrink-0" />
-            <span class="font-medium">Texas Direct Access: No Physician Referral Required to Begin</span>
+        <!-- Architectural Faculty Roster: Touch-Snap Carousel on Mobile, 3-Col Grid on Desktop -->
+        <div class="relative">
+          <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar">
+            <article
+              v-for="specialist in specialists"
+              :key="specialist.id"
+              class="flex flex-col group min-w-[82vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-2xl md:rounded-none p-4 md:p-0 border md:border-none border-ecru-border"
+            >
+              <figure class="relative mb-5 md:mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
+                <img
+                  :alt="`${specialist.name}, ${specialist.focus}`"
+                  class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                  loading="lazy"
+                  :src="specialist.image"
+                >
+                <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
+                  {{ specialist.experience }}
+                </figcaption>
+              </figure>
+              <div class="flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="font-serif text-xl md:text-2xl font-normal text-pine">
+                      {{ specialist.name }}
+                    </h3>
+                    <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
+                      {{ specialist.credentials }}
+                    </span>
+                  </div>
+                  <div class="text-xs font-medium text-charcoal-light mb-3">
+                    {{ specialist.focus }}
+                  </div>
+                  <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-5 md:mb-6">
+                    {{ specialist.bio }}
+                  </p>
+                </div>
+
+                <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
+                  <NuxtLink
+                    :to="specialist.bookingUrl"
+                    class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
+                  >
+                    <span>Book with {{ specialist.name.split(' ')[1] }}</span>
+                    <UiIcon name="i-lucide-arrow-right" class="text-sm" />
+                  </NuxtLink>
+                </footer>
+              </div>
+            </article>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-credit-card" class="text-pine text-lg shrink-0" />
-            <span class="font-medium">HSA &amp; FSA Approved Out-of-Pocket Healthcare Expense</span>
-          </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
-            <UiIcon name="i-lucide-user-check" class="text-pine text-lg shrink-0" />
-            <span class="font-medium">100% Doctor of PT Care &mdash; Never Handed Off to Aides or Techs</span>
+
+          <!-- Mobile Swipe Indicator Hint -->
+          <div class="md:hidden flex items-center justify-center gap-1.5 pt-2 text-[11px] text-charcoal-light">
+            <span>Swipe to meet our clinical team</span>
+            <UiIcon name="i-lucide-arrow-right" class="text-xs" />
           </div>
         </div>
       </div>
@@ -894,80 +882,93 @@ const toggleSpecialtyTags = (id: string) => {
       </div>
     </section>
 
-    <!-- Clinical Faculty Roster (Architectural Showcase) -->
+    <!-- Transparent Financial Model & Superbill Pipeline (Replaces repetitive card boxes) -->
     <section
-      id="specialists"
+      id="pricing"
       class="py-24 lg:py-32 bg-white scroll-mt-20 border-b border-ecru-border"
     >
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div class="max-w-2xl">
-            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight text-balance">
-              Doctoral Clinical Faculty
-            </h2>
-            <p class="text-base text-charcoal-muted mt-3 font-normal leading-relaxed">
-              Every clinician holds a Doctorate of Physical Therapy and board-certified clinical specialty credentials. Dedicated 1-on-1 care from your doctor at every appointment.
-            </p>
-          </div>
-          <div class="shrink-0 text-xs text-charcoal-light font-medium">
-            Zero Aides &bull; Zero Techs &bull; Guaranteed Licensed DPT
+        <div class="max-w-3xl mb-16">
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-pine tracking-tight leading-tight mb-5 text-balance">
+            Transparent Pricing. 1-on-1 Doctoral Care. Zero Surprise Bills.
+          </h2>
+          <p class="text-base text-charcoal-muted font-normal leading-relaxed">
+            Apex operates strictly out-of-network so our Doctors of Physical Therapy can focus 100% on your recovery&mdash;never double-booking appointments, handing you off to aides, or letting insurance adjusters dictate your care timeline.
+          </p>
+        </div>
+
+        <!-- Unified Seamless Reimbursement Pipeline -->
+        <div class="rounded-3xl bg-linen p-8 sm:p-12 border border-ecru-border mb-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
+            <!-- Stage 1 -->
+            <div class="space-y-3 relative md:pr-4">
+              <div class="flex items-center justify-between">
+                <span class="font-serif text-2xl text-pine font-medium">Stage 01</span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Upfront Clarity</span>
+              </div>
+              <h3 class="font-serif text-xl text-pine font-normal">
+                Flat-Rate Pricing
+              </h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Know your exact investment before stepping foot in the clinic. Comprehensive 60-minute doctor evaluations are $175. No surprise facility fees or unexpected copay bills arriving months later.
+              </p>
+              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
+                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <span>Dedicated 60&ndash;75 min doctoral visits</span>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="space-y-3 relative md:border-l md:border-ecru-border md:pl-8 md:pr-4">
+              <div class="flex items-center justify-between">
+                <span class="font-serif text-2xl text-pine font-medium">Stage 02</span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Itemized Coding</span>
+              </div>
+              <h3 class="font-serif text-xl text-pine font-normal">
+                Doctoral Superbill Provided
+              </h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Following each session, your clinician provides an itemized medical Superbill populated with standard ICD-10 diagnostic and CPT treatment codes required by private health plans.
+              </p>
+              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
+                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <span>Full medical diagnosis coding included</span>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="space-y-3 relative md:border-l md:border-ecru-border md:pl-8">
+              <div class="flex items-center justify-between">
+                <span class="font-serif text-2xl text-pine font-medium">Stage 03</span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-clay-dark">Reimbursement</span>
+              </div>
+              <h3 class="font-serif text-xl text-pine font-normal">
+                PPO &amp; HSA / FSA Eligible
+              </h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Submit your Superbill directly to your PPO insurance provider (BCBS, Aetna, Cigna, United) for direct 50%&ndash;80% out-of-network reimbursement. You can also pay seamlessly using your HSA or FSA card.
+              </p>
+              <div class="pt-3 text-xs font-medium text-pine flex items-center gap-1.5">
+                <UiIcon name="i-lucide-check" class="text-xs shrink-0" />
+                <span>HSA / FSA cards accepted at checkout</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Architectural Faculty Roster: Touch-Snap Carousel on Mobile, 3-Col Grid on Desktop -->
-        <div class="relative">
-          <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-6 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar">
-            <article
-              v-for="specialist in specialists"
-              :key="specialist.id"
-              class="flex flex-col group min-w-[82vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-2xl md:rounded-none p-4 md:p-0 border md:border-none border-ecru-border"
-            >
-              <figure class="relative mb-5 md:mb-6 rounded-2xl overflow-hidden aspect-[4/3] bg-linen-darker border border-ecru-border m-0">
-                <img
-                  :alt="`${specialist.name}, ${specialist.focus}`"
-                  class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                  loading="lazy"
-                  :src="specialist.image"
-                >
-                <figcaption class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border">
-                  {{ specialist.experience }}
-                </figcaption>
-              </figure>
-              <div class="flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-baseline justify-between mb-1">
-                    <h3 class="font-serif text-xl md:text-2xl font-normal text-pine">
-                      {{ specialist.name }}
-                    </h3>
-                    <span class="text-xs font-semibold text-clay-dark tracking-wide uppercase">
-                      {{ specialist.credentials }}
-                    </span>
-                  </div>
-                  <div class="text-xs font-medium text-charcoal-light mb-3">
-                    {{ specialist.focus }}
-                  </div>
-                  <p class="text-sm text-charcoal-muted leading-relaxed font-normal mb-5 md:mb-6">
-                    {{ specialist.bio }}
-                  </p>
-                </div>
-
-                <footer class="pt-4 border-t border-ecru-border flex items-center justify-between">
-                  <NuxtLink
-                    :to="specialist.bookingUrl"
-                    class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pine hover:text-clay transition-colors py-1"
-                  >
-                    <span>Book with {{ specialist.name.split(' ')[1] }}</span>
-                    <UiIcon name="i-lucide-arrow-right" class="text-sm" />
-                  </NuxtLink>
-                </footer>
-              </div>
-            </article>
+        <!-- Trust & Reassurance Affirmations -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 text-xs text-charcoal">
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
+            <UiIcon name="i-lucide-shield-check" class="text-pine text-lg shrink-0" />
+            <span class="font-medium">Texas Direct Access: No Physician Referral Required to Begin</span>
           </div>
-
-          <!-- Mobile Swipe Indicator Hint -->
-          <div class="md:hidden flex items-center justify-center gap-1.5 pt-2 text-[11px] text-charcoal-light">
-            <span>Swipe to meet our clinical team</span>
-            <UiIcon name="i-lucide-arrow-right" class="text-xs" />
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
+            <UiIcon name="i-lucide-credit-card" class="text-pine text-lg shrink-0" />
+            <span class="font-medium">HSA &amp; FSA Approved Out-of-Pocket Healthcare Expense</span>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-linen/50 border border-ecru-border">
+            <UiIcon name="i-lucide-user-check" class="text-pine text-lg shrink-0" />
+            <span class="font-medium">100% Doctor of PT Care &mdash; Never Handed Off to Aides or Techs</span>
           </div>
         </div>
       </div>
@@ -976,7 +977,7 @@ const toggleSpecialtyTags = (id: string) => {
     <!-- Frequently Asked Questions Section -->
     <section
       id="faq"
-      class="py-24 lg:py-32 bg-white scroll-mt-20 border-b border-ecru-border"
+      class="py-24 lg:py-32 bg-linen scroll-mt-20 border-b border-ecru-border"
     >
       <div class="max-w-4xl mx-auto px-6 sm:px-8">
         <div class="text-center mb-16">
@@ -995,7 +996,7 @@ const toggleSpecialtyTags = (id: string) => {
         />
 
         <!-- Still have questions banner -->
-        <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-linen/70 border border-ecru-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-ecru-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
             <h3 class="font-serif text-lg text-pine font-medium mb-1 text-balance">
               Have a specific clinical or surgical question?
@@ -1008,7 +1009,7 @@ const toggleSpecialtyTags = (id: string) => {
             <a
               :href="`tel:${clinicInfo.phone.tel}`"
               :aria-label="clinicInfo.phone.ariaLabel"
-              class="w-full sm:w-auto justify-center inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-ecru-border bg-white hover:bg-linen text-pine text-xs font-semibold transition-colors whitespace-nowrap"
+              class="w-full sm:w-auto justify-center inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-ecru-border bg-linen/60 hover:bg-linen text-pine text-xs font-semibold transition-colors whitespace-nowrap"
             >
               <UiIcon
                 name="i-lucide-phone"
@@ -1031,18 +1032,18 @@ const toggleSpecialtyTags = (id: string) => {
     <!-- Location & Schedule: Integrated Facility Pavilion -->
     <section
       id="locations"
-      class="py-24 lg:py-32 bg-linen scroll-mt-20 border-b border-ecru-border"
+      class="py-24 lg:py-32 bg-white scroll-mt-20 border-b border-ecru-border"
     >
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <!-- Left: Information & Schedule -->
-          <div class="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 border border-ecru-border flex flex-col justify-between">
+          <div class="lg:col-span-6 bg-linen rounded-3xl p-8 sm:p-10 border border-ecru-border flex flex-col justify-between">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 mb-6">
                 <span class="text-xs font-semibold uppercase tracking-wider text-pine">
                   Austin Performance Facility
                 </span>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linen text-pine text-xs font-medium border border-ecru-border whitespace-nowrap shrink-0">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-pine text-xs font-medium border border-ecru-border whitespace-nowrap shrink-0">
                   <span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
                   <span>{{ clinicInfo.hours.statusText }}</span>
                 </div>

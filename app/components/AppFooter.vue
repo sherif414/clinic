@@ -126,18 +126,10 @@
               </li>
               <li>
                 <NuxtLink
-                  to="/#faq"
+                  to="/#pricing"
                   class="text-charcoal-muted hover:text-pine transition-colors"
                 >
-                  Patient Superbill FAQs
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink
-                  to="/#locations"
-                  class="text-charcoal-muted hover:text-pine transition-colors"
-                >
-                  Live Clinic Hours
+                  Pricing &amp; Reimbursement
                 </NuxtLink>
               </li>
               <li>
@@ -146,6 +138,14 @@
                   class="text-charcoal-muted hover:text-pine transition-colors"
                 >
                   Frequently Asked Questions
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink
+                  to="/#locations"
+                  class="text-charcoal-muted hover:text-pine transition-colors"
+                >
+                  Austin Clinic &amp; Hours
                 </NuxtLink>
               </li>
             </ul>

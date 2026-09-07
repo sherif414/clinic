@@ -26,7 +26,10 @@ const handleKeyDown = (event: KeyboardEvent) => {
 }
 
 const isScrolled = ref(false)
+const activeSection = ref('')
 const isHome = computed(() => route.path === '/')
+
+let observer: IntersectionObserver | null = null
 
 const handleScroll = () => {
   if (import.meta.client) {
@@ -34,10 +37,37 @@ const handleScroll = () => {
   }
 }
 
+const initSectionObserver = () => {
+  if (!import.meta.client) return
+  const sectionIds = ['specialties', 'specialists', 'stories', 'pricing', 'faq', 'locations']
+  
+  observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      }
+    },
+    {
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    }
+  )
+
+  sectionIds.forEach((id) => {
+    const el = document.getElementById(id)
+    if (el && observer) {
+      observer.observe(el)
+    }
+  })
+}
+
 onMounted(() => {
   window.addEventListener('keydown', handleKeyDown)
   window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll()
+  initSectionObserver()
 })
 
 onUnmounted(() => {
@@ -46,6 +76,10 @@ onUnmounted(() => {
   }
   window.removeEventListener('keydown', handleKeyDown)
   window.removeEventListener('scroll', handleScroll)
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
 })
 
 interface NavLink {
@@ -62,133 +96,181 @@ const navLinks: NavLink[] = [
     icon: 'i-lucide-activity'
   },
   {
-    label: 'Clinical Team',
+    label: 'Clinical Faculty',
     to: '/#specialists',
     icon: 'i-lucide-user-check'
   },
   {
-    label: 'Patient Stories',
+    label: 'Case Outcomes',
     to: '/#stories',
     icon: 'i-lucide-award'
   },
   {
-    label: 'Clinic & Hours',
-    to: '/#locations',
-    icon: 'i-lucide-clock'
+    label: 'Reimbursement',
+    to: '/#pricing',
+    icon: 'i-lucide-credit-card'
   },
   {
     label: 'FAQ',
     to: '/#faq',
     icon: 'i-lucide-help-circle'
+  },
+  {
+    label: 'Austin Clinic',
+    to: '/#locations',
+    icon: 'i-lucide-clock'
   }
 ]
 </script>
 
 <template>
   <header
-    class="bg-linen/95 backdrop-blur-md border-b border-ecru-border z-50 transition-all duration-300"
+    class="z-50 transition-all duration-300"
     :class="[
       isHome
-        ? (isScrolled ? 'fixed top-0 left-0 right-0 shadow-xs translate-y-0 opacity-100' : 'fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none')
-        : 'sticky top-0'
+        ? (isScrolled ? 'fixed top-3 sm:top-4 inset-x-0 pointer-events-auto' : 'fixed top-0 inset-x-0 -translate-y-full opacity-0 pointer-events-none')
+        : 'sticky top-0 bg-linen/95 backdrop-blur-md border-b border-ecru-border'
     ]"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
-      <!-- Brand Logo & Title -->
-      <NuxtLink
-        to="/"
-        class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0"
-        @click="closeMenu"
+    <!-- On Homepage: Floating Editorial Capsule when scrolled; On other routes: Standard Full-Width Header -->
+    <div
+      :class="[
+        isHome && isScrolled
+          ? 'max-w-6xl mx-auto px-3 sm:px-6'
+          : 'max-w-7xl mx-auto px-4 sm:px-8'
+      ]"
+    >
+      <div
+        class="transition-all duration-300 flex items-center justify-between"
+        :class="[
+          isHome && isScrolled
+            ? 'h-13 sm:h-14 px-3 sm:px-5 rounded-full bg-white/95 backdrop-blur-md border border-ecru-border shadow-md shadow-pine-dark/5 gap-2 lg:gap-4'
+            : 'h-16 sm:h-20 gap-3 sm:gap-6'
+        ]"
       >
-        <img
-          src="/logo.svg"
-          alt="Apex Sports &amp; Physical Therapy"
-          class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-contain"
-        >
-        <div class="flex flex-col">
-          <span class="font-serif text-lg sm:text-2xl font-bold tracking-tight text-pine leading-tight whitespace-nowrap">
-            Apex Sports<span class="hidden sm:inline"> &amp; Physical Therapy</span>
-          </span>
-          <span class="hidden 2xl:block text-[11px] font-semibold tracking-[0.14em] uppercase text-charcoal-muted mt-0.5 whitespace-nowrap">
-            Doctoral Sports Medicine &amp; Performance
-          </span>
-        </div>
-      </NuxtLink>
-
-      <!-- Desktop Navigation Links (Large viewports) -->
-      <nav
-        aria-label="Main Navigation"
-        class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0"
-      >
+        <!-- Brand Logo & Title -->
         <NuxtLink
-          v-for="link in navLinks"
-          :key="link.to"
-          :to="link.to"
-          class="text-sm font-medium text-charcoal hover:text-pine transition-colors flex items-center gap-1.5 py-1 relative group whitespace-nowrap shrink-0"
+          to="/"
+          class="flex items-center gap-2 sm:gap-2.5 group shrink-0"
+          @click="closeMenu"
         >
-          <span class="whitespace-nowrap">{{ link.label }}</span>
-          <span
-            v-if="link.badge"
-            class="px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider rounded bg-clay-soft text-clay-dark leading-none whitespace-nowrap"
+          <img
+            src="/logo.svg"
+            alt="Apex Sports &amp; Physical Therapy"
+            class="rounded-xl object-contain transition-all"
+            :class="isHome && isScrolled ? 'w-6 h-6 sm:w-7 sm:h-7' : 'w-8 h-8 sm:w-10 sm:h-10'"
           >
-            {{ link.badge }}
-          </span>
+          <div class="flex items-baseline gap-1">
+            <span
+              class="font-serif font-bold tracking-tight text-pine leading-tight whitespace-nowrap"
+              :class="isHome && isScrolled ? 'text-sm' : 'text-base sm:text-xl'"
+            >
+              Apex Sports
+            </span>
+            <span
+              class="font-serif font-medium text-pine/70 whitespace-nowrap"
+              :class="isHome && isScrolled ? 'text-xs' : 'text-xs sm:text-sm hidden sm:inline'"
+            >
+              PT
+            </span>
+          </div>
         </NuxtLink>
-      </nav>
 
-      <!-- Direct Contact & Booking CTA -->
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <!-- Direct Phone Link: Icon-only on sm to lg, full number on xl+ -->
-        <a
-          class="hidden sm:flex items-center justify-center gap-2 text-charcoal hover:text-pine hover:bg-linen-darker transition-colors font-medium text-sm p-2 sm:px-3 xl:px-4 sm:py-2 rounded-full border border-transparent sm:border-ecru-border sm:bg-white/90 whitespace-nowrap shrink-0"
-          :href="`tel:${clinicInfo.phone.tel}`"
-          :aria-label="clinicInfo.phone.ariaLabel"
+        <!-- Desktop Navigation Links (Large viewports) -->
+        <nav
+          aria-label="Main Navigation"
+          class="hidden lg:flex items-center shrink-0"
+          :class="isHome && isScrolled ? 'gap-0.5 xl:gap-1.5' : 'gap-4 xl:gap-6 2xl:gap-8'"
         >
-          <UiIcon
-            name="i-lucide-phone"
-            class="text-base text-pine shrink-0"
-          />
-          <span class="hidden xl:inline font-semibold text-charcoal text-xs sm:text-sm whitespace-nowrap">{{ clinicInfo.phone.display }}</span>
-        </a>
+          <NuxtLink
+            v-for="link in navLinks"
+            :key="link.to"
+            :to="link.to"
+            class="transition-all duration-200 flex items-center gap-1.5 relative group whitespace-nowrap shrink-0"
+            :class="[
+              isHome && isScrolled
+                ? [
+                    'px-2.5 xl:px-3 py-1 rounded-full text-xs font-medium',
+                    activeSection === link.to.replace('/#', '')
+                      ? 'bg-linen-darker text-pine font-semibold'
+                      : 'text-charcoal hover:text-pine hover:bg-linen/60'
+                  ]
+                : 'text-sm font-medium text-charcoal hover:text-pine py-1.5'
+            ]"
+          >
+            <span class="whitespace-nowrap">{{ link.label }}</span>
+            <span
+              v-if="link.badge"
+              class="px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider rounded bg-clay-soft text-clay-dark leading-none whitespace-nowrap"
+            >
+              {{ link.badge }}
+            </span>
+          </NuxtLink>
+        </nav>
 
-        <!-- Quick Book CTA Button (Adapted on /book to avoid redundant action and flow reset) -->
-        <UiButton
-          v-if="!route.path.startsWith('/book')"
-          to="/book"
-          size="sm"
-          class="!rounded-full bg-pine hover:bg-pine-light text-linen font-medium text-xs sm:text-sm px-3.5 sm:px-5 py-2 sm:py-2.5 border border-transparent hover:border-pine-dark transition-all duration-200 whitespace-nowrap shrink-0"
-          trailing-icon="i-lucide-arrow-right"
-        >
-          <span class="inline sm:hidden whitespace-nowrap">Book</span>
-          <span class="hidden sm:inline whitespace-nowrap">Book Assessment</span>
-        </UiButton>
-        <a
-          v-else
-          :href="`tel:${clinicInfo.phone.tel}`"
-          class="sm:hidden inline-flex items-center gap-1.5 text-xs font-semibold text-pine bg-pine/10 hover:bg-pine/20 px-3 py-1.5 rounded-full border border-pine/20 transition-colors whitespace-nowrap shrink-0"
-          :aria-label="clinicInfo.phone.ariaLabel"
-        >
-          <UiIcon
-            name="i-lucide-phone"
-            class="text-xs text-pine shrink-0"
-          />
-          <span>{{ clinicInfo.phone.display }}</span>
-        </a>
+        <!-- Direct Contact & Booking CTA -->
+        <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <!-- Direct Phone Link: visible on 2xl+ when scrolled, or on sm+ when not scrolled -->
+          <a
+            class="hidden sm:flex items-center justify-center gap-1.5 text-charcoal hover:text-pine hover:bg-linen-darker transition-colors font-medium rounded-full border border-transparent whitespace-nowrap shrink-0"
+            :class="[
+              isHome && isScrolled
+                ? 'hidden xl:flex px-3 py-1.5 text-xs bg-linen/60 border-ecru-border/60'
+                : 'text-sm p-2 sm:px-3 xl:px-4 sm:py-2 sm:bg-white/90 sm:border-ecru-border'
+            ]"
+            :href="`tel:${clinicInfo.phone.tel}`"
+            :aria-label="clinicInfo.phone.ariaLabel"
+          >
+            <UiIcon
+              name="i-lucide-phone"
+              class="text-pine shrink-0"
+              :class="isHome && isScrolled ? 'text-xs' : 'text-base'"
+            />
+            <span class="font-semibold text-charcoal text-xs whitespace-nowrap">{{ clinicInfo.phone.display }}</span>
+          </a>
 
-        <!-- Mobile / Tablet Hamburger Toggle Button -->
-        <button
-          type="button"
-          class="lg:hidden w-11 h-11 flex items-center justify-center rounded-xl border border-ecru-border bg-white text-charcoal hover:text-pine hover:bg-linen-darker focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 transition-all cursor-pointer shrink-0"
-          :aria-expanded="isMenuOpen"
-          aria-controls="mobile-navigation-menu"
-          aria-label="Toggle mobile navigation menu"
-          @click="toggleMenu"
-        >
-          <UiIcon
-            :name="isMenuOpen ? 'i-lucide-x' : 'i-lucide-menu'"
-            :class="isMenuOpen ? 'text-xl rotate-90 transition-transform duration-200' : 'text-xl transition-transform duration-200'"
-          />
-        </button>
+          <!-- Quick Book CTA Button -->
+          <UiButton
+            v-if="!route.path.startsWith('/book')"
+            to="/book"
+            size="sm"
+            :class="isHome && isScrolled
+              ? '!rounded-full bg-pine hover:bg-pine-light text-linen font-medium transition-all duration-200 whitespace-nowrap shrink-0 text-xs px-3.5 sm:px-4 py-1.5 sm:py-2 shadow-xs'
+              : '!rounded-full bg-pine hover:bg-pine-light text-linen font-medium transition-all duration-200 whitespace-nowrap shrink-0 text-xs sm:text-sm px-3.5 sm:px-5 py-2 sm:py-2.5 border border-transparent hover:border-pine-dark'"
+            trailing-icon="i-lucide-arrow-right"
+          >
+            <span class="inline sm:hidden whitespace-nowrap">Book</span>
+            <span class="hidden sm:inline whitespace-nowrap">Book</span>
+          </UiButton>
+          <a
+            v-else
+            :href="`tel:${clinicInfo.phone.tel}`"
+            class="sm:hidden inline-flex items-center gap-1.5 text-xs font-semibold text-pine bg-pine/10 hover:bg-pine/20 px-3 py-1.5 rounded-full border border-pine/20 transition-colors whitespace-nowrap shrink-0"
+            :aria-label="clinicInfo.phone.ariaLabel"
+          >
+            <UiIcon
+              name="i-lucide-phone"
+              class="text-xs text-pine shrink-0"
+            />
+            <span>{{ clinicInfo.phone.display }}</span>
+          </a>
+
+          <!-- Mobile / Tablet Hamburger Toggle Button -->
+          <button
+            type="button"
+            class="lg:hidden flex items-center justify-center rounded-xl border border-ecru-border bg-white text-charcoal hover:text-pine hover:bg-linen-darker focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 transition-all cursor-pointer shrink-0"
+            :class="isHome && isScrolled ? 'w-9 h-9' : 'w-11 h-11'"
+            :aria-expanded="isMenuOpen"
+            aria-controls="mobile-navigation-menu"
+            aria-label="Toggle mobile navigation menu"
+            @click="toggleMenu"
+          >
+            <UiIcon
+              :name="isMenuOpen ? 'i-lucide-x' : 'i-lucide-menu'"
+              :class="isMenuOpen ? 'text-lg rotate-90 transition-transform duration-200' : 'text-lg transition-transform duration-200'"
+            />
+          </button>
+        </div>
       </div>
     </div>
 
