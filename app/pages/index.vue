@@ -83,25 +83,52 @@ useSchemaOrg([
     <section class="relative pt-12 pb-20 lg:py-24 overflow-hidden bg-linen">
       <div class="max-w-7xl mx-auto px-6 sm:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Left Column -->
+          <!-- Left Column (and Mobile Primary Flow) -->
           <div class="lg:col-span-6 flex flex-col items-start">
             <!-- Pill Badge -->
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-ecru-border text-pine text-xs font-medium tracking-wide mb-8">
-              <span class="w-2 h-2 rounded-full bg-clay" />
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-ecru-border text-pine text-xs font-medium tracking-wide mb-6 sm:mb-8 shadow-2xs">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-clay opacity-75" />
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-clay" />
+              </span>
               <span class="tracking-wider uppercase text-[11px] font-semibold text-charcoal">Accepting New Patients</span>
             </div>
 
             <!-- Headline -->
-            <h1 class="font-serif text-4xl sm:text-5xl lg:text-[56px] font-normal text-pine leading-[1.12] tracking-tight mb-6 text-balance max-w-2xl">
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-pine leading-[1.08] tracking-tight mb-5 sm:mb-6 text-balance max-w-2xl">
               Targeted Sports Rehab to Get You <span class="italic font-serif">Back in the Game.</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-base sm:text-lg text-charcoal-muted mb-8 max-w-xl font-normal leading-relaxed">
+            <p class="text-base sm:text-lg text-charcoal-muted mb-6 sm:mb-8 max-w-xl font-normal leading-relaxed">
               Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.
             </p>
 
-            <!-- CTA Buttons with Nuxt UI -->
+            <!-- Mobile Feature Card (< lg): Visual Proof & Benchmark immediately following the value proposition -->
+            <div class="lg:hidden w-full relative rounded-2xl overflow-hidden border border-ecru-border aspect-[16/11] bg-pine-dark mb-6 shadow-xs">
+              <img
+                alt="Doctor of Physical Therapy treating athlete in Austin clinical facility"
+                class="w-full h-full object-cover object-[50%_25%]"
+                fetchpriority="high"
+                width="500"
+                height="344"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge"
+              >
+              <!-- Gradient Scrim & Embedded Benchmark Stat -->
+              <div class="absolute inset-0 bg-linear-to-t from-pine-dark/95 via-pine-dark/40 to-transparent flex flex-col justify-end p-4 sm:p-5">
+                <div class="flex items-center gap-3.5 sm:gap-4">
+                  <div class="font-serif text-3xl sm:text-4xl text-linen font-medium leading-none shrink-0">
+                    94%
+                  </div>
+                  <div class="h-8 w-px bg-linen/25 shrink-0" />
+                  <p class="text-xs sm:text-sm text-linen/90 leading-snug">
+                    <strong class="font-semibold text-linen">Clinical Benchmark:</strong> Pain reduction &amp; full return-to-sport clearance within target discharge timeline.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-3 w-full sm:w-auto">
               <UiButton
                 to="/book"
@@ -122,7 +149,7 @@ useSchemaOrg([
             </div>
 
             <!-- Booking Commitment Reassurance Microcopy -->
-            <div class="flex items-start gap-2 text-xs text-charcoal-muted mb-8">
+            <div class="flex items-start gap-2 text-xs text-charcoal-muted mb-6">
               <UiIcon
                 name="i-lucide-shield-check"
                 class="text-pine text-sm shrink-0 mt-0.5"
@@ -149,24 +176,24 @@ useSchemaOrg([
             </div>
           </div>
 
-          <!-- Right Column: Sculpted Arch Frame & Clean Benchmark Anchor -->
-          <div class="lg:col-span-6 relative">
-            <div class="relative mx-auto max-w-[500px] lg:max-w-none">
-              <!-- Main Arch Image -->
-              <div class="arch-mask overflow-hidden border border-ecru-border bg-white aspect-[4/4.5] max-h-[320px] sm:max-h-[460px] relative">
+          <!-- Right Column: Sculpted Arch Frame & Clean Benchmark Anchor (Desktop Only) -->
+          <div class="hidden lg:block lg:col-span-6 relative">
+            <div class="relative w-full max-w-[460px] xl:max-w-[480px] lg:ml-auto">
+              <!-- Desktop Main Arch Container -->
+              <div class="arch-mask overflow-hidden border border-ecru-border bg-white aspect-[4/4.8] max-h-[520px] relative">
                 <img
                   alt="Physical therapy session in clinical wellness space"
                   class="w-full h-full object-cover object-center"
                   fetchpriority="high"
                   width="500"
-                  height="563"
+                  height="600"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge"
                 >
-                <div class="absolute inset-0 bg-gradient-to-t from-pine-dark/30 via-transparent to-transparent pointer-events-none" />
+                <div class="absolute inset-0 bg-gradient-to-t from-pine-dark/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              <!-- Anchored Clinical Benchmark Card -->
-              <div class="mt-4 bg-white/95 backdrop-blur-md border border-ecru-border rounded-2xl p-4 sm:p-5 flex items-center gap-4 sm:gap-5">
+              <!-- Perfectly Aligned Clinical Benchmark Card -->
+              <div class="mt-4 w-full bg-white border border-ecru-border rounded-2xl p-4 sm:p-5 flex items-center gap-4 sm:gap-5">
                 <div class="font-serif text-3xl sm:text-4xl text-pine font-medium leading-none shrink-0">
                   94%
                 </div>
@@ -270,7 +297,7 @@ useSchemaOrg([
         <!-- 2x2 Grid (Desktop) / Horizontal Snap Rail (Mobile) -->
         <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 pb-6 pt-1 -mx-6 px-6 sm:-mx-8 sm:px-8 no-scrollbar md:grid md:grid-cols-2 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:pt-0">
           <!-- Card 1: Post-Op Rehab -->
-          <div class="w-[85vw] sm:w-[420px] md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <div class="w-[85vw] sm:w-105 md:w-auto shrink-0 snap-center md:shrink relative bg-white rounded-3xl p-6 sm:p-10 border border-ecru-border hover:border-pine/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-6">
                 <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-linen-darker flex items-center justify-center text-pine group-hover:bg-pine group-hover:text-white transition-colors shrink-0">

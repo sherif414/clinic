@@ -1,4 +1,10 @@
 <script setup lang="ts">
+interface StepItem {
+  step: number
+  label: string
+  desktopLabel: string
+}
+
 defineProps<{
   currentStep: number
 }>()
@@ -6,141 +12,79 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'select-step', step: number): void
 }>()
+
+const steps: StepItem[] = [
+  { step: 1, label: 'Service', desktopLabel: '1. Service' },
+  { step: 2, label: 'Schedule', desktopLabel: '2. Schedule' },
+  { step: 3, label: 'Details', desktopLabel: '3. Details' },
+  { step: 4, label: 'Confirmed', desktopLabel: '4. Confirmed' }
+]
 </script>
 
 <template>
   <nav
     aria-label="Booking Progress"
-    class="bg-linen-surface border border-ecru-border rounded-full p-2 sm:px-6 sm:py-3 mb-8"
+    class="bg-linen-surface border border-ecru-border rounded-full px-2.5 py-2 sm:px-6 sm:py-3 mb-8 w-full max-w-full"
   >
-    <ol class="flex items-center justify-between text-xs">
-      <!-- Step 1 -->
-      <li class="flex items-center flex-1 last:flex-initial">
+    <ol class="flex items-center justify-between text-xs w-full">
+      <li
+        v-for="(item, idx) in steps"
+        :key="item.step"
+        class="flex items-center"
+        :class="idx < steps.length - 1 ? 'flex-auto min-w-0' : 'shrink-0'"
+      >
+        <!-- Step Button (Steps 1-3) -->
         <button
+          v-if="item.step < 4"
           type="button"
-          class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-          :class="currentStep < 4 ? 'cursor-pointer' : 'cursor-default'"
-          :disabled="currentStep >= 4"
-          :aria-current="currentStep === 1 ? 'step' : undefined"
-          @click="currentStep < 4 ? emit('select-step', 1) : null"
+          class="flex items-center gap-1.5 sm:gap-2 group rounded-full shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30 touch-manipulation py-0.5"
+          :class="[
+            item.step < currentStep && currentStep < 4 ? 'cursor-pointer' : 'cursor-default',
+            item.step > currentStep ? 'opacity-80' : '',
+            currentStep === item.step ? 'pr-1.5 sm:pr-2' : 'pr-0 sm:pr-2'
+          ]"
+          :disabled="item.step > currentStep || currentStep >= 4"
+          :aria-current="currentStep === item.step ? 'step' : undefined"
+          @click="item.step < currentStep && currentStep < 4 ? emit('select-step', item.step) : null"
         >
           <span
             class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
             :class="[
-              currentStep === 1 ? 'bg-pine text-linen ring-2 ring-pine/20' : '',
-              currentStep > 1 ? 'bg-pine/15 text-pine group-hover:bg-pine group-hover:text-linen' : '',
-              currentStep < 1 ? 'bg-linen-darker text-charcoal-muted' : ''
+              currentStep === item.step ? 'bg-pine text-linen ring-2 ring-pine/20' : '',
+              currentStep > item.step ? 'bg-pine/15 text-pine group-hover:bg-pine group-hover:text-linen' : '',
+              currentStep < item.step ? 'bg-linen-darker text-charcoal-muted' : ''
             ]"
           >
             <UiIcon
-              v-if="currentStep > 1"
+              v-if="currentStep > item.step"
               name="i-lucide-check"
               class="text-sm"
             />
-            <span v-else>1</span>
+            <span v-else>{{ item.step }}</span>
           </span>
-          <span
-            class="font-semibold transition-colors"
-            :class="currentStep === 1 ? 'text-pine' : currentStep > 1 ? 'text-charcoal group-hover:text-pine' : 'text-charcoal-muted'"
-          >
-            <span class="sr-only">Step 1: </span>
-            <span class="hidden sm:inline">1. Service</span>
-            <span class="sm:hidden">Service</span>
-          </span>
-        </button>
-        <span
-          class="flex-1 h-0.5 mx-2 sm:mx-3 rounded-full transition-colors"
-          :class="currentStep > 1 ? 'bg-pine' : 'bg-ecru-border'"
-          aria-hidden="true"
-        />
-      </li>
 
-      <!-- Step 2 -->
-      <li class="flex items-center flex-1 last:flex-initial">
-        <button
-          type="button"
-          class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-          :class="currentStep >= 2 && currentStep < 4 ? 'cursor-pointer' : 'cursor-default opacity-80'"
-          :disabled="currentStep < 2 || currentStep >= 4"
-          :aria-current="currentStep === 2 ? 'step' : undefined"
-          @click="currentStep > 1 && currentStep < 4 ? emit('select-step', 2) : null"
-        >
+          <span class="sr-only">Step {{ item.step }}: {{ item.label }}</span>
           <span
-            class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
+            aria-hidden="true"
+            class="font-semibold whitespace-nowrap transition-colors"
             :class="[
-              currentStep === 2 ? 'bg-pine text-linen ring-2 ring-pine/20' : '',
-              currentStep > 2 ? 'bg-pine/15 text-pine group-hover:bg-pine group-hover:text-linen' : '',
-              currentStep < 2 ? 'bg-linen-darker text-charcoal-muted' : ''
+              currentStep === item.step
+                ? 'text-pine inline'
+                : currentStep > item.step
+                  ? 'text-charcoal group-hover:text-pine hidden sm:inline'
+                  : 'text-charcoal-muted hidden sm:inline'
             ]"
           >
-            <UiIcon
-              v-if="currentStep > 2"
-              name="i-lucide-check"
-              class="text-sm"
-            />
-            <span v-else>2</span>
-          </span>
-          <span
-            class="font-semibold transition-colors"
-            :class="currentStep === 2 ? 'text-pine' : currentStep > 2 ? 'text-charcoal group-hover:text-pine' : 'text-charcoal-muted'"
-          >
-            <span class="sr-only">Step 2: </span>
-            <span class="hidden sm:inline">2. Schedule</span>
-            <span class="sm:hidden">Schedule</span>
+            <span class="hidden sm:inline">{{ item.desktopLabel }}</span>
+            <span class="sm:hidden">{{ item.label }}</span>
           </span>
         </button>
-        <span
-          class="flex-1 h-0.5 mx-2 sm:mx-3 rounded-full transition-colors"
-          :class="currentStep > 2 ? 'bg-pine' : 'bg-ecru-border'"
-          aria-hidden="true"
-        />
-      </li>
 
-      <!-- Step 3 -->
-      <li class="flex items-center flex-1 last:flex-initial">
-        <button
-          type="button"
-          class="flex items-center gap-2 group rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-          :class="currentStep >= 3 && currentStep < 4 ? 'cursor-pointer' : 'cursor-default opacity-80'"
-          :disabled="currentStep < 3 || currentStep >= 4"
-          :aria-current="currentStep === 3 ? 'step' : undefined"
-          @click="currentStep > 2 && currentStep < 4 ? emit('select-step', 3) : null"
-        >
-          <span
-            class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs transition-colors shrink-0"
-            :class="[
-              currentStep === 3 ? 'bg-pine text-linen ring-2 ring-pine/20' : '',
-              currentStep > 3 ? 'bg-pine/15 text-pine group-hover:bg-pine group-hover:text-linen' : '',
-              currentStep < 3 ? 'bg-linen-darker text-charcoal-muted' : ''
-            ]"
-          >
-            <UiIcon
-              v-if="currentStep > 3"
-              name="i-lucide-check"
-              class="text-sm"
-            />
-            <span v-else>3</span>
-          </span>
-          <span
-            class="font-semibold transition-colors"
-            :class="currentStep === 3 ? 'text-pine' : currentStep > 3 ? 'text-charcoal group-hover:text-pine' : 'text-charcoal-muted'"
-          >
-            <span class="sr-only">Step 3: </span>
-            <span class="hidden sm:inline">3. Details</span>
-            <span class="sm:hidden">Details</span>
-          </span>
-        </button>
-        <span
-          class="flex-1 h-0.5 mx-2 sm:mx-3 rounded-full transition-colors"
-          :class="currentStep > 3 ? 'bg-pine' : 'bg-ecru-border'"
-          aria-hidden="true"
-        />
-      </li>
-
-      <!-- Step 4 -->
-      <li class="flex items-center">
+        <!-- Step 4 (Target / Goal Step, non-interactive) -->
         <div
-          class="flex items-center gap-2"
+          v-else
+          class="flex items-center gap-1.5 sm:gap-2 shrink-0"
+          :class="currentStep === 4 ? 'pr-1.5 sm:pr-2' : 'pr-0 sm:pr-2'"
           :aria-current="currentStep === 4 ? 'step' : undefined"
         >
           <span
@@ -154,15 +98,25 @@ const emit = defineEmits<{
             />
             <span v-else>4</span>
           </span>
+
+          <span class="sr-only">Step 4: Confirmed</span>
           <span
-            class="font-semibold transition-colors"
-            :class="currentStep === 4 ? 'text-pine' : 'text-charcoal-muted'"
+            aria-hidden="true"
+            class="font-semibold whitespace-nowrap transition-colors"
+            :class="currentStep === 4 ? 'text-pine inline' : 'text-charcoal-muted hidden sm:inline'"
           >
-            <span class="sr-only">Step 4: </span>
             <span class="hidden sm:inline">4. Confirmed</span>
             <span class="sm:hidden">Confirmed</span>
           </span>
         </div>
+
+        <!-- Connector Line between steps -->
+        <span
+          v-if="idx < steps.length - 1"
+          class="flex-1 h-0.5 mx-1.5 sm:mx-3 rounded-full transition-colors min-w-2"
+          :class="currentStep > item.step ? 'bg-pine' : 'bg-ecru-border'"
+          aria-hidden="true"
+        />
       </li>
     </ol>
   </nav>

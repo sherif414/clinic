@@ -55,13 +55,13 @@ export const clinicInfo: ClinicContact = {
   },
   hours: {
     statusText: 'Open Today until 7:00 PM',
-    summary: 'Mon–Fri: 7:00 AM – 7:00 PM • Sat: 8:00 AM – 1:00 PM',
-    weekdays: 'Mon–Fri: 7:00 AM – 7:00 PM',
-    saturday: 'Sat: 8:00 AM – 1:00 PM',
+    summary: 'Mon-Fri: 7:00 AM - 7:00 PM • Sat: 8:00 AM - 1:00 PM',
+    weekdays: 'Mon-Fri: 7:00 AM - 7:00 PM',
+    saturday: 'Sat: 8:00 AM - 1:00 PM',
     schedule: [
-      { days: 'Monday – Thursday', time: '7:00 AM – 7:00 PM' },
-      { days: 'Friday', time: '7:00 AM – 6:00 PM' },
-      { days: 'Saturday', time: '8:00 AM – 1:00 PM' },
+      { days: 'Monday - Thursday', time: '7:00 AM - 7:00 PM' },
+      { days: 'Friday', time: '7:00 AM - 6:00 PM' },
+      { days: 'Saturday', time: '8:00 AM - 1:00 PM' },
       { days: 'Sunday', time: 'Closed (Emergency Triage On-Call)', isClosed: true }
     ]
   }
