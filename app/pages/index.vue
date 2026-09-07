@@ -26,11 +26,139 @@ const faqs = [
   }
 ]
 
-const openFaqIndex = ref<number | null>(0)
+// SEO: Page-level meta tags optimized for local sports PT search queries
+useSeoMeta({
+  title: 'Sports Physical Therapy Austin TX | 1-on-1 Doctoral Rehab | Apex PT',
+  description: 'Board-certified Doctors of Physical Therapy in Austin, TX. 1-on-1 sports rehab, ACL recovery, running gait analysis & biomechanics. 94% return-to-sport rate. Book your 60-min evaluation.',
+  ogTitle: 'Apex Sports & Physical Therapy — Doctoral Sports Rehab in Austin, TX',
+  ogDescription: 'Evidence-based 1-on-1 physical therapy for athletes and active professionals. Post-op surgical rehab, biomechanical gait analysis, and performance recovery.',
+  ogImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
+})
 
-const toggleFaq = (index: number) => {
-  openFaqIndex.value = openFaqIndex.value === index ? null : index
-}
+// SEO: Structured data for rich search results (PhysicalTherapy / LocalBusiness, FAQPage, MedicalBusiness)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': ['LocalBusiness', 'MedicalBusiness', 'PhysicalTherapy'],
+            '@id': 'https://apexsportspt.com/#organization',
+            'name': 'Apex Sports & Physical Therapy',
+            'url': 'https://apexsportspt.com',
+            'logo': 'https://apexsportspt.com/logo.svg',
+            'image': 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge',
+            'description': 'Evidence-based clinical rehabilitation, biomechanical analysis, and 1-on-1 sports physical therapy tailored for competitive athletes and active professionals.',
+            'telephone': '(512) 555-0199',
+            'priceRange': '$95–$195',
+            'medicalSpecialty': 'Orthopedic',
+            'address': {
+              '@type': 'PostalAddress',
+              'streetAddress': '1204 S. Congress Ave, Suite 300',
+              'addressLocality': 'Austin',
+              'addressRegion': 'TX',
+              'postalCode': '78704',
+              'addressCountry': 'US'
+            },
+            'geo': {
+              '@type': 'GeoCoordinates',
+              'latitude': 30.2472,
+              'longitude': -97.7494
+            },
+            'openingHoursSpecification': [
+              {
+                '@type': 'OpeningHoursSpecification',
+                'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+                'opens': '07:00',
+                'closes': '19:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                'dayOfWeek': 'Friday',
+                'opens': '07:00',
+                'closes': '18:00'
+              },
+              {
+                '@type': 'OpeningHoursSpecification',
+                'dayOfWeek': 'Saturday',
+                'opens': '08:00',
+                'closes': '13:00'
+              }
+            ],
+            'aggregateRating': {
+              '@type': 'AggregateRating',
+              'ratingValue': '4.9',
+              'bestRating': '5',
+              'ratingCount': '340'
+            },
+            'hasOfferCatalog': {
+              '@type': 'OfferCatalog',
+              'name': 'Clinical Services',
+              'itemListElement': [
+                {
+                  '@type': 'Offer',
+                  'itemOffered': {
+                    '@type': 'Service',
+                    'name': 'Initial Clinical Assessment & Treatment',
+                    'description': 'Comprehensive doctoral evaluation, motion diagnostics, force plate baseline, and immediate hands-on treatment.'
+                  },
+                  'price': '175.00',
+                  'priceCurrency': 'USD'
+                },
+                {
+                  '@type': 'Offer',
+                  'itemOffered': {
+                    '@type': 'Service',
+                    'name': 'Post-Op Surgical Rehabilitation',
+                    'description': 'Structured clinical protocols from acute surgical discharge through multi-stage strength dynamometry to full athletic clearance.'
+                  },
+                  'price': '175.00',
+                  'priceCurrency': 'USD'
+                },
+                {
+                  '@type': 'Offer',
+                  'itemOffered': {
+                    '@type': 'Service',
+                    'name': 'Biomechanical Running & Gait Analysis',
+                    'description': 'High-speed multi-angle video assessment, synchronized force plate cadence analytics, and custom footwear recommendations.'
+                  },
+                  'price': '195.00',
+                  'priceCurrency': 'USD'
+                },
+                {
+                  '@type': 'Offer',
+                  'itemOffered': {
+                    '@type': 'Service',
+                    'name': 'Performance Recovery & Tissue Modulation',
+                    'description': 'Targeted tissue therapy including dry needling, Normatec 3 pneumatic compression, and Delfi BFR training.'
+                  },
+                  'price': '95.00',
+                  'priceCurrency': 'USD'
+                }
+              ]
+            }
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': 'https://apexsportspt.com/#faq',
+            'mainEntity': faqs.map(faq => ({
+              '@type': 'Question',
+              'name': faq.question,
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': faq.answer
+              }
+            }))
+          }
+        ]
+      })
+    }
+  ]
+})
 </script>
 
 <template>
@@ -94,7 +222,10 @@ const toggleFaq = (index: number) => {
 
             <!-- Review Proof Row -->
             <div class="flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs sm:text-sm text-charcoal-muted">
-              <UiRatingStars :rating="4.9" class="shrink-0" />
+              <UiRatingStars
+                :rating="4.9"
+                class="shrink-0"
+              />
               <div class="h-3.5 w-px bg-ecru-border shrink-0" />
               <span class="whitespace-nowrap">
                 <strong class="font-semibold text-charcoal">4.9 / 5.0</strong> from 340+ athletes &amp; patients
@@ -110,6 +241,9 @@ const toggleFaq = (index: number) => {
                 <img
                   alt="Physical therapy session in clinical wellness space"
                   class="w-full h-full object-cover object-center"
+                  fetchpriority="high"
+                  width="500"
+                  height="563"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPh45MfohrayyuKOuFNJsbfs8naSTZvFiuRr5kweKjq4OGBzALVlEzIACaLEXiFK3whbYCwFc8AiXgtrWPMhXcKijTc-4G9VanLNCoP-EONLCGI86qf783sGIl_3L33hmUAcRDmos83HFZKGDUQ-FCngBLNuqfGA8o7RCBjoG5Vn3h_4FRbkU2dCifsfw89nufPtxdxcYSX7PNhyCvP6mRnVQLACdg_dxISXUYUSb9oQpDqCbDT9ge"
                 >
                 <div class="absolute inset-0 bg-gradient-to-t from-pine-dark/30 via-transparent to-transparent pointer-events-none" />
@@ -736,6 +870,7 @@ const toggleFaq = (index: number) => {
               <img
                 alt="Dr. Marcus Vance"
                 class="w-full h-full object-cover"
+                loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI4HGZy8D1KC8I17BtdM4lYsg30MRRohsWHBb6ODvX8aoP7Ye5yVnz5qpBKpTT2PoWl5PBj0yHhOYE4Esoi-RF5clarDtSEvgepkdfdxEVS8ASYPo98a0Ab1E4XpWrp5FldYFh-rU4rgDMJsWQ5W5RqDFmNlZLx4TWaCXVvOU4QblLOni7ClrLTamuHVZyQXw8qiKyO4vYR4TY_NDquS9Qq98au-Cpv5H95D7CUojscQneSAJkHKd-"
               >
               <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
@@ -774,6 +909,7 @@ const toggleFaq = (index: number) => {
               <img
                 alt="Dr. Elena Rostova"
                 class="w-full h-full object-cover"
+                loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-LzHOZ3VxfVV7c1Ijnv1GhKCqzdTmyBZMpgOfZaje10pEDqt-ppFs344Z9owhCs88vF_LsbG5sMqPzVJiHQFRc5v0Tp5Gw62dpD9rfGQJBD795uINYHcMesgintHWqIq5MJGNo_qLO_Xkuc7jyjUuyu40sM-P1-2ts-4oUTLZQ8tGUpZj3rqtofMBF80ZWuYjD-YmVkNC1TcO1_hWDHGz0D6AE77X_B2x4fMIgrDtqWBvBF5bhyW"
               >
               <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
@@ -812,6 +948,7 @@ const toggleFaq = (index: number) => {
               <img
                 alt="Dr. Julian Hayes"
                 class="w-full h-full object-cover"
+                loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J9apBKKhLNQGHXH5KsxTWtAOzIhmyKIIANm0V8ZYW1UERCFVr1VIYxnDYybw2RefiBrEgBx9E2OZRU8WuLFoVGzbaYDSiSrFfFLAqKahD3E3zXWL-DkuboBLGpkF9BJwcflj7Nf8Im-mTbim8ZyifEQ8WBs-_B3aHp98nw6tJHedI9Vx0ktmpWzBgB59zsbGSk5s1UVuU3nseJRuh1gfAn9WBnUmMZQH0POG3XHPaMb3xzb881Mo"
               >
               <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-pine text-[11px] font-medium border border-ecru-border whitespace-nowrap">
@@ -866,36 +1003,10 @@ const toggleFaq = (index: number) => {
         </div>
 
         <!-- Accordion Stack -->
-        <div class="space-y-4">
-          <div
-            v-for="(faq, index) in faqs"
-            :key="faq.question"
-            class="rounded-2xl border border-ecru-border bg-linen/60 hover:border-pine/30 transition-all overflow-hidden"
-          >
-            <button
-              type="button"
-              class="w-full py-5 px-6 sm:px-8 flex items-center justify-between gap-4 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine/30"
-              :aria-expanded="openFaqIndex === index"
-              @click="toggleFaq(index)"
-            >
-              <span class="font-serif text-lg sm:text-xl text-pine font-normal text-balance">
-                {{ faq.question }}
-              </span>
-              <span class="w-8 h-8 rounded-full bg-white border border-ecru-border flex items-center justify-center text-pine shrink-0 transition-transform duration-200">
-                <UiIcon
-                  :name="openFaqIndex === index ? 'i-lucide-minus' : 'i-lucide-plus'"
-                  class="text-sm"
-                />
-              </span>
-            </button>
-            <div
-              v-show="openFaqIndex === index"
-              class="px-6 sm:px-8 pb-6 pt-1 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-linen"
-            >
-              <p>{{ faq.answer }}</p>
-            </div>
-          </div>
-        </div>
+        <UiAccordion
+          :items="faqs"
+          default-value="item-0"
+        />
 
         <!-- Still have questions banner -->
         <div class="mt-12 p-6 rounded-2xl bg-linen/70 border border-ecru-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
@@ -1012,6 +1123,7 @@ const toggleFaq = (index: number) => {
               <img
                 alt="Map overview of Austin clinic location"
                 class="w-full h-full object-cover"
+                loading="lazy"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuClYlu4ojMC74sP481YXzNTzzFaTFdpTLKBsAacKF5rWtr1aZz71Ih6d9gQ__hOZ4mqTabFSpv2_x1ri73tenQFnxiBHWHAGpMGHgpEcX8DJ_BzLlzRmv9XRNP5cOMy55Zi-RxXm-pAymncuTw9BpT6_JmcQyLAlnFy5dJiyLO_wmq6SKnbjPeyN6JVb3fO1_TrDqQWCnJhWg8TDswKB--mLjtqepgRPZTeB_hyNGjHvMdeqVDw6wH-"
               >
               <!-- Pin Overlay -->

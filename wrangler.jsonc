@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   // https://developers.cloudflare.com/pages/configuration/wrangler-configuration/
   "name": "clinic",
-  "pages_build_output_dir": ".output/public",
-  "compatibility_date": "2026-09-06"
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-09-06",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
 }

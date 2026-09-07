@@ -62,7 +62,7 @@ async function copyAddress() {
 }
 
 // RFC 5545 Date & Time Parser
-function parseAppointmentDateTime(dateStr: string, timeStr: string): { start: Date; end: Date } {
+function parseAppointmentDateTime(dateStr: string, timeStr: string): { start: Date, end: Date } {
   try {
     const cleanedDate = dateStr.includes(',') ? dateStr.split(',').slice(1).join(',').trim() : dateStr
     const parsed = new Date(`${cleanedDate} ${timeStr}`)

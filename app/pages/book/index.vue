@@ -152,6 +152,13 @@ function handleConfirm() {
   bookingRef.value = `#APX-${Math.floor(10000 + Math.random() * 90000)}`
   goToStep(4)
 }
+
+// SEO: Booking page meta — noindex to avoid thin content signals
+useSeoMeta({
+  title: 'Book a Sports PT Appointment | Apex Sports & Physical Therapy Austin',
+  description: 'Schedule your 1-on-1 evaluation with a board-certified Doctor of Physical Therapy in Austin, TX. Select your service, specialist, and preferred time.',
+  robots: 'noindex, nofollow'
+})
 </script>
 
 <template>
@@ -159,6 +166,10 @@ function handleConfirm() {
     class="py-5 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
     :class="{ 'max-w-3xl': currentStep === 4 }"
   >
+    <h1 class="sr-only">
+      Book Your Sports Physical Therapy Appointment — Apex Sports &amp; Physical Therapy
+    </h1>
+
     <!-- Breadcrumb & Direct Access Notice (Active during wizard steps) -->
     <div
       v-if="currentStep < 4"

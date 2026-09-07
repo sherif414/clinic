@@ -2,5 +2,5 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt({
-  ignores: ['.agent/**', '.impeccable/**', 'dist/**', '.output/**']
+  ignores: ['.agent/**', '.impeccable/**', 'dist/**', '.output/**', '.nitro/**', '**/scratch/**', '**/.system_generated/**']
 })
